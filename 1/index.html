@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Habitat Design Studio — Architecture, Bharatpur, Chitwan</title>
+<meta name="description" content="Habitat Design Studio is an architecture practice in Bharatpur, Chitwan, Nepal — carrying buildings from the first pencil line to the built site. Residences, restaurants and farmstays shaped by the Terai climate.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23F4EFE6'/%3E%3Crect x='3.5' y='3.5' width='25' height='25' fill='none' stroke='%231C1B18'/%3E%3Cpath d='M8 22 L16 9 L24 22' fill='none' stroke='%231C1B18' stroke-width='1.5'/%3E%3Cline x1='8' y1='22' x2='24' y2='22' stroke='%231C1B18' stroke-width='1.5'/%3E%3Ccircle cx='24' cy='9' r='3' fill='%23B23A18'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4EFE6;
+  --ink:#1C1B18;
+  --pencil:#8A857B;     /* pencil grey — reserved for SVG linework only; fails AA as text */
+  --pencil-txt:#6E695F; /* pencil grey, text role — 4.7:1 on paper, stays lighter than ink */
+  --pencil-dk:#5F5A50;
+  --verm:#B23A18;
+  --hair:rgba(28,27,24,.22);
+  --grid:rgba(138,133,123,.14);
+  --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --serif:'Fraunces',Georgia,'Times New Roman',serif;
+  --pad:clamp(1.1rem,4.5vw,4rem);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:clip}
+body{
+  background-color:var(--paper);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.11 0 0 0 0 0.10 0 0 0 0 0.09 0 0 0 0.045 0'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)'/%3E%3C/svg%3E"),
+    linear-gradient(var(--grid) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:260px 260px,88px 88px,88px 88px;
+  color:var(--ink);
+  font-family:var(--serif);
+  font-weight:380;
+  font-optical-sizing:auto;
+  font-size:clamp(1rem,.95rem + .25vw,1.125rem);
+  line-height:1.6;
+  overflow-x:clip;
+}
+::selection{background:var(--verm);color:var(--paper)}
+:focus-visible{outline:2px dashed var(--verm);outline-offset:3px}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.18em}
+img,svg{max-width:100%;height:auto}
+.mono{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase}
+.skip{position:absolute;left:-200vw;top:0;background:var(--ink);color:var(--paper);padding:.6em 1em;font-family:var(--mono);font-size:.75rem;z-index:50}
+.skip:focus{left:var(--pad)}
+
+/* ---------- sheet header ---------- */
+header.sheetbar{
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:.6rem 2.5rem;
+  padding:1rem var(--pad);
+  border-bottom:1px solid var(--ink);
+}
+.logotype{font-family:var(--serif);font-weight:560;font-size:1.25rem;letter-spacing:-.01em;line-height:1.1}
+.logotype a{text-decoration:none}
+.logotype .dot{color:var(--verm)}
+.logotype small{display:block;font-family:var(--mono);font-weight:400;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--pencil-txt);margin-top:.3em}
+header nav{margin-left:auto}
+header nav ul{display:flex;flex-wrap:wrap;gap:.2rem 1.8rem;list-style:none}
+header nav a{
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;
+  text-decoration:none;padding:.35em 0;
+  background:linear-gradient(var(--verm),var(--verm)) left bottom / 0% 2px no-repeat;
+}
+header nav a b{font-weight:400;color:var(--verm);margin-right:.45em}
+header nav a:hover,header nav a:focus-visible{background-size:100% 2px}
+
+/* ---------- hero / sheet A-000 ---------- */
+.hero{position:relative;border-top:0;padding:clamp(3.2rem,9vh,7rem) var(--pad) clamp(3.5rem,10vh,7.5rem)}
+.hero-meta{display:flex;flex-wrap:wrap;gap:.4rem 2.2rem;color:var(--pencil-txt);font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:clamp(1.8rem,4vh,3rem)}
+.hero-meta .red{color:var(--verm)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:clamp(2rem,5vw,5rem);align-items:end}
+h1{
+  font-size:clamp(2.35rem,6.8vw,6.4rem);
+  line-height:1.05;font-weight:400;letter-spacing:-.018em;
+  max-width:16em;
+}
+h1 em{font-style:italic;font-weight:480}
+h1 .verm{color:var(--verm)}
+.dim{position:relative;height:1px;margin-top:clamp(2rem,4.5vh,3.4rem);max-width:34rem}
+.dim .rule{position:absolute;left:0;right:0;top:0;height:1px;background:var(--ink)}
+.dim::before,.dim::after{content:"";position:absolute;top:-4.5px;width:9px;height:9px;border-left:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.dim::before{left:0;transform:rotate(45deg)}
+.dim::after{right:0;transform:rotate(225deg)}
+.dim>i{position:absolute;top:-7px;width:1px;height:15px;background:var(--ink)}
+.dim>i.t1{left:0}.dim>i.t2{right:0}
+.dim b{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  background:var(--paper);padding:0 .8em;
+  font-family:var(--mono);font-weight:500;font-size:.7rem;letter-spacing:.16em;color:var(--verm);white-space:nowrap;
+}
+.hero-fig{position:relative}
+.hero-fig svg{display:block;width:100%;height:auto}
+.hero-note{margin-top:.7rem;color:var(--pencil-dk);font-family:var(--mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase}
+.stamp{
+  position:absolute;right:var(--pad);top:clamp(1.2rem,4vh,2.6rem);
+  transform:rotate(-6deg);
+  border:2px solid var(--verm);outline:1px solid var(--verm);outline-offset:3px;
+  color:var(--verm);padding:.7em 1em;text-align:center;
+  font-family:var(--mono);font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;line-height:1.7;
+  opacity:.85;mix-blend-mode:multiply;pointer-events:none;
+}
+.stamp strong{display:block;font-weight:500;font-size:.78rem;letter-spacing:.3em}
+
+/* ---------- sections & title blocks ---------- */
+section{border-top:1px solid var(--ink);padding:clamp(2.6rem,7vh,5.5rem) var(--pad)}
+.sec-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(1.8rem,4vw,4.5rem);align-items:start}
+.titleblock{
+  display:inline-grid;grid-template-columns:auto 1fr;
+  border:1px solid var(--ink);background:rgba(255,255,255,.35);
+  max-width:100%;
+}
+.titleblock .tb-sheet{
+  grid-row:1 / 3;display:flex;align-items:center;
+  padding:.6em .9em;border-right:1px solid var(--ink);
+  font-family:var(--mono);font-weight:500;font-size:.78rem;letter-spacing:.14em;color:var(--verm);
+}
+.titleblock h2{
+  font-family:var(--serif);font-weight:540;font-size:clamp(1.3rem,2.4vw,1.8rem);
+  line-height:1.15;letter-spacing:-.01em;padding:.45em .8em .25em;
+}
+.titleblock .tb-note{
+  padding:.2em 1.05em .7em;border-top:0;
+  font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--pencil-txt);
+}
+.sec-label{position:sticky;top:1.2rem}
+.sec-label p{margin-top:1.3rem;color:var(--pencil-dk);font-size:.95rem;line-height:1.65;max-width:30ch}
+
+/* ---------- selected work ---------- */
+.work-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(1.2rem,2.6vw,2.4rem);margin-top:.4rem}
+.project{position:relative;border:1px solid var(--ink);background:#F8F4EB}
+.project:nth-child(1){grid-column:1 / span 7}
+.project:nth-child(2){grid-column:8 / span 5;margin-top:clamp(1.5rem,5vw,4.5rem)}
+.project:nth-child(3){grid-column:1 / span 5;margin-top:clamp(-1rem,-1vw,-.5rem)}
+.project:nth-child(4){grid-column:6 / span 7;margin-top:clamp(1rem,3vw,3rem)}
+.project .mount{padding:clamp(.7rem,1.7vw,1.2rem) clamp(.7rem,1.7vw,1.2rem) 0}
+.project .frame{border:1px solid var(--ink);overflow:hidden;background:var(--pencil)}
+.project .frame img{display:block;width:100%;height:100%;object-fit:cover;transform:scale(1.06)}
+.frame.fr-w{aspect-ratio:16/10}
+.frame.fr-m{aspect-ratio:4/3}
+.frame.fr-s{aspect-ratio:1/1}
+.project .mount-note{padding:.7em .1em .9em;font-family:var(--mono);font-size:.63rem;letter-spacing:.09em;text-transform:uppercase;color:var(--pencil-txt);line-height:1.7}
+.project .mount-note b{font-weight:500;color:var(--verm)}
+.project figcaption{
+  display:flex;flex-wrap:wrap;gap:.3em 1.4em;justify-content:space-between;
+  border-top:1px solid var(--ink);padding:.75em 1em;
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;
+}
+.project figcaption .no{color:var(--pencil-txt)}
+.project figcaption .dwg{color:var(--pencil-txt)}
+.project:hover figcaption .no,.project:focus-within figcaption .no{color:var(--verm)}
+.project h3{display:inline;font-size:inherit;font-weight:500}
+.proj-link{text-decoration:none}
+.proj-link:hover{text-decoration:underline;text-decoration-color:var(--verm);text-decoration-thickness:2px}
+.work-index{margin-top:clamp(1.6rem,4vh,2.6rem);border:1px solid var(--hair);border-left:1px solid var(--ink)}
+.work-index li{
+  display:flex;flex-wrap:wrap;gap:.3em 1.6em;align-items:baseline;
+  list-style:none;padding:.7em 1em;border-top:1px solid var(--hair);
+  font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
+}
+.work-index li:first-child{border-top:0}
+.work-index .no{color:var(--verm)}
+.work-index .loc{color:var(--pencil-txt)}
+.work-index .st{margin-left:auto;color:var(--pencil-txt);font-style:normal}
+
+/* ---------- studio ---------- */
+.studio-copy p{max-width:58ch;margin-bottom:1.2em;font-size:clamp(1.05rem,1.6vw,1.3rem);line-height:1.65;font-weight:380}
+.studio-copy p em{font-weight:480}
+.studio-copy p:last-of-type{margin-bottom:0}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--ink);margin-top:clamp(1.8rem,4vh,2.8rem);background:rgba(255,255,255,.3)}
+.stats div{padding:.9em 1em;border-left:1px solid var(--ink)}
+.stats div:first-child{border-left:0}
+.stats b{display:block;font-family:var(--serif);font-weight:540;font-size:clamp(1.5rem,3vw,2.3rem);line-height:1.1}
+.stats span{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--pencil-txt)}
+
+/* ---------- process ---------- */
+.phases{list-style:none;counter-reset:ph;border-top:1px solid var(--ink)}
+.phases li{
+  counter-increment:ph;
+  display:grid;grid-template-columns:4.2rem minmax(0,14rem) minmax(0,1fr);
+  gap:.4rem 1.6rem;padding:1.1em 0 1.2em;border-bottom:1px solid var(--hair);
+}
+.phases li::before{
+  content:"0" counter(ph);
+  font-family:var(--mono);font-weight:500;font-size:.78rem;letter-spacing:.12em;color:var(--verm);padding-top:.45em;
+}
+.phases h3{font-family:var(--serif);font-weight:540;font-size:1.15rem;line-height:1.3}
+.phases h3 small{display:block;font-family:var(--mono);font-weight:400;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--pencil-txt);margin-top:.4em}
+.phases p{color:var(--ink);font-size:1rem;max-width:52ch}
+.phases li:hover::before{letter-spacing:.3em}
+
+/* ---------- contact ---------- */
+.contact-lead{font-size:clamp(1.7rem,4vw,3.2rem);line-height:1.2;font-weight:400;letter-spacing:-.012em;max-width:22em}
+.contact-lead em{font-style:italic;font-weight:480;color:var(--verm)}
+.contact-list{margin-top:clamp(2rem,5vh,3.2rem);border-top:1px solid var(--ink);max-width:46rem}
+.contact-list>div{display:grid;grid-template-columns:minmax(7rem,12rem) minmax(0,1fr);gap:1.2rem;align-items:baseline;padding:1em 0;border-bottom:1px solid var(--hair)}
+.contact-list dt{font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--pencil-txt)}
+.contact-list dd{font-family:var(--serif);font-weight:440;font-size:clamp(1.1rem,2.2vw,1.5rem);line-height:1.3;overflow-wrap:anywhere}
+.contact-list dd a{text-decoration:none;background:linear-gradient(var(--verm),var(--verm)) left bottom / 0% 2px no-repeat}
+.contact-list dd a:hover,.contact-list dd a:focus-visible{background-size:100% 2px}
+.contact-list .ig dd{font-weight:540}
+
+/* ---------- footer title block ---------- */
+footer{border-top:1px solid var(--ink);padding:clamp(2.2rem,6vh,4rem) var(--pad) 2rem}
+.tb-foot{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--ink);background:rgba(255,255,255,.35)}
+.tb-foot div{padding:.7em .9em;border-left:1px solid var(--ink);border-top:1px solid var(--ink)}
+.tb-foot div:nth-child(-n+4){border-top:0}
+.tb-foot div:nth-child(4n+1){border-left:0}
+.tb-foot span{display:block;font-family:var(--mono);font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:var(--pencil-txt);margin-bottom:.35em}
+.tb-foot b{font-family:var(--mono);font-weight:500;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+.tb-foot .sheetno b{color:var(--verm);font-size:1rem}
+.colophon{display:flex;flex-wrap:wrap;gap:.4rem 2rem;margin-top:1.4rem;color:var(--pencil-dk);font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase}
+.colophon a{color:inherit}
+
+/* ---------- responsive ---------- */
+@media (min-width:1101px) and (max-width:1280px){
+  .hero-meta{padding-right:16rem} /* keep clear of the absolute stamp */
+}
+@media (max-width:1100px){
+  .stamp{position:static;display:inline-block;align-self:flex-start;margin:.4rem 0 2.2rem .6rem}
+  .hero{display:flex;flex-direction:column}
+  .hero-meta{order:-1}
+}
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:minmax(0,1fr)}
+  .hero-fig{max-width:30rem}
+  .sec-grid{grid-template-columns:minmax(0,1fr)}
+  .sec-label{position:static}
+  .work-grid{grid-template-columns:minmax(0,1fr)}
+  .project:nth-child(n){grid-column:auto;margin-top:0}
+  .project:nth-child(even){margin-left:clamp(0rem,6vw,3rem)}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stats div:nth-child(3){border-left:0}
+  .stats div:nth-child(-n+2){border-bottom:1px solid var(--ink)}
+  .phases li{grid-template-columns:3.2rem minmax(0,1fr)}
+  .phases p{grid-column:2}
+  .tb-foot{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tb-foot div:nth-child(-n+4){border-top:1px solid var(--ink)}
+  .tb-foot div:nth-child(-n+2){border-top:0}
+  .tb-foot div:nth-child(4n+1){border-left:1px solid var(--ink)}
+  .tb-foot div:nth-child(2n+1){border-left:0}
+}
+@media (max-width:560px){
+  header nav ul{gap:.2rem 1.1rem}
+  .contact-list>div{grid-template-columns:minmax(0,1fr);gap:.2rem}
+  .phases li{grid-template-columns:2.6rem minmax(0,1fr)}
+  .dim b{position:static;display:inline-block;transform:none;margin-top:.6em;white-space:normal}
+  .dim{margin-bottom:1.4rem}
+}
+
+/* ---------- motion (gated) ---------- */
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes dimgrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes drawin{to{stroke-dashoffset:0}}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion: no-preference){
+  html{scroll-behavior:smooth}
+  .rise{animation:rise .85s cubic-bezier(.22,.61,.21,1) both}
+  .d1{animation-delay:.05s}.d2{animation-delay:.16s}.d3{animation-delay:.28s}.d4{animation-delay:.4s}.d5{animation-delay:.55s}
+  .dim .rule{transform-origin:left center;animation:dimgrow 1s cubic-bezier(.3,.6,.2,1) .6s both}
+  .drawset path,.drawset line,.drawset polyline,.drawset circle{
+    stroke-dasharray:1;stroke-dashoffset:1;
+    animation:drawin 1.5s cubic-bezier(.4,.2,.2,1) forwards;
+    animation-delay:var(--d,.2s);
+  }
+  .drawset text{animation:fadein .5s ease both;animation-delay:var(--d,2.2s)}
+  header nav a{transition:background-size .35s ease}
+  .contact-list dd a{transition:background-size .4s ease}
+  .project figcaption .no{transition:color .3s ease}
+  .phases li::before{transition:letter-spacing .4s ease}
+  .js .io{opacity:0;transform:translateY(20px);transition:opacity .8s cubic-bezier(.22,.61,.21,1),transform .8s cubic-bezier(.22,.61,.21,1)}
+  .js .io.in{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="sheetbar rise d1">
+  <p class="logotype"><a href="#top">Habitat Design Studio<span class="dot">.</span><small>Architecture — Bharatpur, Chitwan</small></a></p>
+  <nav aria-label="Primary">
+    <ul role="list">
+      <li><a href="#work"><b>A-100</b>Work</a></li>
+      <li><a href="#studio"><b>A-200</b>Studio</a></li>
+      <li><a href="#process"><b>A-300</b>Process</a></li>
+      <li><a href="#contact"><b>A-400</b>Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- SHEET A-000 — COVER -->
+<section class="hero" id="top" aria-label="Introduction">
+  <p class="stamp rise d4" aria-hidden="true"><strong>Habitat Design<br>Studio</strong>Chitwan · Nepal<br>Drg. set — issued 2026</p>
+  <p class="hero-meta rise d2"><span class="red">Sheet A-000 — Cover</span><span>Drawing set: homepage</span><span>27.68°N&nbsp;84.43°E — inner Terai</span><span>Scale 1:1</span></p>
+  <div class="hero-grid">
+    <div>
+      <h1 class="rise d3">Habitat Design Studio is an architecture practice in Bharatpur, Chitwan — carrying a building from its <em>first pencil line</em> to the <em class="verm">built site</em>.</h1>
+      <div class="dim rise d5" role="presentation"><span class="rule"></span><i class="t1"></i><i class="t2"></i><b>12.4 m — headline, measured on site</b></div>
+    </div>
+    <figure class="hero-fig rise d4">
+      <!-- Cover sketch: section through a raised Terai house. Decorative; drawn-in on load. -->
+      <svg class="drawset" viewBox="0 0 520 360" role="img" aria-label="Line drawing: section sketch of a house raised on posts beneath a deep roof, with a sal tree" fill="none" stroke="#1C1B18" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        <!-- ground line + earth ticks -->
+        <line x1="20" y1="316" x2="500" y2="316" pathLength="1" style="--d:.15s"/>
+        <path d="M40 326 l12 -8 M76 326 l12 -8 M112 326 l12 -8 M148 326 l12 -8 M184 326 l12 -8 M220 326 l12 -8 M256 326 l12 -8 M292 326 l12 -8 M328 326 l12 -8 M364 326 l12 -8 M400 326 l12 -8 M436 326 l12 -8 M472 326 l12 -8" stroke="#8A857B" stroke-width="1" pathLength="1" style="--d:.3s"/>
+        <!-- posts -->
+        <path d="M130 316 V252 M190 316 V252 M250 316 V252 M310 316 V252 M370 316 V252" pathLength="1" style="--d:.55s"/>
+        <!-- floor + walls -->
+        <path d="M112 252 H388 M112 246 H388" pathLength="1" style="--d:.75s"/>
+        <path d="M126 246 V160 M374 246 V160" pathLength="1" style="--d:.95s"/>
+        <path d="M126 196 H374" stroke="#8A857B" stroke-width="1" pathLength="1" style="--d:1.05s"/>
+        <!-- roof with deep eaves -->
+        <path d="M84 178 L250 86 L416 178" stroke-width="1.8" pathLength="1" style="--d:1.2s"/>
+        <path d="M96 184 L250 99 L404 184" stroke="#8A857B" stroke-width="1" pathLength="1" style="--d:1.35s"/>
+        <!-- eave struts -->
+        <path d="M126 160 L100 180 M374 160 L400 180" pathLength="1" style="--d:1.5s"/>
+        <!-- door opening -->
+        <path d="M236 246 V198 H268 V246" pathLength="1" style="--d:1.6s"/>
+        <!-- sal tree -->
+        <path d="M462 316 V210" pathLength="1" style="--d:1.7s"/>
+        <path d="M462 252 C430 236 424 200 446 184 C438 152 470 132 492 148 C516 140 524 176 506 192 C518 216 494 244 462 234" stroke="#8A857B" pathLength="1" style="--d:1.85s"/>
+        <!-- vertical dimension -->
+        <g stroke="#B23A18" stroke-width="1">
+          <path d="M52 316 V86 M46 316 H66 M46 86 H66" pathLength="1" style="--d:2s"/>
+          <path d="M52 86 l-4 8 M52 86 l4 8 M52 316 l-4 -8 M52 316 l4 -8" pathLength="1" style="--d:2.15s"/>
+        </g>
+        <text x="34" y="206" fill="#B23A18" stroke="none" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="1" transform="rotate(-90 34 206)" text-anchor="middle" style="--d:2.2s">7.4</text>
+        <!-- north arrow -->
+        <g stroke="#8A857B" stroke-width="1">
+          <circle cx="478" cy="52" r="16" pathLength="1" style="--d:2.2s"/>
+          <path d="M478 64 V40 M478 40 l-5 9 M478 40 l5 9" pathLength="1" style="--d:2.3s"/>
+        </g>
+        <text x="478" y="92" fill="#8A857B" stroke="none" font-family="IBM Plex Mono, monospace" font-size="10" letter-spacing="2" text-anchor="middle" style="--d:2.4s">N</text>
+      </svg>
+      <figcaption class="hero-note">Fig. 01 — raised floor, deep eave: the Terai section, redrawn since the Tharu longhouse</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- SHEET A-100 — SELECTED WORK -->
+<section id="work" aria-labelledby="work-h">
+  <div class="sec-grid">
+    <div class="sec-label io">
+      <div class="titleblock">
+        <span class="tb-sheet">A-100</span>
+        <h2 id="work-h">Selected Work</h2>
+        <span class="tb-note">Photographs mounted on the sheets</span>
+      </div>
+      <p>Four sheets from the current set — two built, two still at render stage. Each photograph is mounted on its sheet the way a record print is pasted into the site book; the cover sketch above keeps the pencil's place.</p>
+    </div>
+    <div class="work-grid">
+
+      <figure class="project io" data-swap="project-photo">
+        <div class="mount">
+          <div class="frame fr-m">
+            <img src="../assets/img/np-residence-01.jpg" alt="Courtyard render of NP Residence: a double-height wall of perforated timber jaali blocks above an internal garden, arched plaster niches along the side wall and a balcony overlooking the planting" width="1446" height="1600" loading="lazy" decoding="async" style="object-position:50% 42%">
+          </div>
+          <p class="mount-note"><b>PH-01</b> — Courtyard, render set: perforated timber jaali screen to the upper wall; arched plaster niches; internal garden lit from the skylight. Program: master + three bedrooms about a common lobby, dining, veranda.</p>
+        </div>
+        <figcaption>
+          <span class="no">HD-014</span>
+          <h3><a class="proj-link" href="#contact" aria-label="Enquire about NP Residence">NP Residence</a></h3>
+          <span class="loc">Residence · Chitwan · 2025</span>
+          <span class="dwg">PH-01 · Design</span>
+        </figcaption>
+      </figure>
+
+      <figure class="project io" data-swap="project-photo">
+        <div class="mount">
+          <div class="frame fr-s">
+            <img src="../assets/img/house02-01.jpg" alt="Interior render of House 02: open living and dining room under a warm timber ceiling, slatted screens by the stair, a stone-textured feature wall, and the central courtyard lawn in the foreground" width="1600" height="1598" loading="lazy" decoding="async">
+          </div>
+          <p class="mount-note"><b>PH-02</b> — View from the central courtyard: bold geometry, layered volumes, straight set against diagonal; warm timber ceilings, slat screens, stone feature wall.</p>
+        </div>
+        <figcaption>
+          <span class="no">HD-017</span>
+          <h3><a class="proj-link" href="#contact" aria-label="Enquire about House 02">House 02</a></h3>
+          <span class="loc">Residence · 2026</span>
+          <span class="dwg">PH-02 · Design</span>
+        </figcaption>
+      </figure>
+
+      <figure class="project io" data-swap="project-photo">
+        <div class="mount">
+          <div class="frame fr-m">
+            <img src="../assets/img/himalchuli-01.jpg" alt="Tiered clay-tile roofs of Himalchuli Nature Farmstay stepping down among dense sal trees, the timber building almost hidden by the forest" width="1600" height="1593" loading="lazy" decoding="async" style="object-position:50% 45%">
+          </div>
+          <p class="mount-note"><b>PH-03</b> — Record photograph from the approach: tiered clay-tile roofs stepping into the sal canopy; from twenty metres the building all but disappears.</p>
+        </div>
+        <figcaption>
+          <span class="no">HD-019</span>
+          <h3><a class="proj-link" href="#contact" aria-label="Enquire about Himalchuli Nature Farmstay">Himalchuli Nature Farmstay</a></h3>
+          <span class="loc">Farmstay · 2023</span>
+          <span class="dwg">PH-03 · Built</span>
+        </figcaption>
+      </figure>
+
+      <figure class="project io" data-swap="project-photo">
+        <div class="mount">
+          <div class="frame fr-w">
+            <img src="../assets/img/bagar-01.jpg" alt="Bagar Restaurant on the riverbank: an open pavilion carried on raw log columns with hand-sculpted capitals, a plinth faced in river stones, and a young tree left standing in front" width="1600" height="1586" loading="lazy" decoding="async" style="object-position:50% 40%">
+          </div>
+          <p class="mount-note"><b>PH-04</b> — Record photograph, riverbank as found: raw log columns with hand-sculpted capitals; river stones in the plinth; the existing bagar worked into the plan, not levelled out of it.</p>
+        </div>
+        <figcaption>
+          <span class="no">HD-021</span>
+          <h3><a class="proj-link" href="#contact" aria-label="Enquire about Bagar Restaurant">Bagar Restaurant</a></h3>
+          <span class="loc">Restaurant · riverside Chitwan · 2024</span>
+          <span class="dwg">PH-04 · Built</span>
+        </figcaption>
+      </figure>
+
+      </div>
+  </div>
+  <ul class="work-index io" role="list" aria-label="Project index — further work in the register">
+    <li><span class="no">HD-022</span><span>Kinar Restaurant</span><span class="loc">Terraced stone base on a slope</span><i class="st">Built</i></li>
+    <li><span class="no">HD-023</span><span>Residence Design</span><span class="loc">Chitwan</span><i class="st">Render set issued</i></li>
+    <li><span class="no">HD-024</span><span>Madi</span><span class="loc">Madi, Chitwan — terraced slope</span><i class="st">Concept</i></li>
+    <li><span class="no">HD-025</span><span>Wilderness</span><span class="loc">Grassland pavilion</span><i class="st">Concept</i></li>
+  </ul>
+</section>
+
+<!-- SHEET A-200 — STUDIO -->
+<section id="studio" aria-labelledby="studio-h">
+  <div class="sec-grid">
+    <div class="sec-label io">
+      <div class="titleblock">
+        <span class="tb-sheet">A-200</span>
+        <h2 id="studio-h">The Studio</h2>
+        <span class="tb-note">Bharatpur, Chitwan — inner Terai</span>
+      </div>
+      <p>A drafting room two streets from Pulchowk, working between the Narayani and the Rapti.</p>
+    </div>
+    <div>
+      <div class="studio-copy">
+        <p class="io">We work where the Terai is flattest and the rivers are widest. A building here must shed close to two metres of monsoon rain, hold its cool through forty-degree Aprils, and open to the river breeze when October finally clears the air. We design in that order: <em>deep eaves first, cross-ventilation second, ornament last</em> — architecture shaped by climate, connectivity, and the quiet logic of the landscape.</p>
+        <p class="io">The drawings borrow from what has already proven itself on this floodplain — the raised floor of the Tharu longhouse, the shaded <em>aangan</em> at the centre of the plan, sal timber and brick fired within thirty kilometres of the site. Every project is measured against the same three lines: the floodline, the sun path, and the budget written on page one.</p>
+        <p class="io">Habitat Design Studio takes a commission from the first site walk through municipal drawings, tender, and fortnightly supervision, to the day the client is handed the keys and the as-built set. One studio, one set of drawings, one responsible signature.</p>
+      </div>
+      <div class="stats io" role="list" aria-label="Studio figures">
+        <div role="listitem"><b>10</b><span>Projects in the register</span></div>
+        <div role="listitem"><b>03</b><span>Built &amp; occupied</span></div>
+        <div role="listitem"><b>07</b><span>On the boards</span></div>
+        <div role="listitem"><b>01</b><span>Drafting-room dog</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHEET A-300 — PROCESS -->
+<section id="process" aria-labelledby="process-h">
+  <div class="sec-grid">
+    <div class="sec-label io">
+      <div class="titleblock">
+        <span class="tb-sheet">A-300</span>
+        <h2 id="process-h">Drawing Register</h2>
+        <span class="tb-note">Six phases, issued in sequence</span>
+      </div>
+      <p>How an idea becomes a building. Each phase closes with a document the client can hold, read, and question.</p>
+    </div>
+    <ol class="phases" role="list">
+      <li class="io">
+        <h3>Site &amp; brief<small>Issued: survey + brief note</small></h3>
+        <p>We walk the plot at midday and again at dusk. Sun, floodline, water table, and the neighbours' walls are recorded before any sketch is made.</p>
+      </li>
+      <li class="io">
+        <h3>Concept<small>Issued: plans, sections, massing</small></h3>
+        <p>The courtyard is tested against the June sun path and the January fog. Two schemes, drawn to the same scale, argued over the same table.</p>
+      </li>
+      <li class="io">
+        <h3>Drawing set<small>Issued: municipal + working drawings</small></h3>
+        <p>Submission drawings, structural coordination, and a materials schedule priced in Narayangarh — not in a catalogue.</p>
+      </li>
+      <li class="io">
+        <h3>Tender &amp; contract<small>Issued: BOQ + agreement</small></h3>
+        <p>We shortlist contractors whose work we have measured before. The bill of quantities is itemised down to the door ironmongery.</p>
+      </li>
+      <li class="io">
+        <h3>Site supervision<small>Issued: site book, fortnightly</small></h3>
+        <p>Fortnightly visits, wet-season checks on damp-proofing and roof falls, and a site book written so the client can read it.</p>
+      </li>
+      <li class="io">
+        <h3>Handover<small>Issued: as-built set + calendar</small></h3>
+        <p>As-built drawings, a maintenance calendar keyed to the monsoon, and one visit a year later to see what the building has learned.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- SHEET A-400 — CONTACT -->
+<section id="contact" aria-labelledby="contact-h">
+  <div class="sec-grid">
+    <div class="sec-label io">
+      <div class="titleblock">
+        <span class="tb-sheet">A-400</span>
+        <h2 id="contact-h">Contact</h2>
+        <span class="tb-note">Bring a plot, a sketch, or a doubt</span>
+      </div>
+    </div>
+    <div>
+      <p class="contact-lead io">The fastest way to reach the drafting table is <em>Instagram</em> — site photographs, work in progress, and a reply within the day.</p>
+      <dl class="contact-list io">
+        <div class="ig">
+          <dt>Instagram</dt>
+          <!-- SWAP: real Instagram handle -->
+          <dd><a href="https://www.instagram.com/habitatdesigns" rel="noopener">@habitatdesigns</a></dd>
+        </div>
+        <div>
+          <dt>Studio</dt>
+          <dd>Bharatpur, Chitwan, Nepal</dd>
+        </div>
+        <div>
+          <dt>Email</dt>
+          <!-- SWAP: real email -->
+          <dd><a href="mailto:studio@habitatdesigns.com.np">studio@habitatdesigns.com.np</a></dd>
+        </div>
+        <div>
+          <dt>Phone</dt>
+          <!-- SWAP: real phone -->
+          <dd><a href="tel:+97756591204">+977 56 591 204</a></dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer aria-label="Title block">
+  <div class="tb-foot">
+    <div><span>Project</span><b>Studio homepage</b></div>
+    <div><span>Client</span><b>Habitat Design Studio, Bharatpur</b></div>
+    <div><span>Drawn / Checked</span><b>HD · HD</b></div>
+    <div class="sheetno"><span>Sheet</span><b>A-101</b></div>
+    <div><span>Scale</span><b>1:1 at 1440 px</b></div>
+    <div><span>Date</span><b>June 2026</b></div>
+    <div><span>Revision</span><b>0 — First issue</b></div>
+    <div><span>Status</span><b>Issued for review</b></div>
+  </div>
+  <p class="colophon"><span>© 2026 Habitat Design Studio</span><span>Set in Fraunces &amp; IBM Plex Mono</span><span>Cover sketch hand-drawn; photographs from the studio's records</span></p>
+</footer>
+
+<script>
+(function(){
+  var d=document.documentElement;
+  d.classList.add('js');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+      });
+    },{threshold:.1,rootMargin:'0px 0px -8% 0px'});
+    document.querySelectorAll('.io').forEach(function(el){io.observe(el);});
+  }else{
+    document.querySelectorAll('.io').forEach(function(el){el.classList.add('in');});
+  }
+})();
+</script>
+</body>
+</html>

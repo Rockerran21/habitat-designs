@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Habitat Design Studio — Bharatpur, Chitwan</title>
+<meta name="description" content="Habitat Design Studio, Bharatpur, Chitwan — architecture shaped by climate and the quiet logic of the landscape. Houses, restaurants and farmstays in Nepal, built with minimal intervention.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23FFFFFF'/%3E%3Cpath d='M19 14v36M45 14v36M19 32h26' stroke='%231A1A1A' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300&display=swap" rel="stylesheet">
+<style>
+/* ------------------------------------------------------------------
+   WHITE — Habitat Design Studio
+   Two colors. One family, one weight. Two sizes (plus a tiny one).
+------------------------------------------------------------------ */
+:root {
+  --white:  #FFFFFF;
+  --ink:    #1A1A1A;
+  /* #E5E5E5 in difference over white renders exactly #1A1A1A */
+  --blend:  #E5E5E5;
+  --gutter: clamp(20px, 4.5vw, 64px);
+  --chrome: 17px;
+  --tiny:   11px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  background: var(--white);
+}
+
+body {
+  margin: 0;
+  background: var(--white);
+  color: var(--ink);
+  font-family: "Jost", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: var(--chrome);
+  line-height: 1.5;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--white);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 6px;
+}
+
+#studio, #journal, #work, #contact {
+  scroll-margin-top: 120px;
+}
+
+/* ---------- chrome ------------------------------------------------ */
+
+.site-head {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: clamp(32px, 6vw, 88px);
+  row-gap: 7px;
+  padding: 24px var(--gutter) 18px;
+  color: var(--blend);
+  mix-blend-mode: difference;
+  pointer-events: none; /* let slideshow clicks pass between the words */
+}
+
+.site-head h1,
+.site-head nav a {
+  pointer-events: auto;
+}
+
+.site-head h1 {
+  margin: 0;
+  font-size: var(--chrome);
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.site-head nav {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: clamp(18px, 3vw, 40px);
+  row-gap: 7px;
+}
+
+.site-head nav a {
+  font-size: var(--chrome);
+  text-transform: lowercase;
+  letter-spacing: 0.22em;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 7px;
+}
+
+.site-head nav a:hover,
+.site-head nav a:focus-visible {
+  text-decoration-color: currentColor;
+}
+
+@media (max-width: 700px) {
+  .site-head { padding-top: 18px; }
+  .site-head nav { width: 100%; }
+}
+
+@media (max-width: 420px) {
+  .site-head nav a { letter-spacing: 0.16em; }
+}
+
+@supports not (mix-blend-mode: difference) {
+  .site-head { color: var(--ink); }
+}
+
+/* ---------- slideshow --------------------------------------------- */
+
+.stage {
+  position: relative;
+  height: 82vh;
+  height: 82svh;
+  min-height: 360px;
+  background: var(--white); /* the white preloader state */
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.slide.is-active {
+  opacity: 1;
+}
+
+.stage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.04); /* screenshot edges never show */
+}
+
+.stage img.is-loading {
+  opacity: 0;
+}
+
+.zones {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+}
+
+.zones[hidden] { display: none; }
+
+.zone {
+  flex: 1 1 33.333%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  appearance: none;
+  font: inherit;
+  color: var(--blend);
+  mix-blend-mode: difference;
+}
+
+.zone:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: -12px;
+}
+
+.zone-prev  { cursor: w-resize; }
+.zone-next  { cursor: e-resize; }
+.zone-pause { cursor: default; }
+
+.counter {
+  position: absolute;
+  right: var(--gutter);
+  bottom: 16px;
+  z-index: 3;
+  margin: 0;
+  font-size: var(--tiny);
+  letter-spacing: 0.16em;
+  font-variant-numeric: tabular-nums;
+  color: var(--blend);
+  mix-blend-mode: difference;
+  pointer-events: none;
+}
+
+.counter[hidden] { display: none; }
+
+/* ---------- statement --------------------------------------------- */
+
+.statement {
+  padding: clamp(110px, 17vh, 190px) var(--gutter) clamp(120px, 19vh, 210px);
+}
+
+.statement p {
+  margin: 0;
+  max-width: 21ch;
+  font-size: clamp(24px, 4vw, 56px);
+  font-weight: 300;
+  line-height: 1.28;
+  letter-spacing: 0.01em;
+}
+
+/* ---------- index -------------------------------------------------- */
+
+.index {
+  padding: 0 var(--gutter) clamp(100px, 15vh, 170px);
+}
+
+.index ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.index li {
+  line-height: 1.5;
+}
+
+.index li + li {
+  margin-top: 0.95em;
+}
+
+/* ---------- contact ------------------------------------------------ */
+
+.contact {
+  padding: 0 var(--gutter);
+  font-style: normal;
+}
+
+.contact p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.contact p + p {
+  margin-top: 0.95em;
+}
+
+.contact a {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 7px;
+}
+
+.contact a:hover,
+.contact a:focus-visible {
+  text-decoration-color: currentColor;
+}
+
+/* ---------- colophon ----------------------------------------------- */
+
+.colophon {
+  padding: clamp(150px, 24vh, 280px) var(--gutter) 36px;
+}
+
+.colophon p {
+  margin: 0;
+  font-size: var(--tiny);
+  letter-spacing: 0.16em;
+}
+
+/* ---------- motion (everything gated) ------------------------------ */
+
+@keyframes fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+
+  .site-head { animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both; }
+  .stage     { animation: fade 1.1s ease both; }
+
+  .slide     { transition: opacity 600ms ease; }
+  .stage img { transition: opacity 600ms ease; }
+
+  .site-head nav a,
+  .contact a { transition: text-decoration-color 0.35s ease; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <h1>Habitat Design Studio</h1>
+  <nav aria-label="Main">
+    <a href="#work">work</a>
+    <a href="#studio">studio</a>
+    <a href="#journal">journal</a>
+    <a href="#contact">contact</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="stage" aria-label="Selected work, photographs and renders">
+
+    <!-- SWAP: project-photo — Bagar Restaurant, replace with final photograph -->
+    <figure class="slide is-active" data-swap="project-photo">
+      <img src="../assets/img/bagar-01.jpg"
+           alt="Bagar Restaurant on the Rapti riverbank — raw log columns with hand-sculpted organic capitals rising from a plinth of river stones"
+           width="1600" height="1586" fetchpriority="high" decoding="async">
+    </figure>
+
+    <!-- SWAP: project-photo — NP Residence, replace with final render -->
+    <figure class="slide" data-swap="project-photo">
+      <img src="../assets/img/np-residence-01.jpg"
+           alt="NP Residence courtyard — perforated timber jaali screen wall casting patterned light over an internal garden"
+           width="1446" height="1600" loading="lazy" decoding="async">
+    </figure>
+
+    <!-- SWAP: project-photo — Kinar Restaurant, replace with final photograph -->
+    <figure class="slide" data-swap="project-photo">
+      <img src="../assets/img/kinar-01.jpg"
+           alt="Kinar Restaurant at dusk — terraced stone base hugging the slope, warm light along a curved deck edge"
+           width="1600" height="1593" loading="lazy" decoding="async">
+    </figure>
+
+    <!-- SWAP: project-photo — Himalchuli Nature Farmstay, replace with final photograph -->
+    <figure class="slide" data-swap="project-photo">
+      <img src="../assets/img/himalchuli-01.jpg"
+           alt="Himalchuli Nature Farmstay — tiered clay-tile roofs almost disappearing into a dense canopy of sal trees"
+           width="1600" height="1593" loading="lazy" decoding="async">
+    </figure>
+
+    <!-- SWAP: project-photo — House 02, replace with final render -->
+    <figure class="slide" data-swap="project-photo">
+      <img src="../assets/img/house02-01.jpg"
+           alt="House 02 — courtyard interior with warm timber ceiling, slatted screens and a stone feature wall"
+           width="1600" height="1598" loading="lazy" decoding="async">
+    </figure>
+
+    <!-- SWAP: project-photo — Residence Design, replace with final render -->
+    <figure class="slide" data-swap="project-photo">
+      <img src="../assets/img/residence-design-01.jpg"
+           alt="Residence Design — layered dark and light volumes with cantilevered slabs under a night sky"
+           width="1417" height="1600" loading="lazy" decoding="async">
+    </figure>
+
+    <div class="zones" hidden>
+      <button class="zone zone-prev" type="button" aria-label="Previous photograph"></button>
+      <button class="zone zone-pause" type="button" aria-label="Pause slideshow" aria-pressed="false"></button>
+      <button class="zone zone-next" type="button" aria-label="Next photograph"></button>
+    </div>
+
+    <p class="counter" hidden aria-hidden="true"><span class="counter-now">1</span> / 6</p>
+
+  </section>
+
+  <section class="statement" id="studio">
+    <p id="journal">Architecture shaped by climate, and the quiet logic of the landscape.</p>
+  </section>
+
+  <section class="index" id="work" aria-label="Project index">
+    <ul>
+      <li>Bagar Restaurant — restaurant, Rapti riverbank, Sauraha &middot; built</li>
+      <li>NP Residence — private residence, Chitwan &middot; in design</li>
+      <li>Kinar Restaurant — restaurant, terraced hillside &middot; built</li>
+      <li>Himalchuli Nature Farmstay — farmstay, sal forest &middot; built</li>
+      <li>House 02 — courtyard residence &middot; in design</li>
+      <li>Residence Design — private residence, Chitwan &middot; in design</li>
+    </ul>
+  </section>
+
+  <address class="contact" id="contact">
+    <!-- SWAP: confirm Instagram handle -->
+    <p><a href="https://instagram.com/habitatdesigns" target="_blank" rel="noopener">@habitatdesigns</a></p>
+    <p>Bharatpur, Chitwan, Nepal</p>
+    <!-- SWAP: replace placeholder email -->
+    <p><a href="mailto:studio@habitatdesigns.com.np">studio@habitatdesigns.com.np</a></p>
+    <!-- SWAP: replace placeholder phone -->
+    <p><a href="tel:+97756591204">+977&nbsp;56&nbsp;591&nbsp;204</a></p>
+  </address>
+
+</main>
+
+<footer class="colophon">
+  <p>Bharatpur, Chitwan — 2026</p>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  var stage = document.querySelector('.stage');
+  if (!stage) return;
+
+  /* Slideshow and fades run only when motion is welcome.
+     Otherwise the first photograph stands alone. */
+  if (!window.matchMedia('(prefers-reduced-motion: no-preference)').matches) return;
+
+  /* White preloader — each image fades in only once it has loaded. */
+  var imgs = stage.querySelectorAll('img');
+  Array.prototype.forEach.call(imgs, function (img) {
+    if (img.complete && img.naturalWidth > 0) return;
+    img.classList.add('is-loading');
+    var done = function () { img.classList.remove('is-loading'); };
+    img.addEventListener('load', done, { once: true });
+    img.addEventListener('error', done, { once: true });
+  });
+
+  var slides = Array.prototype.slice.call(stage.querySelectorAll('.slide'));
+  if (slides.length < 2) return;
+
+  var zones      = stage.querySelector('.zones');
+  var counter    = stage.querySelector('.counter');
+  var counterNow = stage.querySelector('.counter-now');
+  var prevBtn    = zones.querySelector('.zone-prev');
+  var nextBtn    = zones.querySelector('.zone-next');
+  var pauseBtn   = zones.querySelector('.zone-pause');
+
+  var current = 0;
+  var timer   = null;
+  var paused  = false;
+  var DELAY   = 5000;
+
+  function show(n) {
+    slides[current].classList.remove('is-active');
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add('is-active');
+    if (counterNow) counterNow.textContent = String(current + 1);
+  }
+
+  function next() { show(current + 1); }
+  function prev() { show(current - 1); }
+
+  function stop() {
+    if (timer !== null) { window.clearInterval(timer); timer = null; }
+  }
+
+  function start() {
+    stop();
+    timer = window.setInterval(next, DELAY);
+  }
+
+  zones.hidden = false;
+  counter.hidden = false;
+
+  prevBtn.addEventListener('click', function () { prev(); if (!paused) start(); });
+  nextBtn.addEventListener('click', function () { next(); if (!paused) start(); });
+
+  pauseBtn.addEventListener('click', function () {
+    paused = !paused;
+    pauseBtn.setAttribute('aria-pressed', String(paused));
+    pauseBtn.setAttribute('aria-label', paused ? 'Resume slideshow' : 'Pause slideshow');
+    if (paused) { stop(); } else { start(); }
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey || e.shiftKey) return;
+    if (e.key === 'ArrowLeft')  { prev(); if (!paused) start(); }
+    if (e.key === 'ArrowRight') { next(); if (!paused) start(); }
+  });
+
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) { stop(); }
+    else if (!paused)    { start(); }
+  });
+
+  start();
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Habitat Design Studio — A Journal of Building in the Terai · Bharatpur, Chitwan, Nepal</title>
+<meta name="description" content="Habitat Design Studio is an architecture and design practice in Bharatpur, Chitwan, Nepal. Restaurants, residences, and farmstays across the inner Terai — raw and minimal, shaped by climate and the quiet logic of the landscape, built with minimal intervention.">
+<meta name="theme-color" content="#FFFDF8">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20fill='%23FFFDF8'/%3E%3Crect%20x='5'%20y='5'%20width='54'%20height='54'%20fill='none'%20stroke='%23181613'%20stroke-width='3'/%3E%3Crect%20x='13'%20y='13'%20width='38'%20height='38'%20fill='none'%20stroke='%23181613'%20stroke-width='1.5'/%3E%3Cpath%20d='M18%2032A17%2017%200%200%201%2046%2032A17%2017%200%200%201%2018%2032Z'%20fill='none'%20stroke='%2317402E'%20stroke-width='2.5'/%3E%3Ccircle%20cx='32'%20cy='32'%20r='3'%20fill='%2317402E'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Libre+Franklin:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FFFDF8;
+  --ink:#181613;
+  --forest:#17402E;
+  --wash:#EFE9DD;
+  --muted:#5b5648;
+  --soft:#4a453c;
+  --hair:rgba(24,22,19,.28);
+  --brass:#C9A14C;
+  --serif:'Instrument Serif',Georgia,serif;
+  --sans:'Libre Franklin',Helvetica,Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{overflow-x:clip}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font:400 1.0625rem/1.68 var(--sans);
+  overflow-x:clip;
+  -webkit-font-smoothing:antialiased;
+}
+/* paper grain */
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:60;
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='160'%20height='160'%3E%3Cfilter%20id='n'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.9'%20numOctaves='2'/%3E%3C/filter%3E%3Crect%20width='160'%20height='160'%20filter='url(%23n)'%20opacity='0.55'/%3E%3C/svg%3E");
+  opacity:.05;
+  mix-blend-mode:multiply;
+}
+::selection{background:var(--forest);color:var(--paper)}
+:focus-visible{outline:2px solid var(--forest);outline-offset:3px}
+img,svg{max-width:100%;height:auto;display:block}
+h1,h2,h3,p,ul,ol,dl,figure,blockquote{margin:0}
+ul,ol{padding:0;list-style:none}
+a{color:var(--forest)}
+[lang="ne"]{font-style:normal;font-family:"Noto Serif Devanagari","Devanagari MT","Nirmala UI",serif}
+.skip{
+  position:absolute;left:-999px;top:0;z-index:100;
+  background:var(--ink);color:var(--paper);
+  padding:.6rem 1.1rem;font:600 .75rem/1 var(--sans);
+  letter-spacing:.12em;text-transform:uppercase;text-decoration:none;
+}
+.skip:focus{left:.5rem;top:.5rem}
+.wrap{max-width:1360px;margin-inline:auto;padding-inline:clamp(20px,4.5vw,72px)}
+.cap{
+  font-family:var(--sans);font-weight:600;font-size:.73rem;
+  letter-spacing:.17em;text-transform:uppercase;line-height:1.7;
+}
+.cap.muted{color:var(--muted)}
+.double-rule{height:7px;border-top:3px solid var(--ink);border-bottom:1px solid var(--ink)}
+
+/* ---------- masthead ---------- */
+.folio-row{
+  display:flex;justify-content:space-between;gap:1.5rem;
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--hair);
+  padding:.55rem 0;
+}
+.folio-row .cap{white-space:nowrap}
+.masthead{text-align:center;padding:clamp(1.8rem,4.5vw,3.4rem) 0 clamp(1.2rem,2.6vw,2rem)}
+.masthead h1{
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(3.2rem,12.5vw,10.5rem);
+  line-height:.95;letter-spacing:-.015em;
+}
+.masthead h1 .studio-line{
+  display:block;margin-top:clamp(.6rem,1.8vw,1.2rem);
+  font-family:var(--sans);font-weight:600;
+  font-size:clamp(.8rem,2.2vw,1.5rem);
+  line-height:1.4;letter-spacing:.5em;text-indent:.5em;
+  text-transform:uppercase;color:var(--forest);
+}
+.mast-sub{
+  margin-top:1.1rem;
+  display:flex;align-items:center;justify-content:center;gap:1rem;
+}
+.mast-sub::before,.mast-sub::after{content:"";flex:0 1 110px;border-top:1px solid var(--hair)}
+.nav-row{border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:.7rem 0}
+.nav-row ul{display:flex;flex-wrap:wrap;justify-content:center;column-gap:.6rem;row-gap:.35rem}
+.nav-row li{display:flex;align-items:center;gap:.6rem}
+.nav-row li+li::before{content:"·";color:var(--muted)}
+.nav-row a{
+  color:var(--ink);text-decoration:none;
+  font:600 .67rem/1.7 var(--sans);letter-spacing:.17em;text-transform:uppercase;
+  background-image:linear-gradient(var(--forest),var(--forest));
+  background-size:0% 1px;background-position:0 100%;background-repeat:no-repeat;
+  padding-bottom:2px;
+}
+.nav-row a:hover{color:var(--forest)}
+
+/* ---------- lead story ---------- */
+.lead{padding-block:clamp(2.6rem,5.5vw,4.8rem)}
+.lead-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(2rem,4vw,3.2rem)}
+.lead h2{
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(2.3rem,5vw,4.4rem);
+  line-height:1.04;letter-spacing:-.01em;
+  max-width:17ch;margin-top:.9rem;
+}
+.lead h2 em{font-style:italic}
+.deck{
+  font-weight:300;font-size:clamp(1.05rem,1.6vw,1.3rem);line-height:1.6;
+  color:var(--soft);max-width:34em;
+  margin-top:1.3rem;padding-top:1.3rem;border-top:1px solid var(--hair);
+}
+.lead-body{max-width:36em;margin-top:1.8rem}
+.lead-body p+p{margin-top:1.1rem}
+.lead-body p:first-child::first-letter{
+  font-family:var(--serif);font-weight:400;
+  float:left;font-size:4.6em;line-height:.78;
+  padding:.06em .12em 0 0;color:var(--forest);
+}
+.crossref{margin-top:1.8rem;color:var(--muted)}
+.lead-fig-col{min-width:0}
+.lead-fig{border:1px solid var(--ink);padding:clamp(.8rem,1.6vw,1.4rem);background:var(--paper)}
+.figcap{
+  margin-top:1rem;padding-top:.7rem;border-top:1px solid var(--hair);
+  font-size:.78rem;line-height:1.65;color:var(--muted);
+}
+.figcap b{font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.67rem;color:var(--ink)}
+
+/* printed photographs: fixed-ratio plate, slight overscan to hide screenshot edges, muted print tone */
+.photo{overflow:hidden;background:var(--wash);aspect-ratio:1}
+.photo.tall{aspect-ratio:4/5}
+.photo img{width:100%;height:100%;object-fit:cover;transform:scale(1.045);filter:sepia(.08) saturate(.85) contrast(.97)}
+.side-fig{margin-top:1.8rem}
+.panel-fig{margin:1.3rem 0 .4rem}
+
+/* ---------- sections ---------- */
+.sec{border-top:1px solid var(--ink);padding-block:clamp(2.8rem,6vw,5.2rem)}
+.sec-head{
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:.4rem 2rem;
+  margin-bottom:clamp(1.8rem,3.5vw,3rem);
+}
+.sec-head .no{color:var(--forest)}
+.sec-head h2{
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(1.9rem,3.6vw,3.1rem);line-height:1.05;
+}
+.sec-head .sec-note{margin-left:auto;max-width:30em;color:var(--muted);font-size:.78rem;line-height:1.65}
+
+/* ----- index of work ----- */
+.entries{border-bottom:1px solid var(--ink)}
+.entry{
+  display:grid;
+  grid-template-columns:3.4rem 116px minmax(0,1fr) auto;
+  gap:1.1rem 1.6rem;align-items:center;
+  border-top:1px solid var(--hair);
+  padding:1.35rem 0;
+}
+.entry .no{
+  font-family:var(--serif);font-size:1.5rem;line-height:1;
+  color:var(--muted);
+}
+.entry h3{
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(1.4rem,2.4vw,1.9rem);line-height:1.1;
+}
+.entry .note{
+  font-family:var(--serif);font-style:italic;
+  font-size:1.02rem;line-height:1.45;color:var(--soft);
+  margin-top:.35rem;max-width:38em;
+}
+.entry-meta{display:flex;flex-direction:column;align-items:flex-end;gap:.15rem;text-align:right}
+.plan-fig{
+  border:1px solid var(--hair);padding:9px;background:var(--paper);
+  color:var(--ink);width:116px;
+}
+.entry:hover .no,.entry:hover .plan-fig{color:var(--forest)}
+.entry:hover .plan-fig{border-color:var(--forest)}
+
+/* ----- pull quote ----- */
+.pull{position:relative;padding:clamp(2.6rem,6vw,5rem) 0 clamp(2.6rem,6vw,5rem) clamp(0px,14vw,220px)}
+.pull::before{
+  content:"\201C";
+  position:absolute;left:clamp(0px,4vw,60px);top:clamp(1rem,3vw,2.4rem);
+  font-family:var(--serif);font-size:clamp(6rem,14vw,11rem);line-height:1;
+  color:var(--forest);opacity:.22;pointer-events:none;
+}
+.pull p.q{
+  font-family:var(--serif);font-style:italic;font-weight:400;
+  font-size:clamp(1.85rem,4.6vw,5rem);line-height:1.16;letter-spacing:-.005em;
+  max-width:21ch;
+}
+.pull p.q strong{font-weight:400;font-style:normal;color:var(--forest)}
+.pull .attr{margin-top:1.4rem;color:var(--muted)}
+
+/* ----- studio ----- */
+.col-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(2rem,4vw,3.4rem)}
+.facts{align-self:start}
+.facts dt{
+  font:600 .67rem/1.7 var(--sans);letter-spacing:.17em;text-transform:uppercase;
+  color:var(--forest);padding-top:.85rem;border-top:1px solid var(--hair);
+}
+.facts dd{margin:0 0 .9rem;font-size:.95rem;line-height:1.55;color:var(--soft)}
+.prose{font-weight:400;max-width:72em}
+.prose p+p{margin-top:1.1rem}
+.panel{
+  position:relative;background:var(--wash);
+  border:1px solid var(--hair);
+  padding:clamp(1.4rem,3vw,2.4rem) clamp(1.4rem,3vw,2.6rem);
+  margin-top:clamp(2rem,4vw,3rem);
+  max-width:760px;
+}
+.panel h3{
+  font:600 .67rem/1.7 var(--sans);letter-spacing:.2em;text-transform:uppercase;
+  color:var(--forest);margin-bottom:.9rem;
+}
+.panel p{font-size:.98rem;line-height:1.7;max-width:56em}
+.panel p+p{margin-top:.8rem}
+.panel .rosette{position:absolute;top:1.1rem;right:1.1rem;width:38px;color:var(--forest)}
+.panel::after{content:"";display:table;clear:both}
+@media (min-width:700px){
+  .panel-fig{float:right;width:min(250px,44%);margin:.3rem 0 1rem 1.8rem}
+}
+
+/* ----- method ----- */
+.method-li{
+  display:grid;grid-template-columns:4.4rem minmax(0,1fr);
+  gap:1rem 1.6rem;border-top:1px solid var(--hair);
+  padding:1.4rem 0;
+}
+.method-li:last-child{border-bottom:1px solid var(--ink)}
+.method-li .rn{
+  font-family:var(--serif);font-style:italic;font-size:2rem;line-height:1;
+  color:var(--forest);
+}
+.method-li h3{
+  font-family:var(--serif);font-weight:400;font-size:1.45rem;line-height:1.15;
+}
+.method-li p{margin-top:.4rem;max-width:46em;color:var(--soft);font-size:.98rem}
+.marginal-wrap{align-self:start}
+.marginal{
+  font-family:var(--serif);font-style:italic;
+  font-size:1.35rem;line-height:1.4;color:var(--ink);
+  border-left:1px solid var(--forest);padding-left:1.3rem;
+  align-self:start;max-width:24ch;
+}
+.marginal .cap{display:block;margin-top:1rem;font-style:normal;color:var(--muted)}
+
+/* ----- correspondence ----- */
+.contact-intro p{max-width:34em}
+.contact-intro p+p{margin-top:1rem}
+address{font-style:normal}
+.directory li{
+  display:grid;grid-template-columns:8.5rem minmax(0,1fr);
+  gap:.3rem 1.6rem;align-items:baseline;
+  border-top:1px solid var(--hair);padding:1.05rem 0;
+}
+.directory li:last-child{border-bottom:1px solid var(--ink)}
+.directory .cap{color:var(--forest)}
+.directory .val{
+  font-family:var(--serif);font-size:clamp(1.25rem,2.2vw,1.65rem);line-height:1.25;
+  overflow-wrap:anywhere;
+}
+.directory a{
+  color:var(--ink);text-decoration:none;
+  background-image:linear-gradient(var(--forest),var(--forest));
+  background-size:100% 1px;background-position:0 100%;background-repeat:no-repeat;
+  padding-bottom:2px;
+}
+.directory a:hover{color:var(--forest)}
+
+/* ----- tailpiece + colophon ----- */
+.tailpiece{padding-block:clamp(1.6rem,3.5vw,3rem) 0}
+footer.colophon{margin-top:clamp(1.6rem,3.5vw,3rem)}
+.colophon-inner{
+  text-align:center;padding-block:clamp(2.4rem,5vw,4rem) clamp(2rem,4vw,3rem);
+}
+.colophon-inner .endmark{width:46px;margin:0 auto 1.4rem;color:var(--brass)}
+.colophon-inner p{max-width:54em;margin-inline:auto}
+.colophon-inner .cap{display:block;margin-bottom:1rem}
+.colo-line{font-size:.84rem;line-height:1.8;color:var(--muted)}
+.colo-line+.colo-line{margin-top:.4rem}
+.colo-serif{
+  font-family:var(--serif);font-style:italic;font-size:1.25rem;color:var(--ink);
+  margin-bottom:1rem;
+}
+.backtop{
+  display:inline-block;margin-top:1.6rem;color:var(--ink);text-decoration:none;
+  font:600 .67rem/1.7 var(--sans);letter-spacing:.17em;text-transform:uppercase;
+  background-image:linear-gradient(var(--forest),var(--forest));
+  background-size:0% 1px;background-position:0 100%;background-repeat:no-repeat;
+  padding-bottom:2px;
+}
+.backtop:hover{color:var(--forest)}
+
+section{scroll-margin-top:1.5rem}
+
+/* ---------- desktop layout ---------- */
+@media (min-width:960px){
+  .lead-grid{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
+  .lead-fig-col{border-left:1px solid var(--hair);padding-left:clamp(1.6rem,3vw,3rem)}
+  .col-grid{grid-template-columns:minmax(0,4fr) minmax(0,8fr)}
+  .col-grid.rev{grid-template-columns:minmax(0,8fr) minmax(0,4fr)}
+  .facts{position:sticky;top:2rem}
+  .prose.two-col{columns:2;column-gap:3rem;column-rule:1px solid var(--hair)}
+  .prose.two-col p{break-inside:avoid-column}
+  .panel{
+    max-width:none;
+    width:calc(100% + clamp(0px,3vw,46px));
+    margin-right:calc(-1*clamp(0px,3vw,46px));
+  }
+  .contact-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(2rem,4vw,3.4rem)}
+}
+@media (max-width:919px){
+  .folio-row .mid{display:none}
+}
+@media (max-width:480px){
+  .folio-row .day{display:none}
+}
+@media (max-width:959px){
+  .marginal{border-left:none;border-top:1px solid var(--forest);padding:1.2rem 0 0;margin-top:1.6rem;max-width:34ch}
+  .contact-grid>*+*{margin-top:2rem}
+}
+@media (max-width:700px){
+  .entry{grid-template-columns:2.4rem 88px minmax(0,1fr);gap:.8rem 1rem}
+  .entry .no{font-size:1.15rem;padding-top:.2rem;align-self:start}
+  .plan-fig{width:88px;align-self:start}
+  .entry-meta{grid-column:3;align-items:flex-start;text-align:left;flex-direction:row;flex-wrap:wrap;gap:.15rem .9rem}
+  .pull{padding-left:0;padding-top:clamp(4rem,16vw,5rem)}
+  .directory li{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:620px){
+  .method-li{grid-template-columns:2.8rem minmax(0,1fr)}
+  .method-li .rn{font-size:1.5rem;padding-top:.3rem}
+}
+
+/* ---------- motion (fully gated) ---------- */
+@media (prefers-reduced-motion: no-preference){
+  html{scroll-behavior:smooth}
+  .nav-row a,.directory a,.backtop{transition:background-size .35s ease,color .25s ease}
+  .directory a{background-size:0% 1px}
+  .nav-row a:hover,.directory a:hover,.backtop:hover{background-size:100% 1px}
+  .entry{transition:transform .4s cubic-bezier(.22,.61,.21,1)}
+  .entry:hover{transform:translateX(14px)}
+  .entry .no,.plan-fig{transition:color .3s ease,border-color .3s ease}
+  @keyframes settle{
+    from{opacity:0;transform:translateY(14px)}
+    to{opacity:1;transform:none}
+  }
+  .settle{animation:settle .85s cubic-bezier(.22,.61,.21,1) both}
+  .d1{animation-delay:.07s}
+  .d2{animation-delay:.16s}
+  .d3{animation-delay:.26s}
+  .d4{animation-delay:.38s}
+  .d5{animation-delay:.5s}
+  .d6{animation-delay:.62s}
+  [data-reveal].will-reveal{
+    opacity:0;transform:translateY(18px);
+    transition:opacity .7s ease,transform .7s cubic-bezier(.22,.61,.21,1);
+    transition-delay:calc(var(--i,0)*80ms);
+  }
+  [data-reveal].will-reveal.in-view{opacity:1;transform:none}
+}
+</style>
+</head>
+<body id="top">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="wrap">
+  <div class="folio-row settle">
+    <span class="cap">Vol.&nbsp;I&nbsp;—&nbsp;No.&nbsp;3</span>
+    <span class="cap muted mid">Architecture &amp; Design · Established at Bharatpur</span>
+    <span class="cap"><span class="day">Friday, </span>12 June 2026</span>
+  </div>
+
+  <div class="masthead">
+    <h1 class="settle d1">Habitat <span class="studio-line">Design&nbsp;Studio</span></h1>
+    <p class="mast-sub settle d2"><span class="cap muted">A Journal of Building in the Terai&nbsp;—&nbsp;Vol.&nbsp;I</span></p>
+  </div>
+
+  <nav class="nav-row settle d3" aria-label="Contents">
+    <ul>
+      <li><a href="#work">Index of Work</a></li>
+      <li><a href="#studio">The Studio</a></li>
+      <li><a href="#method">Method</a></li>
+      <li><a href="#contact">Correspondence</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main" class="wrap">
+
+  <!-- ========== LEAD STORY ========== -->
+  <section class="lead" aria-labelledby="lead-h">
+    <div class="lead-grid">
+      <div class="settle d4">
+        <span class="cap muted">The Lead Photograph — From the Current Issue</span>
+        <h2 id="lead-h"><em>Bagar</em> — a restaurant raised on the gravel bar it is named for.</h2>
+        <p class="deck">This issue’s lead photograph: Bagar Restaurant, on the riverside in Chitwan — whole logs for columns, hand-sculpted capitals above them, river stones in the plinth, and the bank left looking like itself.</p>
+        <div class="lead-body">
+          <p>In Nepali, a <span lang="ne">बगर</span> — <em>bagar</em> — is the gravel bar a river leaves behind: flat, stony, open ground that most builders level and bury before the first wall goes up. The studio did the opposite. The restaurant takes the bank as the river made it — the existing topography runs straight through the plan, the plinth is ringed with stones gathered off the bar, and the columns are whole logs, each capital sculpted by hand into an organic form that no other column repeats.</p>
+          <p>The working creed is raw and minimal: integration of what a site already has, rather than its erasure. Buildings here are shaped by climate, connectivity, and the quiet logic of the landscape — built with minimal intervention, their comfort drawn from light, materials, proportion, and airflow. Bagar is the creed at its plainest. When the work was done, the riverbank still looked like itself.</p>
+        </div>
+        <p class="crossref cap muted">Bagar Restaurant appears as No.&nbsp;001 in the index, below.</p>
+      </div>
+
+      <div class="lead-fig-col settle d5">
+        <figure class="lead-fig">
+          <div class="photo">
+            <img src="../assets/img/bagar-01.jpg" alt="Bagar Restaurant on the riverbank: whole log columns with hand-sculpted plaster capitals carrying a deep tiled roof, a plinth ringed with river stones, and a young tree growing through the terrace" width="1600" height="1586" fetchpriority="high" decoding="async">
+          </div>
+          <figcaption class="figcap"><b>Fig.&nbsp;1</b> — Bagar Restaurant, on the gravel bar it is named for: log columns, sculpted capitals, river stones in the plinth. Photographed during construction; the bank left as the river made it.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== INDEX OF WORK ========== -->
+  <section class="sec" id="work" aria-labelledby="work-h">
+    <header class="sec-head" data-reveal>
+      <span class="cap no">No. 01</span>
+      <h2 id="work-h">An Index of Built Work</h2>
+      <p class="sec-note">Six works in and around Chitwan — built, in design, and in concept; each entry says which. Drawn here in plan, at no particular scale; photographs run as figures through this issue.</p>
+    </header>
+
+    <!-- The plan thumbnails are deliberate: this journal runs drawings in its index and photographs in its figures. -->
+    <ol class="entries" role="list">
+      <li class="entry" data-reveal style="--i:0">
+        <span class="no" aria-hidden="true">001</span>
+        <figure class="plan-fig">
+          <svg viewBox="0 0 120 120" role="img" aria-label="Plan drawing, Bagar Restaurant: a long dining hall on a line of log columns beside the river braid">
+            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="16" y="30" width="88" height="28" stroke-width="2.6"/>
+              <path d="M46 30v28M74 30v28" stroke-width="1"/>
+              <rect x="16" y="58" width="88" height="13" stroke-width="1" stroke-dasharray="3 3"/>
+              <path d="M58 58a8 8 0 0 0 8 8" stroke-width=".8"/>
+              <g stroke="#17402E" stroke-width="1.1" opacity=".6">
+                <path d="M8 94c22-6 42 6 62 0s34-8 42-2"/>
+                <path d="M8 106c24-6 46 6 70 0s28-6 34-2"/>
+              </g>
+              <line x1="103" y1="24" x2="103" y2="11" stroke-width="1"/>
+              <path d="M103 7l-3.5 7h7z" fill="currentColor" stroke="none"/>
+            </g>
+            <circle cx="26" cy="71" r="1.4" fill="currentColor"/><circle cx="44" cy="71" r="1.4" fill="currentColor"/><circle cx="62" cy="71" r="1.4" fill="currentColor"/><circle cx="80" cy="71" r="1.4" fill="currentColor"/><circle cx="98" cy="71" r="1.4" fill="currentColor"/>
+          </svg>
+        </figure>
+        <div>
+          <h3>Bagar Restaurant</h3>
+          <p class="note">Log columns under hand-sculpted capitals, river stones in the plinth; the gravel bar kept, and the river kept beside it.</p>
+        </div>
+        <div class="entry-meta">
+          <span class="cap">Restaurant — Riverside Chitwan</span>
+          <span class="cap muted">Built · p. 04</span>
+        </div>
+      </li>
+
+      <li class="entry" data-reveal style="--i:1">
+        <span class="no" aria-hidden="true">002</span>
+        <figure class="plan-fig">
+          <svg viewBox="0 0 120 120" role="img" aria-label="Plan drawing with slope contours, Kinar Restaurant">
+            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <g stroke="#17402E" stroke-width=".9" opacity=".45">
+                <path d="M8 86c28-10 56 8 104-6"/>
+                <path d="M8 100c30-10 60 8 104-8"/>
+                <path d="M14 114c26-8 52 6 92-6"/>
+              </g>
+              <path d="M38 34h30v16h18v26h-32v-14h-16z" stroke-width="2.6"/>
+              <rect x="58" y="54" width="10" height="10" stroke-width=".9"/>
+              <path d="M58 64l10-10" stroke-width=".7"/>
+              <line x1="103" y1="24" x2="103" y2="11" stroke-width="1"/>
+              <path d="M103 7l-3.5 7h7z" fill="currentColor" stroke="none"/>
+            </g>
+          </svg>
+        </figure>
+        <div>
+          <h3>Kinar Restaurant</h3>
+          <p class="note">A terraced stone base hugging the slope, a curved deck edge, pavilions on the roof; at dusk the terraces hold the light.</p>
+        </div>
+        <div class="entry-meta">
+          <span class="cap">Restaurant — Chitwan</span>
+          <span class="cap muted">Built · p. 10</span>
+        </div>
+      </li>
+
+      <li class="entry" data-reveal style="--i:2">
+        <span class="no" aria-hidden="true">003</span>
+        <figure class="plan-fig">
+          <svg viewBox="0 0 120 120" role="img" aria-label="Site plan drawing, Himalchuli Nature Farmstay: buildings stepped along a path among sal trees">
+            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 100c26-14 22-44 50-54s34-6 42-26" stroke-width="1" stroke-dasharray="4 3"/>
+              <rect x="20" y="74" width="17" height="17" stroke-width="2"/>
+              <rect x="47" y="52" width="17" height="17" stroke-width="2"/>
+              <rect x="74" y="34" width="17" height="17" stroke-width="2"/>
+              <g stroke="#17402E" opacity=".4" stroke-width="1">
+                <circle cx="32" cy="36" r="13"/><circle cx="74" cy="84" r="15"/><circle cx="102" cy="58" r="10"/>
+              </g>
+              <line x1="103" y1="24" x2="103" y2="11" stroke-width="1"/>
+              <path d="M103 7l-3.5 7h7z" fill="currentColor" stroke="none"/>
+            </g>
+          </svg>
+        </figure>
+        <div>
+          <h3>Himalchuli Nature Farmstay</h3>
+          <p class="note">Tiered clay-tile roofs stepping down into dense sal, until the buildings all but disappear among the trees.</p>
+        </div>
+        <div class="entry-meta">
+          <span class="cap">Farmstay — Chitwan</span>
+          <span class="cap muted">Built · p. 14</span>
+        </div>
+      </li>
+
+      <li class="entry" data-reveal style="--i:3">
+        <span class="no" aria-hidden="true">004</span>
+        <figure class="plan-fig">
+          <svg viewBox="0 0 120 120" role="img" aria-label="Plan drawing, NP Residence: rooms around a central courtyard behind a lattice screen">
+            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="22" y="22" width="76" height="76" stroke-width="2.6"/>
+              <rect x="46" y="46" width="28" height="28" stroke-width="1.2"/>
+              <path d="M60 22v24M60 74v24M22 60h24M74 60h24" stroke-width="1"/>
+              <path d="M48 72l24-24M48 62l14-14M58 72l14-14" stroke="#17402E" stroke-width=".8" opacity=".8"/>
+              <path d="M54 88v10m0-10a10 10 0 0 1 10 10" stroke-width=".8"/>
+              <line x1="103" y1="24" x2="103" y2="11" stroke-width="1"/>
+              <path d="M103 7l-3.5 7h7z" fill="currentColor" stroke="none"/>
+            </g>
+          </svg>
+        </figure>
+        <div>
+          <h3>NP Residence</h3>
+          <p class="note">A house gathered about an <span lang="ne">आँगन</span> (āngan) behind a perforated timber jaali — arched niches, a garden inside the walls, a skylight over the lobby.</p>
+        </div>
+        <div class="entry-meta">
+          <span class="cap">Residence — Chitwan</span>
+          <span class="cap muted">In design · p. 18</span>
+        </div>
+      </li>
+
+      <li class="entry" data-reveal style="--i:4">
+        <span class="no" aria-hidden="true">005</span>
+        <figure class="plan-fig">
+          <svg viewBox="0 0 120 120" role="img" aria-label="Plan drawing, House 02: layered volumes and a column grid about a central courtyard">
+            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="20" y="24" width="80" height="72" stroke-width="2.6"/>
+              <rect x="48" y="46" width="24" height="28" stroke-width="1.2"/>
+              <path d="M48 46l24 28M72 46l-24 28" stroke-width=".7"/>
+              <rect x="24" y="28" width="12" height="16" stroke-width="1"/>
+              <path d="M24 36l8-8M24 44l12-12" stroke-width=".7"/>
+              <line x1="103" y1="24" x2="103" y2="11" stroke-width="1"/>
+              <path d="M103 7l-3.5 7h7z" fill="currentColor" stroke="none"/>
+            </g>
+            <g fill="currentColor">
+              <circle cx="36" cy="38" r="1.7"/><circle cx="60" cy="38" r="1.7"/><circle cx="84" cy="38" r="1.7"/>
+              <circle cx="36" cy="60" r="1.7"/><circle cx="84" cy="60" r="1.7"/>
+              <circle cx="36" cy="82" r="1.7"/><circle cx="60" cy="82" r="1.7"/><circle cx="84" cy="82" r="1.7"/>
+            </g>
+          </svg>
+        </figure>
+        <div>
+          <h3>House 02</h3>
+          <p class="note">Bold geometry, layered volumes — a dialogue between straight and diagonal forms, with a courtyard holding the centre.</p>
+        </div>
+        <div class="entry-meta">
+          <span class="cap">Residence — Chitwan</span>
+          <span class="cap muted">In design · p. 24</span>
+        </div>
+      </li>
+
+      <li class="entry" data-reveal style="--i:5">
+        <span class="no" aria-hidden="true">006</span>
+        <figure class="plan-fig">
+          <svg viewBox="0 0 120 120" role="img" aria-label="Concept plan, Madi, Chitwan: a tiered building on a terraced slope among large trees">
+            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="18" y="28" width="84" height="54" stroke-width="1.1" stroke-dasharray="5 3"/>
+              <rect x="28" y="38" width="64" height="34" stroke-width="2.2"/>
+              <g stroke="#17402E" stroke-width=".9" opacity=".5">
+                <path d="M10 96c30-8 60 6 100-8"/>
+                <path d="M14 108c28-8 56 6 92-8"/>
+              </g>
+              <g stroke="#17402E" stroke-width="1" opacity=".45">
+                <circle cx="22" cy="18" r="9"/><circle cx="104" cy="94" r="11"/>
+              </g>
+              <line x1="103" y1="24" x2="103" y2="11" stroke-width="1"/>
+              <path d="M103 7l-3.5 7h7z" fill="currentColor" stroke="none"/>
+            </g>
+            <g fill="currentColor">
+              <circle cx="36" cy="44" r="1.7"/><circle cx="60" cy="44" r="1.7"/><circle cx="84" cy="44" r="1.7"/>
+              <circle cx="36" cy="55" r="1.7"/><circle cx="60" cy="55" r="1.7"/><circle cx="84" cy="55" r="1.7"/>
+              <circle cx="36" cy="66" r="1.7"/><circle cx="60" cy="66" r="1.7"/><circle cx="84" cy="66" r="1.7"/>
+            </g>
+          </svg>
+        </figure>
+        <div>
+          <h3>Madi, Chitwan</h3>
+          <p class="note">Tiered red roofs on a stepped slope, among trees too old to argue with — a study in building without flattening.</p>
+        </div>
+        <div class="entry-meta">
+          <span class="cap">Concept — Madi, Chitwan</span>
+          <span class="cap muted">Concept · p. 28</span>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ========== PULL QUOTE ========== -->
+  <aside class="pull" data-reveal aria-label="Pull quote">
+    <blockquote>
+      <p class="q"><strong>Raw and minimal.</strong> What the site already owns, the building keeps.</p>
+    </blockquote>
+    <p class="attr cap muted">— Site notebook, on the bagar, Chitwan</p>
+  </aside>
+
+  <!-- ========== THE STUDIO ========== -->
+  <section class="sec" id="studio" aria-labelledby="studio-h">
+    <header class="sec-head" data-reveal>
+      <span class="cap no">No. 02</span>
+      <h2 id="studio-h">The Studio</h2>
+      <p class="sec-note">Notes from Bharatpur: who we are, what we build with, and how close we stay to the work.</p>
+    </header>
+
+    <div class="col-grid">
+      <div class="facts" data-reveal>
+        <dl>
+          <dt>Practice</dt>
+          <dd>Architecture, interiors, and construction supervision — usually together.</dd>
+          <dt>Field</dt>
+          <dd>Chitwan and the inner Terai — Bharatpur, the riverside, Madi.</dd>
+          <dt>Materials</dt>
+          <dd>Whole-log timber, river stone, clay tile, perforated timber screens, lime plaster.</dd>
+          <dt>Site visits</dt>
+          <dd>Weekly, in every season — the monsoon especially.</dd>
+        </dl>
+        <figure class="side-fig">
+          <div class="photo">
+            <img src="../assets/img/himalchuli-01.jpg" alt="Tiered clay-tile roofs of Himalchuli Nature Farmstay nearly hidden among dense sal trees" loading="lazy" decoding="async" width="1600" height="1593">
+          </div>
+          <figcaption class="figcap"><b>Fig.&nbsp;2</b> — Himalchuli Nature Farmstay: clay-tile roofs, almost lost in the sal.</figcaption>
+        </figure>
+      </div>
+
+      <div data-reveal>
+        <div class="prose two-col">
+          <p>Habitat Design Studio is an architecture and design practice working from Bharatpur, Chitwan. The work runs from a restaurant on a riverbank to a farmstay lost in the sal, and houses gathered around courtyards — all of it shaped by climate, connectivity, and the quiet logic of the landscape. The creed is raw and minimal: integrate what a site already has rather than erase it, intervene as little as the brief allows, and let comfort come from light, materials, proportion, and airflow.</p>
+          <p>The studio’s habit is closeness. We measure the site ourselves at the hottest hour of the day, sit with clients at their own table, and stay with the contractor through every pour, every course of stone, every capital sculpted onto its log. Most commissions arrive through Instagram and by word of mouth — from people who have eaten at Bagar or Kinar in June and noticed the difference.</p>
+        </div>
+
+        <div class="panel" data-reveal>
+          <svg class="rosette" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+            <g fill="none" stroke="currentColor" stroke-width=".9">
+              <ellipse cx="20" cy="10" rx="3" ry="7"/>
+              <ellipse cx="20" cy="10" rx="3" ry="7" transform="rotate(45 20 20)"/>
+              <ellipse cx="20" cy="10" rx="3" ry="7" transform="rotate(90 20 20)"/>
+              <ellipse cx="20" cy="10" rx="3" ry="7" transform="rotate(135 20 20)"/>
+              <ellipse cx="20" cy="10" rx="3" ry="7" transform="rotate(180 20 20)"/>
+              <ellipse cx="20" cy="10" rx="3" ry="7" transform="rotate(225 20 20)"/>
+              <ellipse cx="20" cy="10" rx="3" ry="7" transform="rotate(270 20 20)"/>
+              <ellipse cx="20" cy="10" rx="3" ry="7" transform="rotate(315 20 20)"/>
+            </g>
+            <circle cx="20" cy="20" r="2.4" fill="currentColor"/>
+          </svg>
+          <h3>A Note on Craft</h3>
+          <figure class="panel-fig">
+            <div class="photo tall">
+              <img src="../assets/img/np-residence-01.jpg" alt="Courtyard of NP Residence: a tall perforated timber jaali wall above an internal garden, with arched plaster niches to one side" loading="lazy" decoding="async" width="1446" height="1600">
+            </div>
+            <figcaption class="figcap"><b>Fig.&nbsp;3</b> — NP Residence: the courtyard behind its timber jaali (design study).</figcaption>
+          </figure>
+          <p>Two traditions stand behind the work in this issue. From the Tharu villages of the Terai: <em>Mokha</em>, bas-relief in clay — peacocks, vines, lotus — sculpted by hand, almost always by women, and renewed each Tihar. From the Newar builders of the valley: <em>tiki jhya</em>, lattice windows assembled from interlocking carved battens, with no nails anywhere in them.</p>
+          <p>Neither is a museum piece here. The courtyard of NP Residence (No.&nbsp;004 in the index) is walled with a full screen of perforated timber — the jaali doing what the tiki jhya has always done: air and light through, glare and eyes kept out. Where a project allows, we commission the work from working artisans, and the budget line says so plainly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== METHOD ========== -->
+  <section class="sec" id="method" aria-labelledby="method-h">
+    <header class="sec-head" data-reveal>
+      <span class="cap no">No. 03</span>
+      <h2 id="method-h">Method</h2>
+      <p class="sec-note">Every commission follows the same printed procedure. Clients receive this page with the first fee note.</p>
+    </header>
+
+    <div class="col-grid rev">
+      <ol>
+        <li class="method-li" data-reveal style="--i:0">
+          <span class="rn" aria-hidden="true">I.</span>
+          <div>
+            <h3>Survey &amp; Brief</h3>
+            <p>We walk the plot at the hottest hour, and record levels, trees, bore results, and the neighbours’ shadows. The brief is written down and signed by both sides.</p>
+          </div>
+        </li>
+        <li class="method-li" data-reveal style="--i:1">
+          <span class="rn" aria-hidden="true">II.</span>
+          <div>
+            <h3>Design</h3>
+            <p>Sketch plans through three sittings. Decisions are made over models and material samples — brick in the hand, not only on the screen.</p>
+          </div>
+        </li>
+        <li class="method-li" data-reveal style="--i:2">
+          <span class="rn" aria-hidden="true">III.</span>
+          <div>
+            <h3>Drawings &amp; Permits</h3>
+            <p>Working drawings with structural coordination, then approval through Bharatpur Metropolitan City. We carry the file to the ward office ourselves.</p>
+          </div>
+        </li>
+        <li class="method-li" data-reveal style="--i:3">
+          <span class="rn" aria-hidden="true">IV.</span>
+          <div>
+            <h3>Tender &amp; Site</h3>
+            <p>Priced with two or three contractors we have built with before. A studio architect is on site weekly; masonry, lattice, and joinery are checked against the drawings, course by course.</p>
+          </div>
+        </li>
+        <li class="method-li" data-reveal style="--i:4">
+          <span class="rn" aria-hidden="true">V.</span>
+          <div>
+            <h3>Handover</h3>
+            <p>The snag list is closed before the keys move. As-built drawings are bound and delivered with a maintenance calendar set to the monsoon, not the calendar year.</p>
+          </div>
+        </li>
+      </ol>
+
+      <div class="marginal-wrap" data-reveal>
+        <p class="marginal">“The procedure is deliberately dull; the buildings are where the interest goes.”
+          <span class="cap muted">— Margin note, studio copy</span>
+        </p>
+        <figure class="side-fig">
+          <div class="photo">
+            <img src="../assets/img/kinar-01.jpg" alt="Kinar Restaurant at dusk: lit stone terraces stepping up the slope, a curved deck above them and rooftop pavilions glowing" loading="lazy" decoding="async" width="1600" height="1593">
+          </div>
+          <figcaption class="figcap"><b>Fig.&nbsp;4</b> — Kinar Restaurant at dusk; the terraces hold the last of the light.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CORRESPONDENCE ========== -->
+  <section class="sec" id="contact" aria-labelledby="contact-h">
+    <header class="sec-head" data-reveal>
+      <span class="cap no">No. 04</span>
+      <h2 id="contact-h">Correspondence</h2>
+      <p class="sec-note">Letters, commissions, and site queries — answered within the week.</p>
+    </header>
+
+    <div class="contact-grid">
+      <div class="contact-intro" data-reveal>
+        <p>The studio publishes work in progress most weeks on Instagram — the fastest way to reach us, and the fullest record of the work between issues.</p>
+        <p>For commissions, write with a location and a rough brief. We take on a small number of buildings each year so that someone from the studio can stand on every site, every week.</p>
+      </div>
+
+      <address data-reveal>
+        <ul class="directory">
+          <li>
+            <span class="cap">Instagram</span>
+            <!-- SWAP: real Instagram handle -->
+            <span class="val"><a href="https://instagram.com/habitatdesigns" rel="noopener">@habitatdesigns</a></span>
+          </li>
+          <li>
+            <span class="cap">Studio</span>
+            <span class="val">Bharatpur, Chitwan, Nepal</span>
+          </li>
+          <li>
+            <span class="cap">Email</span>
+            <!-- SWAP: real email -->
+            <span class="val"><a href="mailto:studio@habitatdesigns.com.np">studio@habitatdesigns.com.np</a></span>
+          </li>
+          <li>
+            <span class="cap">Telephone</span>
+            <!-- SWAP: real phone -->
+            <span class="val"><a href="tel:+97756591204">+977 56 591 204</a></span>
+          </li>
+        </ul>
+      </address>
+    </div>
+  </section>
+
+  <!-- tailpiece: the Narayani braid -->
+  <div class="tailpiece" aria-hidden="true">
+    <svg class="braid" viewBox="0 0 1200 64" focusable="false">
+      <g fill="none" stroke="#17402E" stroke-width="1.2" opacity=".5" stroke-linecap="round">
+        <path d="M0 22c150-8 300 12 450 2s300-12 450 2 200-4 300 0"/>
+        <path d="M0 36c160-8 320 12 480 0s300-10 460 4 180-6 260 0"/>
+        <path d="M0 50c170-6 340 10 520-2s280-6 440 4 170-4 240-2"/>
+      </g>
+      <path d="M520 30c40-7 96-7 136 1c-40 7-96 7-136-1z" fill="#EFE9DD" stroke="#17402E" stroke-width=".8"/>
+    </svg>
+  </div>
+</main>
+
+<!-- ========== COLOPHON ========== -->
+<footer class="colophon wrap">
+  <div class="double-rule" aria-hidden="true"></div>
+  <div class="colophon-inner">
+    <svg class="endmark" viewBox="0 0 64 40" aria-hidden="true" focusable="false">
+      <g fill="none" stroke="currentColor">
+        <path d="M10 20A22 22 0 0 1 54 20A22 22 0 0 1 10 20Z" stroke-width="1.4"/>
+        <path d="M18 20A14 14 0 0 1 46 20A14 14 0 0 1 18 20Z" stroke-width=".9"/>
+      </g>
+      <circle cx="32" cy="20" r="2.6" fill="currentColor"/>
+    </svg>
+    <span class="cap">Colophon</span>
+    <p class="colo-serif">Habitat Design Studio — A Journal of Building in the Terai. Vol.&nbsp;I, No.&nbsp;3: the monsoon issue, June 2026.</p>
+    <p class="colo-line">Set in Instrument Serif and Libre Franklin. Drawings and plans by the studio; photographs from Bagar, Kinar, and Himalchuli.</p>
+    <p class="colo-line">Published from Bharatpur, Chitwan, Nepal. Circulation: one website. Office census: two drafting tables, one dog.</p>
+    <p class="colo-line">© 2026 Habitat Design Studio. Drawings and photographs remain the property of the studio. End of issue.</p>
+    <a class="backtop" href="#top">Return to the masthead</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce || !("IntersectionObserver" in window)) return;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting){
+        e.target.classList.add("in-view");
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold:.1, rootMargin:"0px 0px -7% 0px"});
+  Array.prototype.forEach.call(document.querySelectorAll("[data-reveal]"), function(el){
+    if (el.getBoundingClientRect().top < window.innerHeight - 60) return; // already visible: leave it
+    el.classList.add("will-reveal");
+    io.observe(el);
+  });
+})();
+</script>
+</body>
+</html>

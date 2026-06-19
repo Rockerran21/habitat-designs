@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Habitat Design Studio — Architecture &amp; Design, Bharatpur, Chitwan</title>
+<meta name="description" content="Habitat Design Studio is an architecture and design practice in Bharatpur, Chitwan — courtyard houses, restaurants and farmstays for the Nepali Terai, carried from first sketch to built site.">
+<meta name="theme-color" content="#EFE2CC">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23A93F1E'/%3E%3Crect x='8' y='8' width='48' height='48' fill='none' stroke='%23EFE2CC' stroke-width='3'/%3E%3Cpath d='M14 32Q32 14 50 32Q32 50 14 32Z' fill='none' stroke='%23EFE2CC' stroke-width='3'/%3E%3Ccircle cx='32' cy='32' r='6' fill='%23C9A14C'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Crimson+Pro:ital,wght@0,300..500;1,300..500&family=Mukta:wght@300&display=swap" rel="stylesheet">
+<style>
+/* ============ OF BRICK AND SUN — Habitat Design Studio ============ */
+:root{
+  --sand:#EFE2CC;
+  --sand-2:#F6EDDC;
+  --sand-3:#E6D4B6;
+  --brick:#A93F1E;
+  --brick-d:#8C3014;
+  --teal:#1E3D3A;
+  --teal-d:#16302D;
+  --gold:#C9A14C;
+  --ink:#2A1F18;
+  --hair:rgba(42,31,24,.18);
+  --hair-faint:rgba(42,31,24,.06);
+  --sand-line:rgba(239,226,204,.35);
+  --pad:clamp(1.25rem,4.5vw,4.5rem);
+  --df:'Bricolage Grotesque',system-ui,sans-serif;
+  --sf:'Crimson Pro',Georgia,serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--sand);
+  color:var(--ink);
+  font-family:var(--sf);
+  font-weight:400;
+  font-size:1.125rem;
+  line-height:1.68;
+  overflow-x:clip;
+}
+/* paper grain over everything, very quiet */
+body::after{
+  content:"";position:fixed;inset:0;z-index:60;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+}
+::selection{background:var(--gold);color:var(--ink)}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px dashed currentColor;outline-offset:4px}
+img,svg{display:block;max-width:100%}
+h1,h2,h3{font-family:var(--df);font-weight:700;line-height:1.06}
+.skip{position:absolute;left:-999px;top:0}
+.skip:focus{left:1rem;top:1rem;z-index:100;background:var(--ink);color:var(--sand);padding:.6rem 1.1rem;font-family:var(--df);font-size:.85rem;text-decoration:none}
+
+.label{
+  font-family:var(--df);font-weight:600;font-size:.72rem;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--brick);
+}
+.meta{
+  font-family:var(--df);font-weight:600;font-size:.7rem;
+  letter-spacing:.2em;text-transform:uppercase;
+}
+
+/* ---------------- header ---------------- */
+.site-head{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:1.15rem var(--pad);
+  border-bottom:1px solid var(--hair);
+}
+.brand{
+  display:flex;align-items:center;gap:.65rem;text-decoration:none;color:var(--ink);
+}
+.brand svg{color:var(--brick);flex:none}
+.brand b{font-family:var(--df);font-weight:700;font-size:1rem;letter-spacing:.02em;white-space:nowrap}
+.brand small{display:block;font-family:var(--df);font-weight:500;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(42,31,24,.75)}
+.site-head nav ul{display:flex;gap:clamp(1.1rem,3.5vw,2.4rem);list-style:none}
+.site-head nav a{
+  font-family:var(--df);font-weight:600;font-size:.78rem;letter-spacing:.16em;
+  text-transform:uppercase;text-decoration:none;position:relative;padding-bottom:.2rem;
+}
+.site-head nav a::after{
+  content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;
+  background:var(--brick);transform:scaleX(0);transform-origin:left;
+  transition:transform .35s cubic-bezier(.25,.6,.3,1);
+}
+.site-head nav a:hover{color:var(--brick-d)}
+.site-head nav a:hover::after{transform:scaleX(1)}
+
+/* ---------------- hero ---------------- */
+.hero{
+  position:relative;
+  padding:clamp(3rem,9vh,6.5rem) var(--pad) 0;
+  background-image:repeating-linear-gradient(90deg,var(--hair-faint) 0 1px,transparent 1px 220px);
+}
+.hero-grid{
+  display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);
+  gap:clamp(1.5rem,4vw,3rem);align-items:end;
+}
+.hero .label{margin-bottom:1.4rem}
+.hero h1{
+  font-size:clamp(2.45rem,6vw,5.4rem);
+  font-weight:750;
+  letter-spacing:-.015em;
+  line-height:1.05;
+  max-width:19ch;
+}
+.hero h1 em{font-style:normal;color:var(--brick)}
+.hero .lede{
+  margin-top:1.6rem;max-width:46ch;
+  font-size:1.16rem;color:rgba(42,31,24,.85);
+}
+.ghar-wrap{justify-self:end;text-align:right;position:relative;z-index:2;padding-bottom:.5rem}
+.ghar{
+  font-family:'Mukta',var(--df);font-weight:300;
+  font-size:clamp(5.6rem,15vw,13rem);line-height:1.12;
+  color:var(--brick);
+}
+.gloss{
+  font-style:italic;font-size:.98rem;color:rgba(42,31,24,.72);
+  border-top:1px solid var(--hair);padding-top:.6rem;margin-top:.2rem;
+  max-width:24ch;margin-left:auto;
+}
+.horizon-wrap{margin:clamp(1.5rem,4vw,3rem) calc(-1 * var(--pad)) 0}
+.horizon{width:100%;height:clamp(200px,24vw,340px)}
+
+/* ---------------- section heads ---------------- */
+section{scroll-margin-top:1.5rem}
+.sec-head{
+  display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);
+  gap:clamp(1rem,3vw,2.5rem);align-items:baseline;
+  border-top:1px solid var(--hair);
+  padding:1.1rem 0 0;
+}
+.sec-head h2{font-size:clamp(1.85rem,3.6vw,3.1rem);font-weight:720;letter-spacing:-.01em;max-width:22ch}
+.sec-head .sub{margin-top:.7rem;font-style:italic;color:rgba(42,31,24,.72);font-size:1.05rem}
+
+/* ---------------- work : woven bands ---------------- */
+#work{position:relative;padding-top:clamp(3.5rem,8vw,6.5rem)}
+#work>.wrap{position:relative;z-index:1;padding:0 var(--pad) clamp(2.5rem,6vw,4.5rem)}
+.jaali{
+  position:absolute;pointer-events:none;
+}
+.jaali svg{width:100%;height:100%}
+.jaali-1{
+  top:calc(-1 * clamp(120px,16vw,230px));right:4vw;z-index:0;
+  width:min(380px,52vw);height:clamp(220px,30vw,340px);
+  color:var(--ink);opacity:.2;
+}
+.bands{list-style:none}
+.band{
+  position:relative;
+  display:grid;grid-template-columns:repeat(12,minmax(0,1fr));
+  gap:clamp(1rem,3vw,3rem);align-items:center;
+  padding:clamp(2.75rem,6vw,5rem) var(--pad);
+  color:var(--sand);
+  transition:background-color .45s ease;
+}
+.band-brick{background:var(--brick)}
+.band-teal{background:var(--teal)}
+@media (hover:hover){
+  .band-brick:hover{background:var(--brick-d)}
+  .band-teal:hover{background:var(--teal-d)}
+}
+.band figure{
+  position:relative;z-index:2;
+  margin-block:calc(-1 * clamp(1.5rem,4vw,3.25rem));
+  border:1px solid var(--sand-line);
+  background:rgba(20,12,8,.18);
+  padding:clamp(1rem,2.4vw,2rem);
+  transition:border-color .45s ease,background-color .45s ease;
+}
+.band:hover figure{border-color:rgba(239,226,204,.7)}
+/* the last band's figure must not overhang into the Tharu divider below */
+.bands li:last-child figure{margin-bottom:0}
+.band figcaption{
+  margin-top:.9rem;
+  font-family:var(--df);font-weight:600;font-size:.7rem;
+  letter-spacing:.2em;text-transform:uppercase;color:rgba(239,226,204,.72);
+}
+.band-brick figcaption{color:rgba(239,226,204,.92)}
+.plan{width:100%;height:auto;color:#F2E6CF;transition:color .45s ease}
+.band:hover .plan{color:#FBF3DF}
+.plan text{font-family:var(--df);font-weight:600;font-size:14px;letter-spacing:.18em;fill:currentColor;opacity:.85}
+/* real photographs sit in the exact frame the drawings used: same 4:3 plate, same padded border */
+.ph{overflow:hidden;aspect-ratio:4/3;background:#140C08}
+.ph img{
+  width:100%;height:100%;object-fit:cover;
+  transform:scale(1.04); /* slight overscale crops stray screenshot edges */
+  filter:sepia(.04) saturate(1.04);
+  transition:filter .45s ease;
+}
+/* on hover the colours deepen, like wet clay */
+.band:hover .ph img{filter:sepia(.02) saturate(1.16) contrast(1.06)}
+.band-l figure{grid-column:1/8}
+.band-l .band-txt{grid-column:8/13}
+.band-r figure{grid-column:6/13;grid-row:1}
+.band-r .band-txt{grid-column:1/6;grid-row:1}
+.band-txt .pnum{
+  display:block;font-family:var(--df);font-weight:800;font-size:.95rem;
+  letter-spacing:.26em;color:var(--gold);margin-bottom:.7rem;
+}
+.band-txt h3{font-size:clamp(1.5rem,2.6vw,2.15rem);font-weight:700;letter-spacing:-.005em;max-width:16ch}
+.band-txt .meta{margin-top:.8rem;color:rgba(239,226,204,.78)}
+.band-txt p.desc{margin-top:1.1rem;font-size:1.1rem;color:rgba(246,237,220,.92);max-width:42ch}
+.band-teal .band-txt .pnum{color:var(--gold)}
+/* on brick, gold and faint sand fall under AA — lift them; teal keeps the gold */
+.band-brick .band-txt .pnum{color:var(--sand)}
+.band-brick .band-txt .meta{color:var(--sand-2)}
+
+/* ---------------- tharu divider (used exactly twice) ---------------- */
+.divider{padding:clamp(1.75rem,4vw,2.75rem) var(--pad);color:var(--brick)}
+.divider svg{width:100%;height:30px}
+
+/* ---------------- studio ---------------- */
+#studio{padding:clamp(3rem,7vw,5.5rem) var(--pad) clamp(3.5rem,8vw,6rem)}
+.studio-grid{
+  display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);
+  gap:clamp(1.5rem,4vw,3rem);margin-top:clamp(2rem,5vw,3.5rem);
+}
+.studio-side{color:rgba(42,31,24,.7)}
+.studio-copy p{max-width:62ch}
+.studio-copy p+p{margin-top:1.3rem}
+.studio-copy .first-line::first-letter{
+  font-family:var(--df);font-weight:800;color:var(--brick);
+  font-size:3.1em;float:left;line-height:.82;padding-right:.12em;padding-top:.06em;
+}
+.rules{
+  list-style:none;margin-top:clamp(2.5rem,5vw,4rem);
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:0 clamp(1.5rem,4vw,3rem);
+}
+.rules li{
+  border-top:1px solid var(--hair);
+  padding:1.2rem .2rem 1.6rem;
+  display:grid;grid-template-columns:3.4rem minmax(0,1fr);gap:.4rem 1rem;
+}
+.rules .rnum{font-family:var(--df);font-weight:800;font-size:1.5rem;color:var(--brick);line-height:1.1}
+.rules h3{font-family:var(--df);font-weight:650;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;align-self:center}
+.rules p{grid-column:2;font-size:1.05rem;color:rgba(42,31,24,.85)}
+
+/* ---------------- process ---------------- */
+#process{background:var(--sand-3);padding:clamp(3rem,7vw,5.5rem) var(--pad) clamp(3.5rem,8vw,6rem);
+  background-image:repeating-linear-gradient(90deg,var(--hair-faint) 0 1px,transparent 1px 220px)}
+/* sand-3 is darker than the base — plain brick drops under AA here, use the deep brick */
+#process .label,#process .services-row{color:var(--brick-d)}
+#process .intro{margin-top:1.5rem;max-width:52ch;font-size:1.13rem}
+.steps{list-style:none;margin-top:clamp(2rem,5vw,3.5rem);max-width:70rem}
+.steps li{
+  display:grid;grid-template-columns:clamp(3.5rem,9vw,8rem) minmax(0,1fr);
+  gap:clamp(1rem,3vw,2.5rem);
+  border-top:1px solid var(--hair);
+  padding:clamp(1.25rem,3vw,2rem) 0;
+}
+.steps .snum{
+  font-family:var(--df);font-weight:800;color:var(--brick);
+  font-size:clamp(1.8rem,3.6vw,3rem);line-height:1;
+}
+.steps h3{font-size:clamp(1.15rem,2vw,1.5rem);font-weight:700}
+.steps p{margin-top:.5rem;max-width:56ch;font-size:1.08rem;color:rgba(42,31,24,.85)}
+.services-row{
+  margin-top:clamp(2.5rem,5vw,4rem);border-top:1px solid var(--hair);padding-top:1.2rem;
+  font-family:var(--df);font-weight:600;font-size:.74rem;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--brick);
+}
+
+/* ---------------- contact ---------------- */
+#contact{
+  position:relative;background:var(--teal);color:var(--sand);
+  padding:clamp(4rem,9vw,7rem) var(--pad) clamp(4rem,8vw,6rem);
+}
+.jaali-2{
+  top:calc(-1 * clamp(90px,12vw,160px));right:9vw;z-index:3;
+  width:min(330px,46vw);height:clamp(190px,26vw,300px);
+  color:var(--gold);opacity:.34;
+}
+.contact-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(2rem,5vw,4rem);align-items:center}
+#contact .label{color:var(--gold)}
+#contact h2{font-size:clamp(2.1rem,4.4vw,3.8rem);font-weight:740;letter-spacing:-.01em;margin-top:1.2rem;max-width:14ch}
+#contact .note{margin-top:1.3rem;max-width:44ch;font-size:1.13rem;color:rgba(239,226,204,.85)}
+.c-list{list-style:none;margin-top:clamp(2rem,4vw,3rem);max-width:38rem}
+.c-list li{
+  border-top:1px solid rgba(239,226,204,.25);
+  padding:1.05rem 0;
+  display:grid;grid-template-columns:clamp(5.5rem,14vw,8rem) minmax(0,1fr);gap:1rem;align-items:baseline;
+}
+.c-list .meta{color:rgba(239,226,204,.7)}
+.c-list a{color:var(--sand);text-decoration:none;border-bottom:1px solid rgba(239,226,204,.35);transition:color .3s ease,border-color .3s ease}
+.c-list a:hover{color:var(--gold);border-color:var(--gold)}
+.c-list a.ig-link{
+  font-family:var(--df);font-weight:700;
+  font-size:clamp(1.4rem,4vw,2.6rem);letter-spacing:-.01em;
+  border-bottom-width:2px;
+  overflow-wrap:anywhere;
+}
+.c-side{justify-self:center;display:grid;justify-items:center;gap:clamp(1.75rem,4vw,2.5rem)}
+.c-sun{width:min(330px,72vw)}
+/* the real mark keeps its own green field — never faked as transparent */
+.c-logo{width:min(150px,40vw);height:auto;aspect-ratio:1;border:1px solid rgba(239,226,204,.28)}
+address{font-style:normal}
+
+/* ---------------- footer ---------------- */
+.dogtooth{background:var(--teal);color:var(--brick)}
+.dogtooth svg{width:100%;height:12px;display:block}
+footer{
+  background:var(--ink);color:rgba(239,226,204,.85);
+  padding:clamp(2.75rem,6vw,4.5rem) var(--pad) 2rem;
+  font-size:1rem;
+}
+.foot-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1.5rem,4vw,3rem)}
+footer .meta{color:var(--gold);margin-bottom:.9rem}
+footer p{max-width:36ch}
+footer a{color:var(--sand);text-decoration:none;border-bottom:1px solid rgba(239,226,204,.3)}
+footer a:hover{color:var(--gold);border-color:var(--gold)}
+.foot-base{
+  margin-top:clamp(2.5rem,5vw,3.5rem);border-top:1px solid rgba(239,226,204,.18);
+  padding-top:1.2rem;display:flex;flex-wrap:wrap;gap:.6rem 2rem;justify-content:space-between;
+  font-family:var(--df);font-weight:500;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(239,226,204,.55);
+}
+
+/* ---------------- motion ---------------- */
+@media (prefers-reduced-motion:no-preference){
+  [data-rise]{opacity:0;transform:translateY(34px);animation:rise 1s cubic-bezier(.2,.65,.25,1) forwards}
+  [data-rise="1"]{animation-delay:.08s}
+  [data-rise="2"]{animation-delay:.2s}
+  [data-rise="3"]{animation-delay:.34s}
+  [data-rise="4"]{animation-delay:.5s}
+  [data-rise="5"]{animation-delay:.66s}
+  .sun-g{animation:sunup 1.7s cubic-bezier(.22,.6,.3,1) both;animation-delay:.25s}
+  @keyframes rise{to{opacity:1;transform:none}}
+  @keyframes sunup{from{transform:translateY(72px)}to{transform:translateY(0)}}
+  .pre{opacity:0;transform:translateY(26px);transition:opacity .85s ease,transform .85s cubic-bezier(.22,.7,.3,1)}
+  .pre.in{opacity:1;transform:none}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none !important;transition:none !important}
+}
+
+/* ---------------- responsive ---------------- */
+@media (max-width:980px){
+  .rules{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr;gap:2rem}
+}
+@media (max-width:860px){
+  .hero-grid{grid-template-columns:1fr}
+  .ghar-wrap{justify-self:start;text-align:left;padding-bottom:0;margin-top:.5rem}
+  .gloss{margin-left:0}
+  .band{grid-template-columns:1fr;gap:1.75rem;padding-block:3rem}
+  .band figure{margin-block:0}
+  .band-l figure,.band-r figure{grid-column:1;grid-row:1}
+  .band-l .band-txt,.band-r .band-txt{grid-column:1;grid-row:2}
+  .sec-head{grid-template-columns:1fr;gap:.8rem}
+  .studio-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .c-side{justify-self:start;justify-items:start}
+}
+@media (max-width:480px){
+  .site-head{flex-direction:column;align-items:flex-start;gap:.8rem}
+  .c-list li{grid-template-columns:1fr;gap:.25rem}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <a class="brand" href="#main" data-rise="1">
+    <!-- logomark: ankhi jhyal "eye of the house" -->
+    <svg viewBox="0 0 40 40" width="30" height="30" aria-hidden="true" focusable="false">
+      <rect x="2" y="2" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2"/>
+      <rect x="7.5" y="7.5" width="25" height="25" fill="none" stroke="currentColor" stroke-width="1"/>
+      <path d="M10 20Q20 10.5 30 20Q20 29.5 10 20Z" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="20" cy="20" r="3.1" fill="currentColor"/>
+    </svg>
+    <span><b>Habitat Design Studio</b><small>Bharatpur · Chitwan</small></span>
+  </a>
+  <nav aria-label="Primary" data-rise="2">
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#studio">Studio</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" aria-label="Introduction">
+    <div class="hero-grid">
+      <div>
+        <p class="label" data-rise="2">Architecture &amp; design — the Nepali Terai</p>
+        <h1 data-rise="3">Habitat Design Studio builds with fired brick, sal timber and the <em>low sun</em> of the Terai.</h1>
+        <p class="lede" data-rise="4">An architecture and design studio in Bharatpur, Chitwan. We carry a project from the first conversation on bare ground to the finished, occupied building — houses, lodges and working spaces shaped by heat, monsoon and river light.</p>
+      </div>
+      <div class="ghar-wrap" data-rise="5">
+        <p class="ghar" lang="ne">आँगन</p>
+        <p class="gloss"><span lang="ne-Latn">āngan</span> — the open courtyard where a Terai house begins</p>
+      </div>
+    </div>
+
+    <!-- Horizon: low sun, sal forest, Narayani braid — flat shapes, poster restraint -->
+    <div class="horizon-wrap" aria-hidden="true">
+      <svg class="horizon" viewBox="0 0 1440 340" preserveAspectRatio="xMaxYMax slice" focusable="false">
+        <g class="sun-g">
+          <circle cx="1052" cy="170" r="84" fill="#C9A14C"/>
+          <circle cx="1052" cy="170" r="106" fill="none" stroke="#C9A14C" stroke-opacity=".35" stroke-width="2"/>
+        </g>
+        <g fill="#1E3D3A">
+          <!-- emergent sal crowns -->
+          <rect x="258" y="168" width="4" height="52"/><ellipse cx="260" cy="158" rx="34" ry="22"/>
+          <rect x="758" y="156" width="4" height="64"/><ellipse cx="760" cy="146" rx="40" ry="26"/>
+          <rect x="1238" y="172" width="4" height="48"/><ellipse cx="1240" cy="162" rx="30" ry="20"/>
+          <!-- canopy band -->
+          <rect x="0" y="216" width="1440" height="40"/>
+          <ellipse cx="40" cy="205" rx="60" ry="26"/><ellipse cx="130" cy="198" rx="55" ry="30"/>
+          <ellipse cx="230" cy="206" rx="65" ry="24"/><ellipse cx="330" cy="196" rx="52" ry="30"/>
+          <ellipse cx="425" cy="204" rx="60" ry="26"/><ellipse cx="520" cy="199" rx="58" ry="28"/>
+          <ellipse cx="615" cy="207" rx="62" ry="22"/><ellipse cx="705" cy="197" rx="50" ry="30"/>
+          <ellipse cx="800" cy="204" rx="64" ry="26"/><ellipse cx="895" cy="200" rx="55" ry="28"/>
+          <ellipse cx="990" cy="207" rx="60" ry="22"/><ellipse cx="1085" cy="198" rx="52" ry="30"/>
+          <ellipse cx="1180" cy="205" rx="62" ry="25"/><ellipse cx="1275" cy="199" rx="55" ry="29"/>
+          <ellipse cx="1370" cy="206" rx="64" ry="24"/><ellipse cx="1440" cy="200" rx="50" ry="28"/>
+        </g>
+        <!-- Narayani braid -->
+        <path d="M0 278C200 262 380 292 600 280C840 266 1080 296 1440 276L1440 296C1100 312 860 282 620 296C400 308 180 280 0 296Z" fill="#1E3D3A" opacity=".32"/>
+        <path d="M0 306C260 294 520 318 780 306C1020 296 1240 318 1440 306L1440 322C1200 332 980 312 720 322C460 330 220 312 0 322Z" fill="#1E3D3A" opacity=".18"/>
+        <!-- sun glint on the water -->
+        <rect x="980" y="285" width="148" height="3" fill="#C9A14C" opacity=".55"/>
+        <rect x="1014" y="300" width="80" height="2" fill="#C9A14C" opacity=".35"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ================= 01 SELECTED WORK ================= -->
+  <section id="work" aria-labelledby="work-h">
+    <!-- jaali screen at the hero/work seam — light through a carved lattice -->
+    <div class="jaali jaali-1" aria-hidden="true">
+      <svg viewBox="0 0 384 288" focusable="false">
+        <defs>
+          <pattern id="jl1" width="48" height="48" patternUnits="userSpaceOnUse">
+            <path d="M0 0L48 48M48 0L0 48" stroke="currentColor" stroke-width="5"/>
+            <circle cx="24" cy="24" r="4.2" fill="currentColor"/>
+            <circle cx="0" cy="0" r="4.2" fill="currentColor"/><circle cx="48" cy="0" r="4.2" fill="currentColor"/>
+            <circle cx="0" cy="48" r="4.2" fill="currentColor"/><circle cx="48" cy="48" r="4.2" fill="currentColor"/>
+          </pattern>
+        </defs>
+        <rect x="12" y="12" width="360" height="264" fill="url(#jl1)"/>
+        <rect x="4" y="4" width="376" height="280" fill="none" stroke="currentColor" stroke-width="3"/>
+        <rect x="14" y="14" width="356" height="260" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      </svg>
+    </div>
+
+    <div class="wrap">
+      <div class="sec-head" data-rv>
+        <p class="label">01 — Selected work</p>
+        <div>
+          <h2 id="work-h">Numbered as drawn, named for where they stand.</h2>
+          <p class="sub">Four projects from the studio drawing register — two built and photographed, one on the boards, and one kept as a drawing, the way everything here begins.</p>
+        </div>
+      </div>
+    </div>
+
+    <ul class="bands">
+
+      <!-- DWG 021 — NP Residence: the page's jaali motif, built as a real wall -->
+      <li><article class="band band-brick band-l" data-rv>
+        <figure data-swap="project-photo">
+          <div class="ph">
+            <img src="../assets/img/np-residence-01.jpg" alt="Courtyard of NP Residence: sunlight falling through a perforated timber jaali screen wall onto arched plaster niches and an internal garden" width="1446" height="1600" loading="lazy" decoding="async">
+          </div>
+          <figcaption>DWG 021 · Courtyard, timber jaali wall · Render</figcaption>
+        </figure>
+        <div class="band-txt">
+          <span class="pnum">021</span>
+          <h3>NP Residence</h3>
+          <p class="meta">Chitwan · Residence · In design</p>
+          <p class="desc">Rooms gather around an āngan screened by a perforated timber jaali — the very lattice this page celebrates, here as a real wall in a real courtyard. Arched plaster niches and an internal garden carry its light inward; a veranda and skylight do the rest.</p>
+        </div>
+      </article></li>
+
+      <!-- DWG 007 — Bagar Restaurant: the studio's signature build -->
+      <li><article class="band band-teal band-r" data-rv>
+        <figure data-swap="project-photo">
+          <div class="ph">
+            <img src="../assets/img/bagar-01.jpg" alt="Bagar Restaurant on the natural riverbank: raw log columns with hand-sculpted organic capitals rising from a plinth set with river stones" width="1600" height="1586" loading="lazy" decoding="async">
+          </div>
+          <figcaption>DWG 007 · Log columns on the riverbank · Site photograph</figcaption>
+        </figure>
+        <div class="band-txt">
+          <span class="pnum">007</span>
+          <h3>Bagar Restaurant</h3>
+          <p class="meta">Riverside Chitwan · Restaurant · Built</p>
+          <p class="desc">Named for the ground it stands on — bagar, the gravel bar. The riverbank&rsquo;s own topography stays in the plan; raw log columns with hand-sculpted capitals carry the roof, and river stones from the site sit in the plinth.</p>
+        </div>
+      </article></li>
+
+      <!-- DWG 012 — Himalchuli Nature Farmstay: architecture that disappears into the sal -->
+      <li><article class="band band-brick band-l" data-rv>
+        <figure data-swap="project-photo">
+          <div class="ph">
+            <img src="../assets/img/himalchuli-01.jpg" alt="Tiered clay-tile roofs of Himalchuli Nature Farmstay almost hidden among dense sal trees" width="1600" height="1593" loading="lazy" decoding="async">
+          </div>
+          <figcaption>DWG 012 · Roofs in the sal canopy · Site photograph</figcaption>
+        </figure>
+        <div class="band-txt">
+          <span class="pnum">012</span>
+          <h3>Himalchuli Nature Farmstay</h3>
+          <p class="meta">Chitwan · Farmstay · Built</p>
+          <p class="desc">Tiered clay-tile roofs step down into dense sal forest until the building all but disappears. Minimal intervention is the studio&rsquo;s quiet rule: the trees were here first, and they stay.</p>
+        </div>
+      </article></li>
+
+      <!-- DWG 027 — Madi, Chitwan: kept as a drawing on purpose, the page's counterpoint.
+           SWAP later if wanted: ../assets/img/madi-01.jpg (terraced building among trees). -->
+      <li><article class="band band-teal band-r" data-rv>
+        <figure data-swap="project-photo">
+          <svg class="plan" viewBox="0 0 480 360" role="img" aria-label="Line drawing: south elevation of the Madi concept, a two-tiered roof on timber posts above a raised platform, with two figures for scale">
+            <title>South elevation, Madi concept</title>
+            <g fill="none" stroke="currentColor">
+              <!-- ground + grass -->
+              <path d="M0 300H480" stroke-width="1.5"/>
+              <path d="M28 300l5-9M38 300l4-7M328 300l5-9M338 300l4-7M414 300l5-9M424 300l4-7" stroke-width="1"/>
+              <!-- stilts -->
+              <path d="M150 300v-44M186 300v-44M222 300v-44M258 300v-44M294 300v-44M330 300v-44" stroke-width="2"/>
+              <!-- platform -->
+              <path d="M132 256H348" stroke-width="2.5"/>
+              <path d="M138 250H342" stroke-width="1"/>
+              <!-- posts -->
+              <path d="M156 250V168M240 250V168M324 250V168" stroke-width="2.5"/>
+              <path d="M140 168H340" stroke-width="2"/>
+              <!-- tundal struts -->
+              <path d="M126 162l16-18M354 162l-16-18M196 166l12-14M284 166l-12-14" stroke-width="1.3"/>
+              <!-- lower roof -->
+              <path d="M108 166L372 166L334 118L146 118Z" stroke-width="2"/>
+              <!-- upper roof -->
+              <path d="M166 116L314 116L286 76L194 76Z" stroke-width="2"/>
+              <path d="M240 76V62" stroke-width="2"/>
+              <!-- figures for scale -->
+              <path d="M96 282v18M110 287v13" stroke-width="1.5"/>
+            </g>
+            <circle cx="240" cy="58" r="4" fill="currentColor"/>
+            <circle cx="96" cy="278" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="110" cy="284" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="416" cy="84" r="24" fill="#C9A14C" opacity=".95"/>
+            <text x="132" y="334">ELEVATION — SOUTH</text>
+            <text x="340" y="334">TIERED ROOFS</text>
+          </svg>
+          <figcaption>DWG 027 · South elevation · As drawn</figcaption>
+        </figure>
+        <div class="band-txt">
+          <span class="pnum">027</span>
+          <h3>Madi, Chitwan</h3>
+          <p class="meta">Madi, Chitwan · Concept</p>
+          <p class="desc">A tiered, red-roofed building stepping down a terraced slope among big trees. Still a concept — so it keeps its drawing here, the way every project on this page began: as lines on paper.</p>
+        </div>
+      </article></li>
+
+    </ul>
+  </section>
+
+  <!-- Tharu relief divider · 1 of 2 -->
+  <div class="divider" aria-hidden="true">
+    <svg focusable="false">
+      <defs>
+        <pattern id="th1" width="36" height="30" patternUnits="userSpaceOnUse">
+          <path d="M2 28L18 8L34 28" fill="none" stroke="currentColor" stroke-width="2"/>
+          <path d="M11 28L18 19L25 28Z" fill="currentColor" opacity=".55"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="30" fill="url(#th1)"/>
+    </svg>
+  </div>
+
+  <!-- ================= 02 STUDIO ================= -->
+  <section id="studio" aria-labelledby="studio-h">
+    <div class="sec-head" data-rv>
+      <p class="label">02 — Studio</p>
+      <div>
+        <h2 id="studio-h">A studio of the inner Terai.</h2>
+        <p class="sub">Flat land, big rivers, three wet months — the climate writes the first lines of every brief.</p>
+      </div>
+    </div>
+    <div class="studio-grid">
+      <p class="meta studio-side" data-rv>Founded in Bharatpur<br>Working across Chitwan<br>and the Terai</p>
+      <div class="studio-copy" data-rv>
+        <p class="first-line">We are architects, designers and site people working from Narayangarh, Bharatpur. The inner Terai is subtropical floodplain, wet for a quarter of the year, and it rewards specific moves: raised plinths, deep eaves, shaded verandas, courtyards that ventilate, masonry that holds the night&rsquo;s cool into the afternoon.</p>
+        <p>Our references are local before they are global. The Tharu longhouse — mud-plastered lattice on a floor lifted clear of the flood — taught this valley how to build long before any of us drew a line. The brick courtyards and carved lattice windows of the Newar towns are the country&rsquo;s other great lesson in climate and craft. We design in conversation with both, alongside current structural practice and the municipal code.</p>
+      </div>
+    </div>
+    <ul class="rules">
+      <li data-rv>
+        <span class="rnum" aria-hidden="true">01</span><h3>Material</h3>
+        <p>Fired brick from Chitwan kilns, sal and sisau timber, lime and mud plasters, stone from the Rapti bed. Concrete where the structure asks for it — never as a finish.</p>
+      </li>
+      <li data-rv>
+        <span class="rnum" aria-hidden="true">02</span><h3>Climate</h3>
+        <p>Openings sized for the low December sun and shaded from the high June one. Cross-ventilation is drawn before a single compressor is.</p>
+      </li>
+      <li data-rv>
+        <span class="rnum" aria-hidden="true">03</span><h3>Water</h3>
+        <p>The plinth height of every project is set by the Narayani&rsquo;s record years, not its average ones.</p>
+      </li>
+      <li data-rv>
+        <span class="rnum" aria-hidden="true">04</span><h3>Craft</h3>
+        <p>Local masons and carpenters join from the first site visit; details are drawn for the hands that will build them.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ================= 03 PROCESS ================= -->
+  <section id="process" aria-labelledby="process-h">
+    <div class="sec-head" data-rv>
+      <p class="label">03 — Process</p>
+      <div>
+        <h2 id="process-h">From a client&rsquo;s idea to a built site.</h2>
+        <p class="sub">One studio, accountable for the whole arc. Most projects run eight to eighteen months from brief to handover.</p>
+      </div>
+    </div>
+    <ol class="steps">
+      <li data-rv>
+        <span class="snum" aria-hidden="true">01</span>
+        <div><h3>Ground &amp; brief</h3>
+        <p>We start where the building will stand: levels, soil, water table, the neighbours&rsquo; shade, the road&rsquo;s noise. The brief is written together, on site where possible.</p></div>
+      </li>
+      <li data-rv>
+        <span class="snum" aria-hidden="true">02</span>
+        <div><h3>Design</h3>
+        <p>Sketch plans, a massing model, then developed drawings. You watch the courtyard, the light and the costs take shape at every review.</p></div>
+      </li>
+      <li data-rv>
+        <span class="snum" aria-hidden="true">03</span>
+        <div><h3>Drawings &amp; approvals</h3>
+        <p>Municipal submission drawings, structural design and building approvals through Bharatpur Metropolitan City — handled in-house.</p></div>
+      </li>
+      <li data-rv>
+        <span class="snum" aria-hidden="true">04</span>
+        <div><h3>Cost &amp; contract</h3>
+        <p>Bills of quantities, contractor selection, and a contract that names its rates before the first brick is ordered.</p></div>
+      </li>
+      <li data-rv>
+        <span class="snum" aria-hidden="true">05</span>
+        <div><h3>Site</h3>
+        <p>We stay through construction — checking brick coursing, formwork, plaster samples and joinery until the keys change hands.</p></div>
+      </li>
+    </ol>
+    <p class="services-row" data-rv>Houses · Courtyards · Lodges · Commercial · Interiors · Site supervision</p>
+  </section>
+
+  <!-- Tharu relief divider · 2 of 2 -->
+  <div class="divider" aria-hidden="true">
+    <svg focusable="false">
+      <defs>
+        <pattern id="th2" width="36" height="30" patternUnits="userSpaceOnUse">
+          <path d="M2 28L18 8L34 28" fill="none" stroke="currentColor" stroke-width="2"/>
+          <path d="M11 28L18 19L25 28Z" fill="currentColor" opacity=".55"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="30" fill="url(#th2)"/>
+    </svg>
+  </div>
+
+  <!-- ================= 04 CONTACT ================= -->
+  <section id="contact" aria-labelledby="contact-h">
+    <!-- jaali screen at the process/contact seam -->
+    <div class="jaali jaali-2" aria-hidden="true">
+      <svg viewBox="0 0 384 288" focusable="false">
+        <defs>
+          <pattern id="jl2" width="48" height="48" patternUnits="userSpaceOnUse">
+            <path d="M0 0L48 48M48 0L0 48" stroke="currentColor" stroke-width="5"/>
+            <circle cx="24" cy="24" r="4.2" fill="currentColor"/>
+            <circle cx="0" cy="0" r="4.2" fill="currentColor"/><circle cx="48" cy="0" r="4.2" fill="currentColor"/>
+            <circle cx="0" cy="48" r="4.2" fill="currentColor"/><circle cx="48" cy="48" r="4.2" fill="currentColor"/>
+          </pattern>
+        </defs>
+        <rect x="12" y="12" width="360" height="264" fill="url(#jl2)"/>
+        <rect x="4" y="4" width="376" height="280" fill="none" stroke="currentColor" stroke-width="3"/>
+        <rect x="14" y="14" width="356" height="260" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      </svg>
+    </div>
+
+    <div class="contact-grid">
+      <div data-rv>
+        <p class="label">04 — Contact</p>
+        <h2 id="contact-h">Begin with a conversation.</h2>
+        <p class="note">Send a photo of your land, a plan you have inherited, a sketch on the back of a bill — whatever the idea looks like today. We reply fastest on Instagram.</p>
+        <ul class="c-list">
+          <li>
+            <span class="meta">Instagram</span>
+            <!-- SWAP: real Instagram handle -->
+            <a class="ig-link" href="https://www.instagram.com/habitatdesigns" rel="noopener">@habitatdesigns</a>
+          </li>
+          <li>
+            <span class="meta">Studio</span>
+            <address>Bharatpur, Chitwan, Nepal</address>
+          </li>
+          <li>
+            <span class="meta">Email</span>
+            <!-- SWAP: real email -->
+            <a href="mailto:studio@habitatdesigns.com.np">studio@habitatdesigns.com.np</a>
+          </li>
+          <li>
+            <span class="meta">Phone</span>
+            <!-- SWAP: real phone -->
+            <a href="tel:+97756591204">+977 56 591 204</a>
+          </li>
+        </ul>
+      </div>
+      <!-- the marigold sun returns, low over the river — and beneath it, the studio's real mark on its own green field -->
+      <div class="c-side" data-rv>
+      <svg class="c-sun" viewBox="0 0 360 300" aria-hidden="true" focusable="false">
+        <circle cx="180" cy="122" r="80" fill="#C9A14C"/>
+        <circle cx="180" cy="122" r="100" fill="none" stroke="#C9A14C" stroke-opacity=".4" stroke-width="2"/>
+        <path d="M0 204C90 192 180 216 270 204C320 198 348 206 360 202" stroke="#EFE2CC" stroke-width="2" fill="none" opacity=".5"/>
+        <path d="M0 232C120 220 220 244 360 228" stroke="#EFE2CC" stroke-width="1.5" fill="none" opacity=".3"/>
+        <rect x="140" y="210" width="80" height="3" fill="#C9A14C" opacity=".7"/>
+      </svg>
+      <img class="c-logo" src="../assets/img/logo.jpg" alt="Habitat Design Studio logo: a gold H-monogram drawn like a column inside geometric construction frames, on a deep green field" width="1600" height="1600" loading="lazy" decoding="async">
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- dogtooth course between contact and colophon -->
+<div class="dogtooth" aria-hidden="true">
+  <svg focusable="false">
+    <defs>
+      <pattern id="dt1" width="20" height="12" patternUnits="userSpaceOnUse">
+        <path d="M0 0H20L10 11Z" fill="currentColor"/>
+      </pattern>
+    </defs>
+    <rect width="100%" height="12" fill="url(#dt1)"/>
+  </svg>
+</div>
+
+<footer>
+  <div class="foot-grid">
+    <div>
+      <p class="meta">Habitat Design Studio</p>
+      <address>
+        <p>Architecture &amp; design<br>
+        Bharatpur Metropolitan City<br>
+        Chitwan, Bagmati Province, Nepal<br>
+        27.68° N, 84.43° E</p>
+      </address>
+    </div>
+    <div>
+      <p class="meta">Colophon</p>
+      <p>Set in Bricolage Grotesque and Crimson Pro; Devanagari in Mukta. Photographs are from the studio&rsquo;s built sites, renders from its boards — and one drawing is kept, because every building here begins as one.</p>
+    </div>
+    <div>
+      <p class="meta">In short</p>
+      <p>1 studio. 2 rivers within cycling distance. 0 mountain views — the Terai is flat, and we build for it.</p>
+    </div>
+  </div>
+  <div class="foot-base">
+    <p>&copy; 2026 Habitat Design Studio</p>
+    <p><a href="https://www.instagram.com/habitatdesigns" rel="noopener">Instagram</a> · <a href="mailto:studio@habitatdesigns.com.np">Email</a></p>
+    <p>Of brick and sun</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var rm = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  /* scroll-in reveals — progressive enhancement only */
+  if (!rm.matches && "IntersectionObserver" in window) {
+    var els = document.querySelectorAll("[data-rv]");
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.1, rootMargin: "0px 0px -5% 0px" });
+    Array.prototype.forEach.call(els, function(el){
+      el.classList.add("pre");
+      io.observe(el);
+    });
+  }
+
+  /* jaali screens drift at their own rate, like light moving across a lattice;
+     attach/detach tracks the user's reduced-motion preference live */
+  var jaalis = Array.prototype.slice.call(document.querySelectorAll(".jaali"));
+  if (jaalis.length) {
+    var ticking = false;
+    var move = function(){
+      ticking = false;
+      var vh = window.innerHeight || 1;
+      jaalis.forEach(function(el){
+        var svg = el.querySelector("svg");
+        if (!svg) return;
+        var r = el.getBoundingClientRect();
+        var mid = r.top + r.height / 2 - vh / 2;
+        var y = Math.max(-90, Math.min(90, mid * 0.09));
+        svg.style.transform = "translateY(" + y.toFixed(1) + "px)";
+      });
+    };
+    var onScroll = function(){
+      if (!ticking) { ticking = true; window.requestAnimationFrame(move); }
+    };
+    var attach = function(){
+      jaalis.forEach(function(el){
+        var svg = el.querySelector("svg");
+        if (svg) svg.style.willChange = "transform";
+      });
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", onScroll, { passive: true });
+      move();
+    };
+    var detach = function(){
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      ticking = false;
+      jaalis.forEach(function(el){
+        var svg = el.querySelector("svg");
+        if (svg) { svg.style.transform = ""; svg.style.willChange = ""; }
+      });
+    };
+    if (!rm.matches) attach();
+    var onPrefChange = function(e){ if (e.matches) { detach(); } else { attach(); } };
+    if (typeof rm.addEventListener === "function") {
+      rm.addEventListener("change", onPrefChange);
+    } else if (typeof rm.addListener === "function") {
+      rm.addListener(onPrefChange);
+    }
+  }
+})();
+</script>
+</body>
+</html>

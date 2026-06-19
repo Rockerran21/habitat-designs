@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Habitat Design Studio — Architecture, Bharatpur, Chitwan</title>
+<meta name="description" content="Habitat Design Studio is an architecture practice in Bharatpur, Chitwan, Nepal — raw, minimal buildings shaped by climate and the quiet logic of the landscape, carried from the first line on paper to the last poured slab.">
+<meta name="theme-color" content="#DCDAD5">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23131313'/%3E%3Cpath d='M14 14h36M14 32h36M14 50h36M22 14v36M42 14v36' stroke='%23DCDAD5' stroke-width='3'/%3E%3Crect x='42' y='14' width='8' height='18' fill='%23FF4D00'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Martian+Mono:wght@300;400&display=swap">
+<style>
+:root{
+  --bg:#DCDAD5;
+  --ink:#131313;
+  --acc:#FF4D00;
+  --ln:1px solid var(--ink);
+  --lw:clamp(96px,9vw,136px);   /* section label column */
+  --pw:380px;                    /* plate viewer column  */
+  --pad:clamp(16px,2.2vw,28px);
+  --sans:'Familjen Grotesk','Helvetica Neue',Arial,sans-serif;
+  --mono:'Martian Mono','SFMono-Regular',Consolas,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scrollbar-color:var(--ink) var(--bg)}
+body{
+  background:var(--bg);
+  background-image:radial-gradient(rgba(19,19,19,.05) 1px,transparent 1.1px);
+  background-size:7px 7px;
+  color:var(--ink);
+  font:500 16px/1.45 var(--sans);
+  overflow-x:clip;
+  -webkit-text-size-adjust:100%;
+}
+::selection{background:var(--acc);color:var(--ink)}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+::-webkit-scrollbar{width:10px;background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--ink)}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+.m{font-family:var(--mono);font-weight:400}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+.skip{position:absolute;left:-9999px;top:0;z-index:99;background:var(--ink);color:var(--bg);font:400 11px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;padding:12px 18px;text-decoration:none}
+.skip:focus{left:0}
+
+/* ---------- hazard stripe: used exactly once, page top ---------- */
+.hazard{height:9px;background:repeating-linear-gradient(135deg,var(--acc) 0 14px,var(--ink) 14px 28px);border-bottom:var(--ln)}
+
+/* ---------- band / cell scaffolding (the grid IS the building) ---------- */
+.band{position:relative;display:grid}
+.band::before{content:"";position:absolute;left:0;top:0;right:0;height:1px;background:var(--ink);z-index:3}
+.hd::before{display:none}
+.cell{position:relative}
+.tag{position:absolute;top:8px;right:10px;font:300 9px/1 var(--mono);letter-spacing:.2em;opacity:.7;pointer-events:none}
+
+/* ---------- header ---------- */
+.hd{grid-template-columns:auto 1fr auto;align-items:stretch}
+.brand{display:flex;flex-direction:column;justify-content:center;gap:4px;padding:16px var(--pad);text-decoration:none}
+.brand b{font:700 clamp(17px,1.6vw,21px)/1 var(--sans);letter-spacing:.02em;text-transform:uppercase}
+.brand span{font:300 9px/1 var(--mono);letter-spacing:.3em;text-transform:uppercase}
+.hd nav{display:flex;align-items:stretch;justify-content:flex-end;border-left:var(--ln)}
+.hd nav a{display:flex;align-items:center;padding:0 clamp(14px,2vw,26px);font:400 11px/1 var(--mono);letter-spacing:.28em;text-decoration:none;border-right:var(--ln);box-shadow:inset 0 -3px 0 var(--acc)}
+.hd nav a:last-child{border-right:0}
+.hd nav a:hover{background:var(--acc);color:var(--ink);box-shadow:none}
+.clock{display:flex;align-items:center;padding:0 var(--pad);font:300 10px/1.7 var(--mono);letter-spacing:.14em;border-left:var(--ln);text-transform:uppercase;white-space:nowrap}
+
+/* ---------- hero ---------- */
+.hero{grid-template-columns:clamp(64px,6vw,92px) 1fr clamp(280px,24vw,344px);min-height:88vh}
+.vtx{display:flex;align-items:center;justify-content:center;overflow:hidden}
+.vtx::after{content:"";position:absolute;top:0;right:0;bottom:0;width:1px;background:var(--ink)}
+.vtx span{writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap;font:700 clamp(30px,3.6vw,54px)/1 var(--sans);letter-spacing:.1em;text-transform:uppercase}
+.statement{display:flex;flex-direction:column;justify-content:flex-end;gap:clamp(20px,3vw,40px);padding:calc(var(--pad)*1.6) var(--pad) var(--pad)}
+h1{font:600 clamp(38px,5.6vw,92px)/0.98 var(--sans);letter-spacing:-.03em;max-width:14ch}
+.sub{font:400 clamp(9px,1vw,11px)/1.8 var(--mono);letter-spacing:.3em;text-transform:uppercase}
+.hcol{display:grid;grid-template-rows:1fr auto auto;border-left:var(--ln)}
+.hcol>.cell{padding:var(--pad)}
+.hcol>.cell+.cell{border-top:var(--ln)}
+.glyph{display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.ast{display:block;font:700 clamp(150px,17vw,250px)/0.9 var(--sans);color:var(--acc);margin:-.08em 0 -.46em -.04em;user-select:none}
+.glyph .note{font:300 9px/1.7 var(--mono);letter-spacing:.18em;text-transform:uppercase}
+.datum{font:300 10.5px/2 var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.golink{display:flex}
+.golink a{font:400 11px/1 var(--mono);letter-spacing:.28em;text-decoration:none;text-transform:uppercase;box-shadow:inset 0 -3px 0 var(--acc);padding-bottom:6px}
+.golink a:hover{background:var(--acc);box-shadow:none}
+
+/* ---------- marquee ---------- */
+.mqband{overflow:hidden}
+.mq{display:flex;width:max-content}
+.seg{display:inline-flex;align-items:center;gap:28px;padding:13px 0 13px 28px;font:300 10.5px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;white-space:nowrap}
+.bx{width:8px;height:8px;background:var(--ink);flex:none}
+
+/* ---------- shared section anatomy ---------- */
+.sec{grid-template-columns:var(--lw) 1fr}
+.label{border-right:var(--ln);padding:var(--pad) 16px;display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.num{font:700 clamp(56px,7vw,110px)/0.82 var(--sans);letter-spacing:-.04em;color:var(--acc)}
+.sec h2{font:400 11px/1.6 var(--mono);letter-spacing:.34em;text-transform:uppercase;writing-mode:vertical-rl;transform:rotate(180deg);margin-top:auto}
+.hint{font:300 8.5px/1.8 var(--mono);letter-spacing:.16em;opacity:.55;text-transform:uppercase;max-width:9em}
+
+/* ---------- 01 selected work : data table + plate viewer ---------- */
+.work{grid-template-columns:var(--lw) 1fr var(--pw)}
+.work>.cell:nth-child(2){position:static} /* plates must position against the band, not this column */
+.index{list-style:none;display:flex;flex-direction:column}
+.ihead{display:grid;grid-template-columns:5rem 1fr 10rem 9rem;gap:0 12px;padding:12px var(--pad);font:300 9px/1 var(--mono);letter-spacing:.24em;text-transform:uppercase;opacity:.7}
+.row{display:grid;grid-template-columns:5rem 1fr 10rem 9rem;gap:0 12px;align-items:center;padding:22px var(--pad);border-top:var(--ln);cursor:crosshair}
+.row:hover,.row:focus-within{background:var(--acc)}
+.row:focus-within{outline:2px solid var(--ink);outline-offset:-4px}
+.no{font:400 12px/1 var(--mono);letter-spacing:.1em;color:var(--ink)}
+.no::before,.sno::before{content:"";display:inline-block;width:8px;height:8px;background:var(--acc);margin-right:9px;vertical-align:baseline}
+.row:hover .no::before,.row:focus-within .no::before{background:var(--ink)}
+.nm{font:600 clamp(18px,1.8vw,24px)/1.1 var(--sans);letter-spacing:-.01em}
+.nm a{color:inherit;text-decoration:none}
+.nm a:focus-visible{outline:none}
+.ty,.st{font:300 10px/1.4 var(--mono);letter-spacing:.18em;text-transform:uppercase}
+.st::before{content:"";display:inline-block;width:8px;height:8px;border:1px solid currentColor;margin-right:9px;vertical-align:baseline}
+.st.done::before{background:currentColor}
+.viewer{border-left:var(--ln);min-height:560px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;padding:var(--pad)}
+.viewer svg{width:110px;height:110px}
+.viewer p{font:300 9.5px/2 var(--mono);letter-spacing:.24em;text-transform:uppercase;text-align:center;max-width:18em}
+.xh line{stroke:var(--ink);stroke-width:1;opacity:.6}
+.xh circle{stroke:var(--ink);stroke-width:1;fill:none;opacity:.6}
+.xh rect{fill:var(--acc)}
+.row figure{position:absolute;top:0;right:0;bottom:0;width:var(--pw);opacity:0;pointer-events:none;z-index:2;background:var(--bg);background-image:radial-gradient(rgba(19,19,19,.05) 1px,transparent 1.1px);background-size:7px 7px;border-left:var(--ln);display:flex;flex-direction:column;cursor:auto}
+.row:hover figure,.row:focus-within figure{opacity:1;pointer-events:auto}
+.row figcaption{border-top:var(--ln);padding:11px 14px;font:300 9px/1.7 var(--mono);letter-spacing:.14em;text-transform:uppercase}
+
+/* photographic plates — archival presentation */
+.ph{position:relative;flex:1;min-height:0;margin:8px;overflow:hidden;background:var(--ink);outline:1px solid var(--ink)}
+.ph img{width:100%;height:100%;object-fit:cover;transform:scale(1.06)}
+/* grayscale archive state; snaps to colour with the row — steps, no easing, per motion rules */
+.ph img{filter:grayscale(1)}
+.row:hover .ph img,.row:focus-within .ph img{filter:none}
+.pcode,.pnorth{position:absolute;top:10px;font:400 9.5px/1 var(--mono);letter-spacing:.14em;padding:5px 7px;pointer-events:none}
+.pcode{left:10px;background:var(--acc);color:var(--ink)}
+.pnorth{right:10px;background:var(--ink);color:var(--bg)}
+
+/* ---------- 02 studio ---------- */
+.studio{grid-template-columns:var(--lw) 1fr clamp(260px,24vw,340px)}
+.prose{padding:calc(var(--pad)*1.4) var(--pad);display:flex;flex-direction:column;gap:1.2em;max-width:62ch}
+.prose p{font:500 clamp(16px,1.5vw,20px)/1.55 var(--sans)}
+.prose .fine{font:300 10px/1.9 var(--mono);letter-spacing:.12em;text-transform:uppercase;opacity:.75;margin-top:auto;padding-top:1.4em}
+.constants{border-left:var(--ln);padding:var(--pad)}
+.constants h3{font:300 9px/1 var(--mono);letter-spacing:.26em;text-transform:uppercase;opacity:.7;margin-bottom:18px;font-weight:400}
+.constants dl{display:grid;grid-template-columns:auto 1fr;font:300 10px/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.constants dt,.constants dd{padding:9px 0;border-top:1px solid rgba(19,19,19,.4)}
+.constants dd{text-align:right}
+
+/* ---------- 03 services : numbered spec table ---------- */
+.spec{list-style:none}
+.srow{display:grid;grid-template-columns:6.5rem clamp(13rem,22vw,19rem) 1fr;gap:0 16px;padding:22px var(--pad);border-top:var(--ln);align-items:baseline}
+.srow:first-child{border-top:0}
+.sno{font:400 12px/1 var(--mono);letter-spacing:.12em;color:var(--ink)}
+.sname{font:600 clamp(17px,1.7vw,22px)/1.15 var(--sans)}
+.sscope{font:300 10.5px/1.9 var(--mono);letter-spacing:.1em;text-transform:uppercase;opacity:.85}
+
+/* ---------- 04 contact ---------- */
+.contact{grid-template-columns:var(--lw) 1fr}
+.cmain{display:grid;grid-template-columns:1.4fr 1fr}
+.cprime{padding:calc(var(--pad)*1.4) var(--pad);display:flex;flex-direction:column;gap:22px;align-items:flex-start}
+.cprime .lead{font:300 10px/1.8 var(--mono);letter-spacing:.28em;text-transform:uppercase}
+.ig{font:700 clamp(34px,5vw,76px)/1 var(--sans);letter-spacing:-.02em;text-decoration:none;box-shadow:inset 0 -6px 0 var(--acc);padding-bottom:8px;word-break:break-word}
+.ig:hover{background:var(--acc);box-shadow:none}
+.cnote{border-left:var(--ln);padding:calc(var(--pad)*1.4) var(--pad);display:flex;flex-direction:column;gap:18px}
+.cnote p{font:500 clamp(15px,1.4vw,18px)/1.5 var(--sans);max-width:30ch}
+.hours{font:300 9.5px/2 var(--mono);letter-spacing:.18em;text-transform:uppercase;opacity:.75;margin-top:auto}
+.chan{display:grid;grid-template-columns:auto 1fr;width:100%;font:300 11px/1.6 var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.chan dt,.chan dd{padding:13px 0;border-top:1px solid rgba(19,19,19,.4)}
+.chan dt{padding-right:28px;opacity:.7}
+.chan a{text-decoration:none;box-shadow:inset 0 -2px 0 var(--acc)}
+.chan a:hover{background:var(--acc);box-shadow:none}
+
+/* ---------- footer ---------- */
+.foot{grid-template-columns:1fr auto auto auto;align-items:stretch}
+.foot>div,.foot>a{padding:16px var(--pad);font:300 9px/1.8 var(--mono);letter-spacing:.18em;text-transform:uppercase;display:flex;align-items:center}
+.foot>*+*{border-left:var(--ln)}
+.foot a{text-decoration:none;box-shadow:inset 0 -2px 0 var(--acc)}
+.foot a:hover{background:var(--acc);box-shadow:none}
+
+/* ---------- scroll enhancement (JS adds .mjs only when motion allowed) ---------- */
+.mjs [data-io]{opacity:0}
+.mjs [data-io].inview{opacity:1}
+
+/* ---------- motion: blunt, mechanical, gated ---------- */
+@media (prefers-reduced-motion: no-preference){
+  .band::before{transform:scaleX(0);transform-origin:left;animation:drawx .5s linear forwards;animation-delay:calc(var(--i,0)*.1s)}
+  .vtx::after{transform:scaleY(0);transform-origin:top;animation:drawy .6s linear .35s forwards}
+  .rv{opacity:0;animation:snap .01s steps(1,end) forwards;animation-delay:var(--d,.5s)}
+  .mq{animation:slide 64s linear infinite}
+  @keyframes drawx{to{transform:scaleX(1)}}
+  @keyframes drawy{to{transform:scaleY(1)}}
+  @keyframes snap{to{opacity:1}}
+  @keyframes slide{to{transform:translateX(-50%)}}
+}
+
+/* ---------- responsive ---------- */
+@media (max-width:1240px){
+  :root{--pw:320px}
+}
+@media (max-width:980px){
+  .hero{grid-template-columns:1fr;min-height:0}
+  .vtx{order:3;border-top:var(--ln);padding:14px var(--pad);justify-content:flex-start}
+  .vtx::after{display:none}
+  .vtx span{writing-mode:horizontal-tb;transform:none;font-size:clamp(16px,5.2vw,28px);letter-spacing:.08em}
+  .statement{min-height:52vh}
+  .hcol{border-left:0;border-top:var(--ln);grid-template-rows:auto;grid-template-columns:1fr 1fr}
+  .hcol .golink{grid-column:1/-1;border-top:var(--ln)}
+  .hcol .datum{border-top:0;border-left:var(--ln)}
+  .work{grid-template-columns:1fr}
+  .sec{grid-template-columns:1fr}
+  .studio{grid-template-columns:1fr}
+  .contact{grid-template-columns:1fr}
+  .label{border-right:0;border-bottom:var(--ln);flex-direction:row;align-items:baseline;gap:22px}
+  .sec h2{writing-mode:horizontal-tb;transform:none;margin-top:0}
+  .hint{display:none}
+  .viewer{display:none}
+  .ihead{grid-template-columns:4rem 1fr}
+  .ihead span:nth-child(3),.ihead span:nth-child(4){display:none}
+  .row{grid-template-columns:4rem 1fr;grid-template-areas:"no nm" "no ty" "no st" "fig fig";row-gap:6px;cursor:auto}
+  .no{grid-area:no}.nm{grid-area:nm}.ty{grid-area:ty}.st{grid-area:st}
+  .row figure{grid-area:fig;position:static;width:auto;opacity:1;pointer-events:auto;border-left:0;border-top:var(--ln);margin:16px calc(var(--pad)*-1) calc(var(--pad)*-1 + 6px);background:transparent}
+  .row figure .ph{flex:none;aspect-ratio:3/2;margin:0;outline:0}
+  .row figure .ph img{filter:none} /* static presentation: full colour inline */
+  .constants{border-left:0;border-top:var(--ln)}
+  .cmain{grid-template-columns:1fr}
+  .cnote{border-left:0;border-top:var(--ln)}
+  .foot{grid-template-columns:1fr 1fr}
+  .foot>*{border-left:0!important;border-top:var(--ln)}
+  .foot>div:first-child{grid-column:1/-1;border-top:0}
+}
+/* touch devices at desktop widths: no hover — plates render inline, as at ≤980px */
+@media (hover:none) and (min-width:981px){
+  .work{grid-template-columns:var(--lw) 1fr}
+  .viewer{display:none}
+  .hint{display:none}
+  .row{cursor:auto}
+  .row figure{position:static;grid-column:1/-1;width:auto;opacity:1;pointer-events:auto;border-left:0;border-top:var(--ln);margin:16px calc(var(--pad)*-1) calc(var(--pad)*-1 + 6px);background:transparent}
+  .row figure .ph{flex:none;aspect-ratio:3/2;margin:0;outline:0}
+  .row figure .ph img{filter:none} /* touch presentation: full colour inline */
+}
+@media (max-width:640px){
+  .hd{grid-template-columns:1fr}
+  .hd nav{border-left:0;border-top:var(--ln);justify-content:flex-start}
+  .hd nav a{padding:14px 18px}
+  .clock{border-left:0;border-top:var(--ln);padding:12px var(--pad)}
+  .hcol{grid-template-columns:1fr}
+  .hcol .datum{border-left:0;border-top:var(--ln)}
+  .srow{grid-template-columns:1fr;gap:8px 0;padding:20px var(--pad)}
+  .row{padding:18px var(--pad)}
+  .foot{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- hazard stripe: the single permitted use of the diagonal motif -->
+<div class="hazard" aria-hidden="true"></div>
+
+<header class="band hd">
+  <a class="brand rv" style="--d:.45s" href="#top">
+    <b>Habitat</b>
+    <span>Design Studio</span>
+  </a>
+  <nav aria-label="Primary" class="rv" style="--d:.55s">
+    <a href="#work">Work</a>
+    <a href="#studio">Studio</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="clock rv" style="--d:.65s">Bharatpur — <span id="npt">UTC +05:45</span></div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="band hero" style="--i:1" aria-label="Studio statement">
+    <div class="cell vtx rv" style="--d:.5s" aria-hidden="true"><span>Architecture — Chitwan</span></div>
+    <div class="cell statement">
+      <span class="tag" aria-hidden="true">CELL A.01 — STATEMENT</span>
+      <h1 class="rv" style="--d:.6s">Habitat Design Studio takes a building from the first line on paper to the last poured slab.</h1>
+      <p class="sub rv" style="--d:.75s">Architecture &amp; design studio — Bharatpur, Chitwan, Nepal</p>
+    </div>
+    <div class="hcol">
+      <div class="cell glyph rv" style="--d:.85s">
+        <span class="tag" aria-hidden="true">A.02 — MARK</span>
+        <span class="ast" aria-hidden="true">*</span>
+        <span class="note">* Site marked — work proceeds</span>
+      </div>
+      <div class="cell datum rv" style="--d:.95s">
+        <span class="tag" aria-hidden="true">A.03 — DATUM</span>
+        LAT 27.6788° N<br>
+        LNG 84.4310° E<br>
+        ELEV +208 M ASL<br>
+        Bharatpur · Chitwan · Nepal
+      </div>
+      <div class="cell golink rv" style="--d:1.05s"><a href="#work">Index of work ↓</a></div>
+    </div>
+  </section>
+
+  <!-- ============ FACTS MARQUEE ============ -->
+  <div class="band mqband" style="--i:2">
+    <p class="mq">
+      <span class="seg">Inner Terai floodplain<b class="bx"></b>27.6788° N — 84.4310° E<b class="bx"></b>Elev. +208 m<b class="bx"></b>Monsoon Jun–Sep<b class="bx"></b>≈2,000 mm rain a year<b class="bx"></b>Pre-monsoon 38 °C<b class="bx"></b>Sal · brick · concrete<b class="bx"></b>NBC 105 seismic detailing<b class="bx"></b>Naksa to handover<b class="bx"></b>Bharatpur Metropolitan City<b class="bx"></b></span>
+      <span class="seg" aria-hidden="true">Inner Terai floodplain<b class="bx"></b>27.6788° N — 84.4310° E<b class="bx"></b>Elev. +208 m<b class="bx"></b>Monsoon Jun–Sep<b class="bx"></b>≈2,000 mm rain a year<b class="bx"></b>Pre-monsoon 38 °C<b class="bx"></b>Sal · brick · concrete<b class="bx"></b>NBC 105 seismic detailing<b class="bx"></b>Naksa to handover<b class="bx"></b>Bharatpur Metropolitan City<b class="bx"></b></span>
+    </p>
+  </div>
+
+  <!-- ============ 01 SELECTED WORK ============ -->
+  <section id="work" class="band sec work" style="--i:3" aria-labelledby="h-work">
+    <div class="cell label" data-io>
+      <span class="num" aria-hidden="true">01</span>
+      <h2 id="h-work">Selected Work</h2>
+      <span class="hint" aria-hidden="true">Hover or tab a row — its plate loads right</span>
+    </div>
+    <div class="cell">
+      <p class="sr">Focus or hover a project row to view its plate. Built work appears as site photographs; design and concept work as studio renders.</p>
+      <div class="ihead"><span>No.</span><span>Project</span><span>Typology</span><span>Status</span></div>
+      <ul class="index">
+
+        <li class="row">
+          <span class="no">003</span>
+          <span class="nm"><a href="#contact" aria-label="Enquire about Bagar Restaurant">Bagar Restaurant</a></span>
+          <span class="ty">Restaurant</span>
+          <span class="st done">Built</span>
+          <figure>
+            <div class="ph">
+              <img src="../assets/img/bagar-01.jpg" alt="Bagar Restaurant on its natural riverbank — raw log columns with hand-sculpted organic capitals rising from a river-stone plinth" width="1600" height="1586" loading="lazy" decoding="async">
+              <span class="pcode" aria-hidden="true">PL.003 — 1:500</span>
+              <span class="pnorth" aria-hidden="true">↑ N</span>
+            </div>
+            <figcaption>Plate 003 — Bagar Restaurant · log columns, river-stone plinth · site photograph</figcaption>
+          </figure>
+        </li>
+
+        <li class="row">
+          <span class="no">008</span>
+          <span class="nm"><a href="#contact" aria-label="Enquire about Kinar Restaurant">Kinar Restaurant</a></span>
+          <span class="ty">Restaurant</span>
+          <span class="st done">Built</span>
+          <figure>
+            <div class="ph">
+              <img src="../assets/img/kinar-01.jpg" alt="Kinar Restaurant at dusk — terraced stone base hugging the slope, curved deck edge and rooftop pavilions in warm light" width="1600" height="1593" loading="lazy" decoding="async">
+              <span class="pcode" aria-hidden="true">PL.008 — 1:500</span>
+              <span class="pnorth" aria-hidden="true">↑ N</span>
+            </div>
+            <figcaption>Plate 008 — Kinar Restaurant · stone terraces at dusk · site photograph</figcaption>
+          </figure>
+        </li>
+
+        <li class="row">
+          <span class="no">012</span>
+          <span class="nm"><a href="#contact" aria-label="Enquire about Himalchuli Nature Farmstay">Himalchuli Nature Farmstay</a></span>
+          <span class="ty">Farmstay</span>
+          <span class="st done">Built</span>
+          <figure>
+            <div class="ph">
+              <img src="../assets/img/himalchuli-01.jpg" alt="Himalchuli Nature Farmstay — tiered clay-tile roofs almost disappearing into dense sal forest" width="1600" height="1593" loading="lazy" decoding="async">
+              <span class="pcode" aria-hidden="true">PL.012 — 1:500</span>
+              <span class="pnorth" aria-hidden="true">↑ N</span>
+            </div>
+            <figcaption>Plate 012 — Himalchuli Nature Farmstay · roofs in sal forest · site photograph</figcaption>
+          </figure>
+        </li>
+
+        <li class="row">
+          <span class="no">017</span>
+          <span class="nm"><a href="#contact" aria-label="Enquire about NP Residence">NP Residence</a></span>
+          <span class="ty">Residence</span>
+          <span class="st">Design</span>
+          <figure>
+            <div class="ph">
+              <img src="../assets/img/np-residence-01.jpg" alt="NP Residence, Chitwan — courtyard render with perforated timber jaali screen wall, arched plaster niches and internal garden" width="1446" height="1600" loading="lazy" decoding="async">
+              <span class="pcode" aria-hidden="true">PL.017 — 1:500</span>
+              <span class="pnorth" aria-hidden="true">↑ N</span>
+            </div>
+            <figcaption>Plate 017 — NP Residence, Chitwan · courtyard, timber jaali wall · studio render</figcaption>
+          </figure>
+        </li>
+
+        <li class="row">
+          <span class="no">021</span>
+          <span class="nm"><a href="#contact" aria-label="Enquire about House 02">House 02</a></span>
+          <span class="ty">Residence</span>
+          <span class="st">Design</span>
+          <figure>
+            <div class="ph">
+              <img src="../assets/img/house02-01.jpg" alt="House 02 — courtyard interior render with warm timber ceilings, slat screens and a stone feature wall" width="1600" height="1598" loading="lazy" decoding="async">
+              <span class="pcode" aria-hidden="true">PL.021 — 1:500</span>
+              <span class="pnorth" aria-hidden="true">↑ N</span>
+            </div>
+            <figcaption>Plate 021 — House 02 · courtyard, timber and stone · studio render</figcaption>
+          </figure>
+        </li>
+
+        <li class="row">
+          <span class="no">024</span>
+          <span class="nm"><a href="#contact" aria-label="Enquire about Wilderness">Wilderness</a></span>
+          <span class="ty">Pavilion</span>
+          <span class="st">Concept</span>
+          <figure>
+            <div class="ph">
+              <img src="../assets/img/wilderness-01.jpg" alt="Wilderness pavilion concept — organic thatch roof melting into open grassland scattered with rocks and wildlife" width="1600" height="921" loading="lazy" decoding="async">
+              <span class="pcode" aria-hidden="true">PL.024 — 1:500</span>
+              <span class="pnorth" aria-hidden="true">↑ N</span>
+            </div>
+            <figcaption>Plate 024 — Wilderness · thatch pavilion in grassland · concept render</figcaption>
+          </figure>
+        </li>
+
+      </ul>
+    </div>
+    <div class="cell viewer" aria-hidden="true">
+      <svg class="xh" viewBox="0 0 120 120" focusable="false">
+        <line x1="60" y1="6" x2="60" y2="114"/>
+        <line x1="6" y1="60" x2="114" y2="60"/>
+        <circle cx="60" cy="60" r="27"/>
+        <rect x="56" y="56" width="8" height="8"/>
+      </svg>
+      <p>Plate viewer — hover or tab the index. Built work filed as site photographs, current work as renders.</p>
+    </div>
+  </section>
+
+  <!-- ============ 02 STUDIO ============ -->
+  <section id="studio" class="band sec studio" style="--i:4" aria-labelledby="h-studio">
+    <div class="cell label" data-io>
+      <span class="num" aria-hidden="true">02</span>
+      <h2 id="h-studio">Studio</h2>
+    </div>
+    <div class="cell prose" data-io>
+      <span class="tag" aria-hidden="true">CELL B.02 — TEXT</span>
+      <p>The studio works raw and minimal where the Terai is hottest and wettest. Architecture here is shaped by climate, connectivity and the quiet logic of the landscape — built with minimal intervention, its comfort drawn from light, materials, proportion and airflow. What a site already holds is integrated, not erased: at Bagar the riverbank stayed a riverbank, river stones in the plinth, raw log columns carrying hand-sculpted capitals.</p>
+      <p>A project runs as one unbroken line through this office — survey, sketch, municipal naksa drawings, structural coordination to NBC&nbsp;105, tender, then weekly site supervision until handover. The client who arrives with an idea leaves with a building, and the same hands hold the file from first meeting to final defect list.</p>
+      <p class="fine">Every plate on this page is a real project of the studio — built work shot on site, design and concept work shown as studio renders.</p>
+    </div>
+    <div class="cell constants" data-io>
+      <h3>Site constants — Inner Terai</h3>
+      <dl>
+        <dt>Rain</dt><dd>≈ 2,000 mm / yr</dd>
+        <dt>Monsoon</dt><dd>Jun — Sep</dd>
+        <dt>Pre-monsoon</dt><dd>max 38 °C</dd>
+        <dt>Winter</dt><dd>min 8 °C</dd>
+        <dt>Soil</dt><dd>Narayani alluvium</dd>
+        <dt>Code</dt><dd>NBC 105 : 2020</dd>
+        <dt>Brick</dt><dd>Chitwan kilns</dd>
+        <dt>Timber</dt><dd>Sal · Sisau</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ============ 03 SERVICES ============ -->
+  <section id="services" class="band sec" style="--i:5" aria-labelledby="h-services">
+    <div class="cell label" data-io>
+      <span class="num" aria-hidden="true">03</span>
+      <h2 id="h-services">Services</h2>
+    </div>
+    <div class="cell">
+      <ul class="spec" data-io>
+        <li class="srow">
+          <span class="sno">03.1</span>
+          <span class="sname">Site &amp; feasibility</span>
+          <span class="sscope">Survey review · flood and sun mapping · massing options · cost band</span>
+        </li>
+        <li class="srow">
+          <span class="sno">03.2</span>
+          <span class="sname">Architecture</span>
+          <span class="sscope">Concept through construction drawings · details issued for site, not for show</span>
+        </li>
+        <li class="srow">
+          <span class="sno">03.3</span>
+          <span class="sname">Municipal approval</span>
+          <span class="sscope">Naksa pass documentation and follow-through · Bharatpur Metropolitan City · Ratnanagar</span>
+        </li>
+        <li class="srow">
+          <span class="sno">03.4</span>
+          <span class="sname">Structure &amp; services</span>
+          <span class="sscope">RCC frame coordination to NBC 105 · water, septic and electrical layouts</span>
+        </li>
+        <li class="srow">
+          <span class="sno">03.5</span>
+          <span class="sname">Interiors</span>
+          <span class="sscope">Built-in joinery · material schedules · fabricator drawings — sal, sisau, terrazzo, brick</span>
+        </li>
+        <li class="srow">
+          <span class="sno">03.6</span>
+          <span class="sname">Site supervision</span>
+          <span class="sscope">Weekly instructions · checks at every pour · a snag list closed before handover</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 04 CONTACT ============ -->
+  <section id="contact" class="band sec contact" style="--i:6" aria-labelledby="h-contact">
+    <div class="cell label" data-io>
+      <span class="num" aria-hidden="true">04</span>
+      <h2 id="h-contact">Contact</h2>
+    </div>
+    <div class="cmain" data-io>
+      <div class="cell cprime">
+        <span class="tag" aria-hidden="true">CELL D.01 — CHANNELS</span>
+        <p class="lead">Most days we answer first on Instagram</p>
+        <!-- SWAP: real Instagram handle -->
+        <a class="ig" href="https://instagram.com/habitatdesigns" rel="noopener">@habitatdesigns</a>
+        <dl class="chan">
+          <dt>Site</dt><dd>Bharatpur, Chitwan, Nepal</dd>
+          <!-- SWAP: real email -->
+          <dt>Mail</dt><dd><a href="mailto:studio@habitatdesigns.com.np">studio@habitatdesigns.com.np</a></dd>
+          <!-- SWAP: real phone -->
+          <dt>Tel</dt><dd><a href="tel:+97756591204">+977 56 591 204</a></dd>
+        </dl>
+      </div>
+      <div class="cell cnote">
+        <span class="tag" aria-hidden="true">D.02 — NOTE</span>
+        <p>Site progress is posted as it happens; a message there reaches the drawing board the same day.</p>
+        <p>For a first meeting, a plot number and a rough idea are enough. Bring the land; we bring the line.</p>
+        <p class="hours">Sun–Fri 10:00–18:00 NPT — Saturday closed</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="band foot" style="--i:7">
+  <div>© 2026 Habitat Design Studio — Bharatpur, Chitwan, Nepal</div>
+  <div>Set in Familjen Grotesk &amp; Martian Mono</div>
+  <div>06 plates · 02 rivers · 01 grid</div>
+  <a href="#top">↑ Index</a>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  /* Nepal time readout — progressive enhancement; static "+05:45" stands without JS */
+  var el=document.getElementById('npt');
+  if(el){
+    try{
+      var f=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Kathmandu',hour:'2-digit',minute:'2-digit',hour12:false});
+      /* re-arm on the minute so the readout never lags the clock */
+      var tick=function(){
+        el.textContent=f.format(new Date())+' NPT';
+        setTimeout(tick,60000-(Date.now()%60000)+60);
+      };
+      tick();
+    }catch(e){/* keep static offset */}
+  }
+  /* Scroll reveal — only when motion is permitted; page is complete without it */
+  if(window.matchMedia&&!matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver' in window){
+    document.documentElement.classList.add('mjs');
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){en.target.classList.add('inview');io.unobserve(en.target);}
+      });
+    },{rootMargin:'0px 0px -8% 0px'});
+    var nodes=document.querySelectorAll('[data-io]');
+    for(var i=0;i<nodes.length;i++){io.observe(nodes[i]);}
+  }
+})();
+</script>
+</body>
+</html>
