@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Habitat Design Studio — Architecture &amp; hospitality, Bharatpur, Chitwan</title>
+<meta name="description" content="Habitat Design Studio is an architecture practice in Bharatpur, Chitwan that builds the way Nepal hosts — farmstays, riverside restaurants and courtyard houses shaped by climate, materials, light and airflow.">
+<meta name="theme-color" content="#F5F4E9">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23F5F4E9'/%3E%3Cg fill='%23D56750'%3E%3Ccircle cx='32' cy='18' r='4'/%3E%3Ccircle cx='32' cy='46' r='4'/%3E%3Ccircle cx='18' cy='32' r='4'/%3E%3Ccircle cx='46' cy='32' r='4'/%3E%3Ccircle cx='32' cy='32' r='5.5'/%3E%3C/g%3E%3Cg fill='%23734531'%3E%3Ccircle cx='22' cy='22' r='2.4'/%3E%3Ccircle cx='42' cy='22' r='2.4'/%3E%3Ccircle cx='22' cy='42' r='2.4'/%3E%3Ccircle cx='42' cy='42' r='2.4'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&family=Montagu+Slab:opsz,wght@16..144,300&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   AFTER ILĀ — Habitat Design Studio
+   A practice that builds the way Nepal hosts.
+   Ground: warm cream / parchment. Accent: clay terracotta.
+   One grounding cocoa section. Display: Montagu Slab 300 in
+   warm browns. Body: Inter 300 / lead 500.
+   ============================================================ */
+:root{
+  --cream:#F5F4E9;
+  --parchment:#F0EFDE;
+  --parchment-2:#EDEBD7;
+  --terra:#D56750;        /* clay accent / hero seam / one band  */
+  --terra-d:#D15940;      /* terracotta hover                    */
+  --terra-link:#A8412B;   /* deepened clay — small text on cream AA (5.5:1) */
+  --cocoa:#734531;        /* grounding band + footer             */
+  --cocoa-d:#653C2B;
+  --brown:#734437;        /* heading + link brown                */
+  --taupe:#5E5149;        /* display headings / lead             */
+  --body:#484546;         /* body text on light                  */
+  --ink-on-terra:#2A1A12; /* dark text on the terracotta band (4.69:1) */
+  --cream-on-dark:#F5F4E9;/* light text on cocoa (7.24:1)        */
+  --offwhite:#E9E9E9;     /* light meta text on cocoa (6.59:1)   */
+  --hair:rgba(72,69,70,.16);
+  --hair-faint:rgba(72,69,70,.08);
+  --pad:clamp(1.3rem,5vw,5.5rem);
+  --df:'Montagu Slab',Georgia,'Times New Roman',serif;
+  --sf:'Inter',system-ui,-apple-system,sans-serif;
+  --maxw:1500px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--cream);
+  color:var(--body);
+  font-family:var(--sf);
+  font-weight:300;
+  font-size:clamp(1rem,.96rem + .25vw,1.1rem);
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:clip;
+}
+::selection{background:var(--terra);color:var(--cream)}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--terra-link);outline-offset:3px;border-radius:1px}
+h1,h2,h3{font-family:var(--df);font-weight:300;line-height:1.12;letter-spacing:-.005em}
+
+.visually-hidden{
+  position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;
+}
+.skip{
+  position:absolute;left:-999px;top:0;z-index:200;
+  background:var(--cocoa);color:var(--cream);
+  padding:.7rem 1.2rem;text-decoration:none;
+  font-family:var(--sf);font-weight:500;font-size:.85rem;letter-spacing:.04em;
+}
+.skip:focus{left:1rem;top:1rem}
+
+.wrap{max-width:var(--maxw);margin-inline:auto}
+
+/* shared small caps label */
+.kicker{
+  font-family:var(--sf);font-weight:500;font-size:.7rem;
+  letter-spacing:.32em;text-transform:uppercase;color:var(--terra-link);
+}
+.eyebrow-num{
+  font-family:var(--sf);font-weight:500;font-size:.7rem;letter-spacing:.3em;
+  text-transform:uppercase;
+}
+
+/* arrow-tailed text link */
+.arrow-link{
+  display:inline-flex;align-items:center;gap:.5em;
+  font-family:var(--sf);font-weight:500;font-size:.82rem;
+  letter-spacing:.16em;text-transform:uppercase;text-decoration:none;
+  color:var(--terra-link);
+  padding-bottom:.18em;border-bottom:1px solid currentColor;
+  transition:gap .35s cubic-bezier(.2,.7,.3,1),color .3s ease;
+  width:max-content;
+}
+.arrow-link svg{flex:none;transition:transform .35s cubic-bezier(.2,.7,.3,1)}
+.arrow-link:hover{color:var(--brown)}
+
+/* radial circle-fill button */
+.btn{
+  position:relative;isolation:isolate;overflow:hidden;
+  display:inline-flex;align-items:center;gap:.7em;
+  font-family:var(--sf);font-weight:500;font-size:.85rem;
+  letter-spacing:.12em;text-transform:uppercase;text-decoration:none;
+  color:var(--cream);background:var(--cocoa);
+  padding:1rem 1.7rem;border:1px solid var(--cocoa);border-radius:2px;
+  transition:color .4s ease;
+}
+.btn::before{
+  content:"";position:absolute;z-index:-1;left:50%;bottom:-30%;
+  width:140%;aspect-ratio:1;border-radius:50%;
+  background:var(--terra);transform:translateX(-50%) scale(0);transform-origin:center;
+  transition:transform .55s cubic-bezier(.3,.7,.25,1);
+}
+.btn svg{flex:none;transition:transform .4s cubic-bezier(.2,.7,.3,1)}
+
+/* ---------------------------------------------------------------
+   HEADER
+   --------------------------------------------------------------- */
+.site-head{
+  position:relative;z-index:30;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:1.2rem var(--pad);
+}
+.brand{display:flex;align-items:baseline;gap:.6rem;text-decoration:none;color:var(--taupe)}
+.brand .mark{
+  font-family:var(--df);font-weight:300;font-size:1.45rem;letter-spacing:.01em;
+  color:var(--brown);line-height:1;
+}
+.brand .sub{
+  font-family:var(--sf);font-weight:500;font-size:.6rem;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--taupe);white-space:nowrap;
+}
+.site-head nav ul{display:flex;gap:clamp(1rem,3vw,2.3rem);list-style:none}
+.site-head nav a{
+  font-family:var(--sf);font-weight:500;font-size:.74rem;letter-spacing:.18em;
+  text-transform:uppercase;text-decoration:none;color:var(--taupe);
+  position:relative;padding-bottom:.25rem;
+}
+.site-head nav a::after{
+  content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;
+  background:var(--terra);transform:scaleX(0);transform-origin:left;
+  transition:transform .4s cubic-bezier(.2,.7,.3,1);
+}
+.site-head nav a:hover{color:var(--brown)}
+.site-head nav a:hover::after{transform:scaleX(1)}
+
+/* ---------------------------------------------------------------
+   HERO — the hard split-field
+   --------------------------------------------------------------- */
+.hero{position:relative;overflow:hidden}
+/* the seam: cream left, terracotta right */
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:0;
+  background:linear-gradient(to right,var(--cream) 0 55%,var(--terra) 55% 100%);
+}
+.hero-inner{
+  position:relative;z-index:2;max-width:var(--maxw);margin-inline:auto;
+  display:grid;grid-template-columns:minmax(0,1.18fr) minmax(0,1fr);
+  align-items:center;
+  min-height:clamp(560px,78vh,820px);
+}
+.hero-copy{
+  padding:clamp(2rem,5vw,4rem) clamp(1.3rem,4vw,4rem) clamp(3rem,6vw,5rem) var(--pad);
+  max-width:40rem;
+}
+.hero-copy .kicker{display:flex;align-items:center;gap:.85rem;margin-bottom:1.7rem}
+.hero h1{
+  font-size:clamp(2.5rem,1.4rem + 4.6vw,5.4rem);
+  line-height:1.06;letter-spacing:-.015em;color:var(--taupe);
+  max-width:16ch;
+}
+.hero h1 em{font-style:normal;color:var(--terra-link)}
+.hero .lead{
+  margin-top:1.7rem;max-width:42ch;
+  font-family:var(--sf);font-weight:500;
+  font-size:clamp(1.08rem,1rem + .55vw,1.4rem);line-height:1.5;color:var(--taupe);
+}
+.hero .undertext{
+  margin-top:1.3rem;max-width:46ch;font-weight:300;
+  font-size:1.02rem;color:var(--body);
+}
+.hero-actions{margin-top:2.2rem;display:flex;flex-wrap:wrap;gap:1.5rem 2.2rem;align-items:center}
+
+/* the photo bridging the seam */
+.hero-media{
+  position:relative;
+  align-self:stretch;display:flex;align-items:center;
+  padding:clamp(2rem,5vw,4.5rem) var(--pad) clamp(2rem,5vw,4.5rem) 0;
+}
+.hero-photo{
+  position:relative;
+  /* pull left so it overlaps the cream field, across the seam */
+  margin-left:clamp(-7rem,-9vw,-3rem);
+  width:100%;max-width:560px;
+  box-shadow:0 40px 80px -36px rgba(60,30,18,.55),0 12px 30px -18px rgba(60,30,18,.4);
+  background:#3a241a;
+}
+.hero-photo .frame{position:relative;overflow:hidden;aspect-ratio:4/5}
+.hero-photo .frame img{
+  width:100%;height:100%;object-fit:cover;transform:scale(1.04);
+}
+.hero-photo figcaption{
+  position:absolute;left:0;bottom:0;right:0;
+  padding:1.4rem 1.3rem .9rem;
+  background:linear-gradient(to top,rgba(36,18,10,.82),rgba(36,18,10,0));
+  font-family:var(--sf);font-weight:500;font-size:.66rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--cream);
+}
+.hero-photo figcaption span{display:block;font-weight:300;letter-spacing:.04em;
+  text-transform:none;font-size:.84rem;margin-top:.25rem;color:rgba(245,244,233,.86)}
+/* a quiet dot-motif at the right edge of the terracotta field */
+.hero-motif{
+  position:absolute;z-index:1;right:clamp(.5rem,2vw,2.5rem);
+  top:50%;transform:translateY(-50%);
+  width:clamp(60px,9vw,120px);height:auto;color:var(--cream);opacity:.5;
+  pointer-events:none;
+}
+
+/* ---------------------------------------------------------------
+   PLACES — stacked real place-names
+   --------------------------------------------------------------- */
+.places{
+  padding:clamp(3.2rem,8vw,6rem) var(--pad);
+  background:var(--parchment);
+  border-top:1px solid var(--hair-faint);
+}
+.places-inner{
+  max-width:var(--maxw);margin-inline:auto;
+  display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);
+  gap:clamp(1.5rem,4vw,3.5rem);align-items:start;
+}
+.places-aside .kicker{margin-bottom:1.2rem}
+.places-aside p{max-width:34ch;color:var(--body)}
+.places-aside .lead-line{
+  font-family:var(--df);font-weight:300;font-size:clamp(1.5rem,1.1rem+1.6vw,2.3rem);
+  line-height:1.18;color:var(--taupe);max-width:18ch;margin-bottom:1.1rem;
+}
+.namestack{list-style:none}
+.namestack li{
+  font-family:var(--df);font-weight:300;
+  font-size:clamp(2.1rem,1rem + 6vw,5.2rem);
+  line-height:1.04;letter-spacing:.01em;color:var(--taupe);
+  display:flex;align-items:baseline;gap:.6rem;
+  opacity:.42;transition:opacity .4s ease,color .4s ease;
+}
+.namestack li .gloss{
+  font-family:var(--sf);font-weight:500;font-size:.66rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--taupe);opacity:.8;
+  align-self:center;
+}
+.namestack li.active{color:var(--terra-link);opacity:1}
+.namestack li:hover{opacity:.85}
+.namestack li.active:hover{opacity:1}
+
+/* ---------------------------------------------------------------
+   WORK — earthy band rhythm: white → cream → terracotta → cocoa
+   --------------------------------------------------------------- */
+.work-intro{
+  padding:clamp(3.5rem,8vw,6.5rem) var(--pad) clamp(2.5rem,5vw,3.5rem);
+  background:#fff;
+}
+.work-intro .inner{
+  max-width:var(--maxw);margin-inline:auto;
+  display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);
+  gap:clamp(1rem,4vw,3rem);align-items:end;
+}
+.work-intro .kicker{margin-bottom:1rem}
+.work-intro h2{
+  font-size:clamp(1.9rem,1.3rem + 2.6vw,3.4rem);color:var(--brown);
+  max-width:20ch;
+}
+.work-intro p{margin-top:1rem;max-width:48ch;color:var(--body)}
+
+.band{position:relative;padding:clamp(3rem,7vw,6rem) var(--pad)}
+.band .band-grid{
+  max-width:var(--maxw);margin-inline:auto;
+  display:grid;grid-template-columns:repeat(12,minmax(0,1fr));
+  gap:clamp(1.5rem,4vw,4rem);align-items:center;
+}
+.band--white{background:#fff}
+.band--cream{background:var(--cream)}
+.band--terra{background:var(--terra)}
+.band--cocoa{background:var(--cocoa)}
+
+/* media (figure/frame) */
+.band figure{position:relative}
+.band .frame{
+  position:relative;overflow:hidden;background:#2a1a12;
+  box-shadow:0 30px 60px -34px rgba(40,20,12,.5);
+}
+.band .frame img{
+  width:100%;height:100%;object-fit:cover;transform:scale(1.04);
+  transition:transform .9s cubic-bezier(.2,.7,.3,1);
+}
+@media (hover:hover){.band figure:hover .frame img{transform:scale(1.075)}}
+.band figcaption{
+  margin-top:.85rem;
+  font-family:var(--sf);font-weight:500;font-size:.66rem;letter-spacing:.2em;
+  text-transform:uppercase;
+}
+
+/* layout: alternate which side the media sits */
+.band--imgL figure{grid-column:1/7}
+.band--imgL .band-txt{grid-column:8/13}
+.band--imgR figure{grid-column:7/13;grid-row:1}
+.band--imgR .band-txt{grid-column:1/6;grid-row:1}
+
+.band-txt .pmeta{
+  display:flex;flex-wrap:wrap;gap:.4rem 1rem;align-items:baseline;margin-bottom:1rem;
+}
+.band-txt .pnum{
+  font-family:var(--sf);font-weight:500;font-size:.72rem;letter-spacing:.3em;
+}
+.band-txt .pstatus{
+  font-family:var(--sf);font-weight:500;font-size:.66rem;letter-spacing:.22em;
+  text-transform:uppercase;
+  padding:.25rem .6rem;border:1px solid currentColor;border-radius:100px;
+}
+.band-txt h3{font-size:clamp(1.7rem,1.2rem + 1.9vw,2.8rem);line-height:1.08;max-width:15ch}
+.band-txt .pdesc{margin-top:1.1rem;max-width:42ch;font-size:1.04rem}
+.band-txt .pwhere{
+  margin-top:.65rem;font-family:var(--sf);font-weight:500;font-size:.72rem;
+  letter-spacing:.18em;text-transform:uppercase;
+}
+.band-txt .arrow-link{margin-top:1.6rem}
+
+/* --- WHITE band: dark text --- */
+.band--white .pnum{color:var(--terra-link)}
+.band--white .pstatus{color:var(--brown)}
+.band--white h3{color:var(--brown)}
+.band--white .pdesc{color:var(--body)}
+.band--white .pwhere{color:var(--taupe)}
+.band--white figcaption{color:var(--taupe)}
+
+/* --- CREAM band: dark text --- */
+.band--cream .pnum{color:var(--terra-link)}
+.band--cream .pstatus{color:var(--brown)}
+.band--cream h3{color:var(--brown)}
+.band--cream .pdesc{color:var(--body)}
+.band--cream .pwhere{color:var(--taupe)}
+.band--cream figcaption{color:var(--taupe)}
+
+/* --- TERRACOTTA band: DARK text (light text fails AA here) --- */
+.band--terra .pnum{color:var(--ink-on-terra)}
+.band--terra .pstatus{color:var(--ink-on-terra)}
+.band--terra h3{color:var(--ink-on-terra)}
+.band--terra .pdesc{color:var(--ink-on-terra)}
+.band--terra .pwhere{color:var(--ink-on-terra)}
+.band--terra figcaption{color:var(--ink-on-terra)}
+.band--terra .arrow-link{color:var(--ink-on-terra)}
+.band--terra .arrow-link:hover{color:var(--cocoa)}
+
+/* --- COCOA band: light text --- */
+.band--cocoa .pnum{color:var(--terra-d)}
+.band--cocoa .pstatus{color:var(--offwhite)}
+.band--cocoa h3{color:var(--cream)}
+.band--cocoa .pdesc{color:var(--cream-on-dark)}
+.band--cocoa .pwhere{color:var(--offwhite)}
+.band--cocoa figcaption{color:var(--offwhite)}
+.band--cocoa .arrow-link{color:var(--cream)}
+.band--cocoa .arrow-link:hover{color:var(--terra-d)}
+
+/* ---------------------------------------------------------------
+   STUDIO / ETHOS
+   --------------------------------------------------------------- */
+.studio{
+  background:var(--parchment);
+  padding:clamp(3.5rem,8vw,6.5rem) var(--pad);
+}
+.studio-inner{
+  max-width:var(--maxw);margin-inline:auto;
+  display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);
+  gap:clamp(2rem,5vw,4.5rem);align-items:start;
+}
+.studio .kicker{margin-bottom:1.4rem}
+.studio h2{
+  font-size:clamp(2rem,1.4rem + 3vw,3.8rem);color:var(--brown);
+  max-width:16ch;line-height:1.08;
+}
+.studio .quote{
+  margin-top:1.5rem;font-family:var(--df);font-weight:300;
+  font-size:clamp(1.2rem,1rem + 1vw,1.6rem);line-height:1.4;
+  color:var(--taupe);max-width:24ch;
+}
+.studio-copy p{max-width:54ch;color:var(--body)}
+.studio-copy p + p{margin-top:1.2rem}
+.studio-copy .lead-p{
+  font-family:var(--sf);font-weight:500;font-size:clamp(1.1rem,1rem+.5vw,1.35rem);
+  line-height:1.5;color:var(--taupe);
+}
+.ethos-list{
+  list-style:none;margin-top:clamp(2rem,4vw,3rem);
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1.6rem clamp(1.5rem,4vw,3rem);
+}
+.ethos-list li{border-top:1px solid var(--hair);padding-top:1rem}
+.ethos-list h3{
+  font-family:var(--sf);font-weight:500;font-size:.72rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--terra-link);margin-bottom:.5rem;
+}
+.ethos-list p{font-size:.98rem;color:var(--body)}
+
+/* ---------------------------------------------------------------
+   CONTACT — warm cream panel, hospitality tone
+   --------------------------------------------------------------- */
+.contact{
+  position:relative;overflow:hidden;
+  background:var(--cream);
+  padding:clamp(4rem,9vw,7rem) var(--pad);
+}
+.contact-motif{
+  position:absolute;top:clamp(-1rem,-2vw,1rem);right:clamp(-2rem,-1vw,2rem);
+  width:clamp(120px,18vw,260px);height:auto;color:var(--terra);opacity:.18;
+  pointer-events:none;
+}
+.contact-inner{
+  position:relative;z-index:2;
+  max-width:var(--maxw);margin-inline:auto;
+  display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);
+  gap:clamp(2.5rem,6vw,5rem);align-items:start;
+}
+.contact .kicker{margin-bottom:1.3rem}
+.contact h2{
+  font-size:clamp(2.2rem,1.5rem + 3.2vw,4rem);color:var(--brown);
+  max-width:13ch;line-height:1.06;
+}
+.contact .note{margin-top:1.4rem;max-width:42ch;font-size:1.06rem;color:var(--body)}
+.contact .btn{margin-top:2rem}
+
+.c-list{list-style:none}
+.c-list li{
+  display:grid;grid-template-columns:clamp(5.5rem,14vw,8rem) minmax(0,1fr);
+  gap:1rem;align-items:baseline;
+  padding:1.05rem 0;border-top:1px solid var(--hair);
+}
+.c-list li:last-child{border-bottom:1px solid var(--hair)}
+.c-list .c-label{
+  font-family:var(--sf);font-weight:500;font-size:.66rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--taupe);
+}
+.c-list a{
+  color:var(--brown);text-decoration:none;
+  border-bottom:1px solid rgba(115,68,55,.35);
+  transition:color .3s ease,border-color .3s ease;
+  overflow-wrap:anywhere;
+}
+.c-list a:hover{color:var(--terra-link);border-color:var(--terra-link)}
+.c-list .ig a{
+  font-family:var(--df);font-weight:300;
+  font-size:clamp(1.5rem,1rem + 2.4vw,2.6rem);letter-spacing:.005em;line-height:1.1;
+  border-bottom-width:1px;
+}
+address{font-style:normal;color:var(--body)}
+
+/* ---------------------------------------------------------------
+   FOOTER — quiet cocoa band
+   --------------------------------------------------------------- */
+footer{
+  background:var(--cocoa);color:var(--offwhite);
+  padding:clamp(2.5rem,5vw,3.5rem) var(--pad);
+}
+.foot-inner{
+  max-width:var(--maxw);margin-inline:auto;
+  display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;
+  gap:1.2rem 2.5rem;
+}
+.foot-name{font-family:var(--df);font-weight:300;font-size:1.5rem;color:var(--cream);letter-spacing:.01em}
+.foot-meta{
+  font-family:var(--sf);font-weight:500;font-size:.68rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--offwhite);
+  display:flex;flex-wrap:wrap;gap:.5rem 1.6rem;
+}
+.foot-meta a{color:var(--offwhite);text-decoration:none;border-bottom:1px solid rgba(233,233,233,.35)}
+.foot-meta a:hover{color:var(--terra-d);border-color:var(--terra-d)}
+
+/* ---------------------------------------------------------------
+   MOTION — page-load reveal + scroll reveal (all gated)
+   --------------------------------------------------------------- */
+@media (prefers-reduced-motion:no-preference){
+  /* orchestrated page-load reveal of the hero */
+  .lift{opacity:0;transform:translateY(24px);animation:lift .9s cubic-bezier(.2,.65,.25,1) forwards}
+  .lift.d1{animation-delay:.08s}
+  .lift.d2{animation-delay:.2s}
+  .lift.d3{animation-delay:.34s}
+  .lift.d4{animation-delay:.5s}
+  .lift.d5{animation-delay:.66s}
+  @keyframes lift{to{opacity:1;transform:none}}
+  .hero-photo{opacity:0;transform:translateY(40px) scale(.98);animation:photo 1.2s cubic-bezier(.2,.65,.25,1) .3s forwards}
+  @keyframes photo{to{opacity:1;transform:none}}
+
+  /* scroll reveal — enhancement only, gated behind html.js */
+  .js .reveal{opacity:0;transform:translateY(28px);
+    transition:opacity .9s cubic-bezier(.2,.7,.3,1),transform .9s cubic-bezier(.2,.7,.3,1)}
+  .js .reveal.in{opacity:1;transform:none}
+
+  /* micro-interactions */
+  .arrow-link:hover{gap:.85em}
+  .arrow-link:hover svg{transform:translate(2px,-2px)}
+  .btn:hover::before{transform:translateX(-50%) scale(1)}
+  .btn:hover svg{transform:translate(2px,-2px)}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+
+/* ---------------------------------------------------------------
+   RESPONSIVE
+   --------------------------------------------------------------- */
+@media (max-width:1000px){
+  .places-inner,.work-intro .inner,.studio-inner,.contact-inner{grid-template-columns:1fr}
+  .work-intro .inner{align-items:start}
+}
+@media (max-width:860px){
+  /* hero: stack, keep the split as a top/bottom seam feel */
+  .hero::before{background:linear-gradient(to bottom,var(--cream) 0 58%,var(--terra) 58% 100%)}
+  .hero-inner{grid-template-columns:1fr;min-height:0}
+  .hero-copy{padding:clamp(2rem,7vw,3rem) var(--pad) 1rem;max-width:none}
+  .hero-media{padding:0 var(--pad) clamp(2.5rem,8vw,4rem)}
+  .hero-photo{margin-left:0;margin-inline:auto;max-width:440px}
+  .hero-motif{display:none}
+  /* bands stack, media first */
+  .band--imgL figure,.band--imgR figure{grid-column:1/13;grid-row:1}
+  .band--imgL .band-txt,.band--imgR .band-txt{grid-column:1/13;grid-row:2}
+  .band .band-grid{gap:1.6rem}
+  .ethos-list{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  .site-head{flex-wrap:wrap;gap:.7rem 1rem}
+  .brand .sub{display:none}
+  .c-list li{grid-template-columns:1fr;gap:.2rem}
+  .namestack li{font-size:clamp(2.1rem,12vw,3.4rem)}
+}
+@media (max-width:380px){
+  .hero-actions{flex-direction:column;align-items:flex-start;gap:1.2rem}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <a class="brand" href="#top">
+    <span class="mark">Habitat</span>
+    <span class="sub">Design Studio · Chitwan</span>
+  </a>
+  <nav aria-label="Primary">
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#studio">Studio</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- ================= HERO — the hard split-field ================= -->
+  <section class="hero" id="top" aria-labelledby="hero-h">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <p class="kicker lift d1">
+          <!-- restrained folk dot-motif beside the welcome headline -->
+          <svg width="34" height="14" viewBox="0 0 34 14" aria-hidden="true" focusable="false">
+            <g fill="currentColor">
+              <circle cx="4" cy="7" r="2"/><circle cx="13" cy="7" r="2"/>
+              <circle cx="22" cy="2.5" r="1.6"/><circle cx="22" cy="11.5" r="1.6"/>
+              <circle cx="30" cy="7" r="2.6"/>
+            </g>
+          </svg>
+          Architecture &amp; hospitality — Bharatpur, Chitwan
+        </p>
+        <h1 id="hero-h" class="lift d2">A practice that builds the way Nepal <em>hosts</em>.</h1>
+        <p class="lead lift d3">Habitat Design Studio designs farmstays, riverside restaurants and courtyard houses across the inner Terai — buildings that welcome you in the way a good house does, through light, airflow and the patience to leave a place looking like itself.</p>
+        <p class="undertext lift d4">Shaped by climate, connectivity and the quiet logic of the landscape. Built with minimal intervention, and comfort that comes from light, materials, proportion and airflow.</p>
+        <div class="hero-actions lift d5">
+          <a class="btn" href="#work">
+            See the work
+            <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" focusable="false">
+              <path d="M3 11L11 3M5 3h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a class="arrow-link" href="#contact">
+            Stay in touch
+            <svg width="13" height="13" viewBox="0 0 14 14" aria-hidden="true" focusable="false">
+              <path d="M3 11L11 3M5 3h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-media">
+        <!-- SWAP: Himalchuli Nature Farmstay — hero, photo bridging the seam -->
+        <figure class="hero-photo" data-swap="project-photo">
+          <div class="frame">
+            <img src="../assets/img/himalchuli-01.jpg"
+                 alt="Tiered clay-tile roofs of Himalchuli Nature Farmstay settling almost out of sight into a dense canopy of sal trees"
+                 width="1600" height="1593"
+                 loading="eager" fetchpriority="high" decoding="async">
+          </div>
+          <figcaption>Himalchuli Nature Farmstay
+            <span>Built · roofs disappearing into the sal forest</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- dot-motif at the terracotta field edge (one of two edges used) -->
+    <svg class="hero-motif" viewBox="0 0 60 200" aria-hidden="true" focusable="false">
+      <g fill="currentColor">
+        <circle cx="30" cy="20" r="3"/><circle cx="30" cy="40" r="3"/>
+        <circle cx="20" cy="30" r="2.4"/><circle cx="40" cy="30" r="2.4"/>
+        <circle cx="30" cy="100" r="4"/>
+        <circle cx="18" cy="100" r="2.4"/><circle cx="42" cy="100" r="2.4"/>
+        <circle cx="30" cy="88" r="2.4"/><circle cx="30" cy="112" r="2.4"/>
+        <circle cx="30" cy="180" r="3"/><circle cx="30" cy="160" r="3"/>
+        <circle cx="20" cy="170" r="2.4"/><circle cx="40" cy="170" r="2.4"/>
+      </g>
+    </svg>
+  </section>
+
+  <!-- ================= PLACES — stacked real place-names ================= -->
+  <section class="places" aria-label="Where the studio works">
+    <div class="places-inner">
+      <div class="places-aside reveal">
+        <p class="kicker">Where we work</p>
+        <p class="lead-line">Five towns along the Narayani and the Rapti.</p>
+        <p>From the studio in Bharatpur the work reaches out along the rivers — the elephant-grass plains of Sauraha, the slopes above Ratnanagar, the southern villages of Madi, and the old confluence at Devghat.</p>
+      </div>
+      <ol class="namestack" aria-label="Places, with Bharatpur as the studio's base">
+        <li>Sauraha</li>
+        <li>Ratnanagar</li>
+        <li class="active">Bharatpur <span class="gloss">— the studio</span></li>
+        <li>Madi</li>
+        <li>Devghat</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ================= WORK — band rhythm ================= -->
+  <section id="work" aria-labelledby="work-h">
+    <div class="work-intro">
+      <div class="inner reveal">
+        <p class="kicker">Selected work</p>
+        <div>
+          <h2 id="work-h">Four places we have hosted into being.</h2>
+          <p>Two built and photographed, one in design, one held as a concept — each marked honestly, and each shaped first by where it stands.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---- 01 · Himalchuli — WHITE band, dark text ---- -->
+    <article class="band band--white band--imgL reveal" aria-labelledby="p1-h">
+      <div class="band-grid">
+        <!-- SWAP: Himalchuli Nature Farmstay — closer view through foliage -->
+        <figure data-swap="project-photo">
+          <div class="frame" style="aspect-ratio:1206/1600">
+            <img src="../assets/img/himalchuli-02.jpg"
+                 alt="A closer view of Himalchuli Nature Farmstay seen through forest foliage, its tiered roofs layered among trunks and leaves"
+                 width="1206" height="1600" loading="lazy" decoding="async">
+          </div>
+          <figcaption>Through the sal canopy · Site photograph</figcaption>
+        </figure>
+        <div class="band-txt">
+          <p class="pmeta">
+            <span class="pnum">01</span>
+            <span class="pstatus">Built</span>
+          </p>
+          <h3 id="p1-h">Himalchuli Nature Farmstay</h3>
+          <p class="pwhere">Chitwan · Hospitality</p>
+          <p class="pdesc">Tiered clay-tile roofs step down until the building all but vanishes into dense sal forest. The trees were here first; they stay. Guests arrive into shade and birdsong before they ever see a wall — hospitality that begins with the ground.</p>
+          <a class="arrow-link" href="#contact">Begin a conversation
+            <svg width="13" height="13" viewBox="0 0 14 14" aria-hidden="true" focusable="false">
+              <path d="M3 11L11 3M5 3h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ---- 02 · NP Residence — CREAM band, dark text ---- -->
+    <article class="band band--cream band--imgR reveal" aria-labelledby="p2-h">
+      <div class="band-grid">
+        <!-- SWAP: NP Residence — courtyard render with timber jaali wall -->
+        <figure data-swap="project-photo">
+          <div class="frame" style="aspect-ratio:1446/1600">
+            <img src="../assets/img/np-residence-01.jpg"
+                 alt="Courtyard of NP Residence with a perforated timber jaali screen wall, arched plaster niches and an internal garden under a skylight"
+                 width="1446" height="1600" loading="lazy" decoding="async">
+          </div>
+          <figcaption>Courtyard &amp; timber jaali wall · Render</figcaption>
+        </figure>
+        <div class="band-txt">
+          <p class="pmeta">
+            <span class="pnum">02</span>
+            <span class="pstatus">In design</span>
+          </p>
+          <h3 id="p2-h">NP Residence</h3>
+          <p class="pwhere">Chitwan · Private residence</p>
+          <p class="pdesc">Rooms gather around a courtyard screened by a perforated timber jaali, with arched plaster niches and an internal garden carrying light and air deep into the plan. A veranda, a skylight and a common lobby keep the household cool through the long Terai afternoons.</p>
+          <a class="arrow-link" href="#contact">Begin a conversation
+            <svg width="13" height="13" viewBox="0 0 14 14" aria-hidden="true" focusable="false">
+              <path d="M3 11L11 3M5 3h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ---- 03 · Bagar Restaurant — TERRACOTTA band, DARK text (AA) ---- -->
+    <article class="band band--terra band--imgL reveal" aria-labelledby="p3-h">
+      <div class="band-grid">
+        <!-- SWAP: Bagar Restaurant — log columns, sculpted capitals, riverbank -->
+        <figure data-swap="project-photo">
+          <div class="frame" style="aspect-ratio:1600/1586">
+            <img src="../assets/img/bagar-01.jpg"
+                 alt="Bagar Restaurant rising from the natural riverbank: raw log columns with hand-sculpted organic capitals over a plinth set with river stones"
+                 width="1600" height="1586" loading="lazy" decoding="async">
+          </div>
+          <figcaption>Log columns on the riverbank · Site photograph</figcaption>
+        </figure>
+        <div class="band-txt">
+          <p class="pmeta">
+            <span class="pnum">03</span>
+            <span class="pstatus">Built</span>
+          </p>
+          <h3 id="p3-h">Bagar Restaurant</h3>
+          <p class="pwhere">Riverside Chitwan · Restaurant</p>
+          <p class="pdesc">Named for the ground it stands on — bagar, the gravel bar. The riverbank's own topography stays in the plan; raw log columns carry hand-sculpted organic capitals, and river stones from the site sit in the plinth. You eat where the water has always been.</p>
+          <a class="arrow-link" href="#contact">Begin a conversation
+            <svg width="13" height="13" viewBox="0 0 14 14" aria-hidden="true" focusable="false">
+              <path d="M3 11L11 3M5 3h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ---- 04 · Kinar Restaurant — COCOA band, light text ---- -->
+    <article class="band band--cocoa band--imgR reveal" aria-labelledby="p4-h">
+      <div class="band-grid">
+        <!-- SWAP: Kinar Restaurant — stone terraces at dusk -->
+        <figure data-swap="project-photo">
+          <div class="frame" style="aspect-ratio:1600/1593">
+            <img src="../assets/img/kinar-01.jpg"
+                 alt="Kinar Restaurant at dusk: terraced stone base hugging a slope, a curved deck edge and warm lights glowing from rooftop pavilions"
+                 width="1600" height="1593" loading="lazy" decoding="async">
+          </div>
+          <figcaption>Stone terraces at dusk · Site photograph</figcaption>
+        </figure>
+        <div class="band-txt">
+          <p class="pmeta">
+            <span class="pnum">04</span>
+            <span class="pstatus">Built</span>
+          </p>
+          <h3 id="p4-h">Kinar Restaurant</h3>
+          <p class="pwhere">Chitwan · Restaurant</p>
+          <p class="pdesc">A terraced stone base hugs the slope so closely that the building reads as part of the hill. A curved deck edge follows the contour, and at dusk warm light spills from rooftop pavilions — a place that gathers people the way a hearth does.</p>
+          <a class="arrow-link" href="#contact">Begin a conversation
+            <svg width="13" height="13" viewBox="0 0 14 14" aria-hidden="true" focusable="false">
+              <path d="M3 11L11 3M5 3h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ================= STUDIO / ETHOS ================= -->
+  <section id="studio" class="studio" aria-labelledby="studio-h">
+    <div class="studio-inner">
+      <div class="reveal">
+        <p class="kicker">The studio</p>
+        <h2 id="studio-h">We host a building into the land.</h2>
+        <p class="quote">Raw and minimal — we integrate what already exists rather than erasing it.</p>
+      </div>
+      <div class="studio-copy reveal">
+        <p class="lead-p">Habitat Design Studio works from Bharatpur, in the subtropical floodplain of the inner Terai — flat land, big rivers, three wet months a year. The climate writes the first lines of every brief.</p>
+        <p>Our instinct is to keep a site looking like itself. At Bagar the gravel bar stayed in the plan; at Himalchuli the sal forest closed over the roofs. Comfort comes not from machinery but from proportion, deep eaves, cross-ventilation and masonry that holds the night's cool into the afternoon — the same things that make a house feel like a welcome rather than a building.</p>
+        <ul class="ethos-list">
+          <li>
+            <h3>Climate</h3>
+            <p>Openings sized for the low winter sun and shaded from the high summer one; cross-ventilation drawn before any compressor.</p>
+          </li>
+          <li>
+            <h3>Materials</h3>
+            <p>Fired brick, sal and sisau timber, lime plaster, stone from the river bed — left to read as themselves, never disguised.</p>
+          </li>
+          <li>
+            <h3>Water</h3>
+            <p>Plinth heights set by the rivers' record years, not their averages. The Narayani and the Rapti are designed for, not against.</p>
+          </li>
+          <li>
+            <h3>Welcome</h3>
+            <p>A courtyard, a veranda, a shaded threshold — the architecture of arriving, so a place greets you before you reach the door.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT — warm cream panel ================= -->
+  <section id="contact" class="contact" aria-labelledby="contact-h">
+    <!-- second of two motif edges: dot-flower at the contact panel corner -->
+    <svg class="contact-motif" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+      <g fill="currentColor">
+        <circle cx="60" cy="60" r="9"/>
+        <circle cx="60" cy="30" r="5"/><circle cx="60" cy="90" r="5"/>
+        <circle cx="30" cy="60" r="5"/><circle cx="90" cy="60" r="5"/>
+        <circle cx="39" cy="39" r="4"/><circle cx="81" cy="39" r="4"/>
+        <circle cx="39" cy="81" r="4"/><circle cx="81" cy="81" r="4"/>
+        <circle cx="60" cy="8" r="2.6"/><circle cx="60" cy="112" r="2.6"/>
+        <circle cx="8" cy="60" r="2.6"/><circle cx="112" cy="60" r="2.6"/>
+      </g>
+    </svg>
+    <div class="contact-inner">
+      <div class="reveal">
+        <p class="kicker">Stay in touch</p>
+        <h2 id="contact-h">Begin a conversation.</h2>
+        <p class="note">Send a photo of your land, a plan you have inherited, or a sketch on the back of a bill — whatever the idea looks like today. We reply fastest on Instagram, and we like to start on the ground itself.</p>
+        <a class="btn" href="mailto:studio@habitatdesigns.com.np">
+          Begin a conversation
+          <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" focusable="false">
+            <path d="M3 11L11 3M5 3h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+      <div class="reveal">
+        <ul class="c-list">
+          <li class="ig">
+            <span class="c-label">Instagram</span>
+            <!-- SWAP: real Instagram handle -->
+            <a href="https://www.instagram.com/habitatdesigns" rel="noopener">@habitatdesigns</a>
+          </li>
+          <li>
+            <span class="c-label">Studio</span>
+            <address>Bharatpur, Chitwan, Nepal</address>
+          </li>
+          <li>
+            <span class="c-label">Email</span>
+            <!-- SWAP: real email -->
+            <a href="mailto:studio@habitatdesigns.com.np">studio@habitatdesigns.com.np</a>
+          </li>
+          <li>
+            <span class="c-label">Phone</span>
+            <!-- SWAP: real phone -->
+            <a href="tel:+97756591204">+977 56 591 204</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="foot-inner">
+    <p class="foot-name">Habitat Design Studio</p>
+    <p class="foot-meta">
+      <span>Bharatpur, Chitwan · 27.6788° N, 84.4310° E</span>
+      <span>&copy; 2026</span>
+      <a href="https://www.instagram.com/habitatdesigns" rel="noopener">Instagram</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var d = document.documentElement;
+  d.classList.add("js");
+
+  var rm = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  /* scroll reveals — progressive enhancement; no-JS / reduced-motion show all */
+  var els = document.querySelectorAll(".reveal");
+  if (!rm.matches && "IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+    Array.prototype.forEach.call(els, function(el){ io.observe(el); });
+  } else {
+    Array.prototype.forEach.call(els, function(el){ el.classList.add("in"); });
+  }
+})();
+</script>
+</body>
+</html>

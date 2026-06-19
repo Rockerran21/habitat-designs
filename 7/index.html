@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Habitat Design Studio — Architecture in Bharatpur, Chitwan</title>
+<meta name="description" content="Habitat Design Studio designs residences, restaurants and farmstays in Bharatpur, Chitwan, Nepal — buildings shaped by the Terai climate, the rivers, and the materials already on the site.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23A34430'/%3E%3Ccircle cx='16' cy='12.5' r='4.4' fill='none' stroke='%23FAF9F1' stroke-width='1.3'/%3E%3Cpath d='M4 24 q4 -3 6 0 t6 0 t6 0 t6 0' fill='none' stroke='%23FAF9F1' stroke-width='1.3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;1,300;1,400&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ivory:#FAF9F1;
+  --parchment:#EAE3D2;
+  --terra:#A34430;        /* the one hot color */
+  --terra-dk:#8A3826;     /* deeper terracotta for hovers / shadow edges */
+  --ink:#142131;          /* headings */
+  --slate:#293945;        /* body */
+  --slate-mute:#4A5A66;   /* muted slate, 6.75:1 on ivory */
+  --bronze:#8C7154;       /* decorative hairlines / large only */
+  --bronze-dk:#6E5638;    /* quiet links — 6.5:1 ivory / 5.4:1 parchment */
+  --hair-d:rgba(20,33,49,.16);
+  --hair-l:rgba(250,249,241,.34);
+  --serif:'Playfair Display',Georgia,'Times New Roman',serif;
+  --sans:'Source Sans 3',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --pad:clamp(1.25rem,5.5vw,6.5rem);
+  --maxw:1500px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:clip}
+body{
+  background:var(--ivory);
+  color:var(--slate);
+  font-family:var(--sans);
+  font-weight:400;
+  font-size:clamp(1.02rem,.96rem + .26vw,1.18rem);
+  line-height:1.625;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:clip;
+}
+::selection{background:var(--terra);color:var(--ivory)}
+:focus-visible{outline:2px solid var(--terra);outline-offset:3px}
+img,svg{max-width:100%;height:auto;display:block}
+h1,h2,h3{font-family:var(--serif);font-weight:400;color:var(--ink);line-height:1.08;letter-spacing:-.005em}
+
+/* eyebrows / labels */
+.eyebrow{
+  font-family:var(--sans);font-weight:600;font-size:.72rem;
+  letter-spacing:.26em;text-transform:uppercase;color:var(--terra);
+}
+.eyebrow.on-red{color:var(--ivory)}
+.eyebrow .sep{opacity:.6;margin:0 .55em;font-weight:400}
+
+/* square ghost buttons */
+.ghost{
+  display:inline-block;font-family:var(--sans);font-weight:600;
+  font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--terra);text-decoration:none;
+  border:1px solid var(--terra);border-radius:0;
+  padding:.95em 1.7em .85em;
+  background:linear-gradient(var(--terra),var(--terra)) left center / 0% 100% no-repeat;
+}
+.ghost:hover,.ghost:focus-visible{color:var(--ivory);background-size:100% 100%}
+.ghost.on-red{color:var(--ivory);border-color:var(--ivory);background-image:linear-gradient(var(--ivory),var(--ivory))}
+.ghost.on-red:hover,.ghost.on-red:focus-visible{color:var(--terra);background-size:100% 100%}
+
+.visually-hidden{
+  position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;
+}
+.skip{
+  position:absolute;left:-200vw;top:.6rem;z-index:120;
+  background:var(--ink);color:var(--ivory);padding:.7em 1.2em;
+  font-family:var(--sans);font-weight:600;font-size:.78rem;letter-spacing:.12em;
+  text-transform:uppercase;text-decoration:none;
+}
+.skip:focus{left:var(--pad)}
+
+/* ---------- fixed transparent nav over hero ---------- */
+.topbar{
+  position:fixed;inset:0 0 auto 0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:1rem;padding:clamp(1.05rem,2.6vw,1.9rem) var(--pad);
+  background:linear-gradient(to bottom,rgba(20,20,28,.5),rgba(20,20,28,.18) 60%,transparent);
+}
+.wordmark{font-family:var(--serif);text-decoration:none;color:var(--ivory);line-height:1}
+.wordmark b{display:block;font-weight:400;font-size:clamp(1.15rem,2.2vw,1.5rem);letter-spacing:.01em}
+.wordmark small{
+  display:block;font-family:var(--sans);font-weight:600;
+  font-size:.58rem;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--ivory);opacity:.82;margin-top:.4em;
+}
+.nav-cta{
+  font-family:var(--sans);font-weight:600;font-size:.72rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ivory);text-decoration:none;
+  border:1px solid rgba(250,249,241,.7);padding:.8em 1.4em .7em;
+  background:linear-gradient(var(--ivory),var(--ivory)) left center / 0% 100% no-repeat;
+  white-space:nowrap;
+}
+.nav-cta:hover,.nav-cta:focus-visible{color:var(--ink);border-color:var(--ivory);background-size:100% 100%}
+
+/* ---------- hero ---------- */
+.hero{position:relative;height:100svh;min-height:30rem;width:100%;overflow:hidden;background:#241712}
+.hero img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  transform:scale(1.04);object-position:50% 58%;
+}
+.hero::after{ /* gentle base vignette so footer reveal of next band feels seated */
+  content:"";position:absolute;inset:auto 0 0 0;height:34%;
+  background:linear-gradient(to top,rgba(20,16,14,.42),transparent);pointer-events:none;
+}
+.hero-foot{
+  position:absolute;left:var(--pad);right:var(--pad);bottom:clamp(1.4rem,4vh,2.6rem);
+  display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:.6rem 2rem;
+  color:var(--ivory);
+}
+.hero-foot .where{
+  font-family:var(--sans);font-weight:600;font-size:.66rem;letter-spacing:.24em;
+  text-transform:uppercase;opacity:.92;text-shadow:0 1px 10px rgba(0,0,0,.55);
+}
+.hero-foot .where .b{color:var(--ivory);opacity:.62;margin:0 .5em}
+.hero-foot .scroll{
+  font-family:var(--sans);font-weight:600;font-size:.62rem;letter-spacing:.22em;
+  text-transform:uppercase;opacity:.85;display:inline-flex;align-items:center;gap:.7em;
+  text-shadow:0 1px 10px rgba(0,0,0,.55);text-decoration:none;color:var(--ivory);
+}
+.hero-foot .scroll .line{display:inline-block;width:2.4rem;height:1px;background:var(--ivory);transform-origin:left}
+
+/* ---------- generic section ---------- */
+.band{padding:clamp(4rem,11vh,9rem) var(--pad)}
+.wrap{max-width:var(--maxw);margin:0 auto}
+
+/* ---------- manifesto (terracotta) ---------- */
+.manifesto{background:var(--terra);color:var(--ivory);text-align:center;position:relative;overflow:hidden}
+.manifesto .inner{max-width:46rem;margin:0 auto;position:relative;z-index:2}
+.manifesto .eyebrow{margin-bottom:clamp(1.6rem,4vh,2.6rem)}
+.manifesto h2{
+  color:var(--ivory);font-weight:300;
+  font-size:clamp(2rem,4.6vw,3.6rem);line-height:1.16;letter-spacing:-.01em;
+  margin-bottom:clamp(1.6rem,4vh,2.4rem);
+}
+.manifesto h2 em{font-style:italic}
+.manifesto p{
+  color:var(--ivory);max-width:34rem;margin:0 auto;
+  font-size:clamp(1.02rem,1.3vw,1.16rem);line-height:1.7;
+}
+.manifesto .rule{
+  width:1px;height:clamp(2.4rem,6vh,3.6rem);background:rgba(250,249,241,.55);
+  margin:clamp(2rem,5vh,3rem) auto 0;
+}
+
+/* ---------- editorial project modules ---------- */
+.work-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.6rem 2rem;margin-bottom:clamp(2.4rem,6vh,4rem);border-bottom:1px solid var(--hair-d);padding-bottom:1.4rem}
+.work-head h2{font-size:clamp(1.9rem,3.6vw,2.9rem);font-weight:400}
+.work-head .count{font-family:var(--sans);font-weight:600;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--slate-mute)}
+
+.project{
+  display:grid;grid-template-columns:repeat(12,minmax(0,1fr));
+  gap:clamp(1.6rem,4vw,4.5rem);align-items:center;
+  padding:clamp(2.6rem,7vh,5.5rem) 0;
+}
+.project + .project{border-top:1px solid var(--hair-d)}
+.project .fig{grid-column:1 / span 7}
+.project .body{grid-column:8 / span 5}
+.project.flip .fig{grid-column:6 / span 7;order:2}
+.project.flip .body{grid-column:1 / span 5;order:1}
+
+figure.proj{position:relative;margin:0}
+.frame{position:relative;overflow:hidden;background:#2c211c;box-shadow:0 24px 50px -34px rgba(20,33,49,.55)}
+.frame::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 1px rgba(20,33,49,.12);pointer-events:none}
+.frame img{width:100%;height:100%;object-fit:cover;transform:scale(1.04)}
+.frame.r-port{aspect-ratio:4/5}
+.frame.r-sq{aspect-ratio:1/1}
+.frame.r-land{aspect-ratio:5/4}
+.plate{
+  position:absolute;left:0;bottom:0;
+  background:var(--ivory);color:var(--terra);
+  font-family:var(--sans);font-weight:600;font-size:.62rem;letter-spacing:.18em;
+  text-transform:uppercase;padding:.7em 1.1em .6em;
+}
+.project.flip .plate{left:auto;right:0}
+
+.body .eyebrow{display:block;margin-bottom:clamp(1rem,2.4vh,1.5rem)}
+.body h3{
+  font-size:clamp(2rem,3.4vw,3.1rem);font-weight:400;line-height:1.04;
+  margin-bottom:clamp(1.1rem,2.6vh,1.6rem);
+}
+.body h3 em{font-style:italic;font-weight:300}
+.body p{max-width:34ch;color:var(--slate);margin-bottom:clamp(1.5rem,3.5vh,2.2rem)}
+.body .status{
+  display:inline-flex;align-items:center;gap:.6em;margin-left:1.3em;
+  font-family:var(--sans);font-weight:600;font-size:.6rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--slate-mute);vertical-align:.25em;
+}
+.body .status .dot{width:6px;height:6px;border-radius:50%;background:var(--terra)}
+.body .status.concept .dot{background:none;border:1px solid var(--bronze-dk)}
+.body .status.design .dot{background:var(--bronze)}
+
+/* ---------- map (parchment) ---------- */
+.mapband{background:var(--parchment)}
+.map-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(2rem,5vw,5rem);align-items:center}
+.map-grid .lede h2{font-size:clamp(1.9rem,3.4vw,2.8rem);font-weight:400;margin:1rem 0 1.2rem}
+.map-grid .lede p{color:var(--slate);max-width:34ch;margin-bottom:1.4rem}
+.map-legend{list-style:none;margin-top:1.6rem;border-top:1px solid var(--hair-d)}
+.map-legend li{display:flex;align-items:center;gap:.9em;padding:.7em 0;border-bottom:1px solid var(--hair-d);font-family:var(--sans);font-size:.82rem;letter-spacing:.02em;color:var(--slate)}
+.map-legend .swatch{flex:none;width:1.6rem;height:1.6rem;display:grid;place-items:center}
+.map-legend .swatch svg{width:100%;height:100%}
+.map-fig{margin:0}
+.map-fig svg{width:100%;height:auto;background:#efe9da;border:1px solid var(--hair-d)}
+.map-fig figcaption{margin-top:.9rem;font-family:var(--sans);font-weight:600;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--slate-mute)}
+.mk-pulse{transform-origin:center;transform-box:fill-box}
+
+/* ---------- cast of characters (ivory) ---------- */
+.cast h2{font-size:clamp(1.9rem,3.6vw,2.9rem);font-weight:400;margin-bottom:.6rem}
+.cast .sub{color:var(--slate-mute);max-width:40ch;margin-bottom:clamp(2.4rem,6vh,4rem)}
+.cast-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0}
+.cast-list .role{
+  padding:clamp(1.8rem,4vh,2.8rem) clamp(1.6rem,3vw,2.6rem);
+  border-top:1px solid var(--hair-d);
+}
+.cast-list .role:nth-child(odd){border-right:1px solid var(--hair-d)}
+.cast-list .role .eyebrow{display:block;margin-bottom:1rem}
+.cast-list .role h3{font-size:clamp(1.55rem,2.6vw,2.2rem);font-weight:400;line-height:1.1;margin-bottom:.8rem}
+.cast-list .role h3 em{font-style:italic;font-weight:300}
+.cast-list .role p{color:var(--slate);max-width:32ch;font-size:1.02rem}
+
+/* ---------- contact (parchment) ---------- */
+.contact{background:var(--parchment)}
+.contact-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(2.2rem,5vw,5rem);align-items:start}
+.contact h2{font-size:clamp(2.2rem,4.4vw,3.6rem);font-weight:300;line-height:1.12;max-width:14ch}
+.contact h2 em{font-style:italic}
+.contact .lede{margin-top:1.6rem;color:var(--slate);max-width:36ch}
+.inquiry{border:1px solid var(--slate-mute);padding:clamp(1.6rem,3.5vw,2.6rem)}
+.inquiry .eyebrow{display:block;margin-bottom:1.4rem}
+.cdl{margin:0}
+.cdl>div{display:grid;grid-template-columns:minmax(5.5rem,8rem) minmax(0,1fr);gap:.4rem 1.4rem;align-items:baseline;padding:1em 0;border-top:1px solid var(--hair-d)}
+.cdl>div:first-of-type{border-top:0;padding-top:0}
+.cdl dt{font-family:var(--sans);font-weight:600;font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--slate-mute)}
+.cdl dd{font-family:var(--serif);font-size:clamp(1.05rem,1.8vw,1.35rem);line-height:1.3;color:var(--ink);overflow-wrap:anywhere}
+.cdl dd a{color:var(--bronze-dk);text-decoration:none;background:linear-gradient(var(--terra),var(--terra)) left bottom / 0% 1.5px no-repeat}
+.cdl dd a:hover,.cdl dd a:focus-visible{color:var(--terra);background-size:100% 1.5px}
+.cdl .ig dd{font-family:var(--sans);font-weight:600;font-size:1.05rem}
+.cdl .ig dd a{color:var(--terra);background-image:linear-gradient(var(--terra),var(--terra))}
+.inquiry .cta-row{margin-top:1.8rem}
+
+/* ---------- reveal footer (terracotta, pinned behind) ---------- */
+.peel{position:relative;z-index:2;background:var(--ivory)} /* the lifting sheet edge */
+.revealfooter{
+  background:var(--terra);color:var(--ivory);
+  position:relative;z-index:0;
+}
+.js .revealfooter{position:static}
+.rf-inner{
+  max-width:var(--maxw);margin:0 auto;
+  padding:clamp(3.4rem,9vh,6rem) var(--pad) clamp(11rem,22vh,16rem);
+}
+.rf-top{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(2,minmax(0,1fr));gap:clamp(2rem,5vw,4rem);align-items:start}
+.rf-mark .wm{font-family:var(--serif);font-size:clamp(1.6rem,2.6vw,2.2rem);line-height:1.1;color:var(--ivory)}
+.rf-mark small{display:block;font-family:var(--sans);font-weight:600;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ivory);opacity:.85;margin-top:.7em}
+.rf-mark .blurb{margin-top:1.3rem;color:var(--ivory);font-size:.96rem;max-width:30ch;opacity:.94}
+.rf-col h4{font-family:var(--sans);font-weight:600;font-size:.64rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ivory);opacity:.78;margin-bottom:1.1rem}
+.rf-col ul{list-style:none}
+.rf-col li{margin-bottom:.7em}
+.rf-col a{font-family:var(--serif);font-size:1.12rem;color:var(--ivory);text-decoration:none;background:linear-gradient(var(--ivory),var(--ivory)) left bottom / 0% 1px no-repeat}
+.rf-col a:hover,.rf-col a:focus-visible{background-size:100% 1px}
+.rf-base{
+  position:absolute;left:0;right:0;bottom:0;line-height:0;pointer-events:none;
+}
+.rf-base svg{width:100%;height:auto;display:block}
+.rf-fineprint{
+  position:absolute;left:var(--pad);right:var(--pad);bottom:clamp(1.1rem,3vh,2rem);z-index:2;
+  display:flex;flex-wrap:wrap;gap:.4rem 2rem;justify-content:space-between;
+  font-family:var(--sans);font-weight:400;font-size:.66rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ivory);opacity:.9;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width:960px){
+  .project,.project.flip{grid-template-columns:minmax(0,1fr)}
+  .project .fig,.project .body,.project.flip .fig,.project.flip .body{grid-column:1 / -1;order:0}
+  .project .body{max-width:38rem}
+  .frame.r-port,.frame.r-sq,.frame.r-land{aspect-ratio:4/3}
+  .map-grid{grid-template-columns:minmax(0,1fr)}
+  .contact-grid{grid-template-columns:minmax(0,1fr)}
+  .rf-top{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rf-mark{grid-column:1 / -1}
+}
+@media (max-width:600px){
+  .hero{height:92svh}
+  .cast-list{grid-template-columns:minmax(0,1fr)}
+  .cast-list .role:nth-child(odd){border-right:0}
+  .cast-list .role:first-child{border-top:0}
+  .rf-top{grid-template-columns:minmax(0,1fr)}
+  .cdl>div{grid-template-columns:minmax(0,1fr);gap:.15rem}
+  .hero-foot{justify-content:flex-start}
+}
+
+/* ---------- motion (all gated) ---------- */
+@media (prefers-reduced-motion: no-preference){
+  html{scroll-behavior:smooth}
+  /* one orchestrated page-load reveal on the hero chrome */
+  @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  @keyframes growLine{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+  @keyframes mkpulse{0%{transform:scale(1);opacity:.5}70%{transform:scale(2.6);opacity:0}100%{opacity:0}}
+  .topbar{animation:fadeUp .9s cubic-bezier(.2,.6,.2,1) both}
+  .hero-foot{animation:fadeUp 1s cubic-bezier(.2,.6,.2,1) .25s both}
+  .hero-foot .scroll .line{animation:growLine 1.1s cubic-bezier(.3,.6,.2,1) .8s both}
+  .hero img{animation:heroZoom 16s ease-out both}
+  @keyframes heroZoom{from{transform:scale(1.12)}to{transform:scale(1.04)}}
+
+  .nav-cta,.ghost,.wordmark,.rf-col a,.cdl dd a,.hero-foot .scroll{transition:color .4s ease,background-size .45s ease,border-color .4s ease}
+  .ghost{transition:color .4s ease,background-size .5s ease}
+  .frame img{transition:transform 1.2s cubic-bezier(.2,.6,.2,1)}
+  figure.proj:hover .frame img,figure.proj:focus-within .frame img{transform:scale(1.09)}
+
+  .mk-pulse{animation:mkpulse 2.8s ease-out infinite}
+
+  /* IO scroll reveals — enhancement only */
+  .js .io{opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.2,.6,.2,1),transform .9s cubic-bezier(.2,.6,.2,1)}
+  .js .io.in{opacity:1;transform:none}
+  .js .io.d1{transition-delay:.0s}
+  .js .io.d2{transition-delay:.12s}
+  .js .io.d3{transition-delay:.24s}
+}
+/* No-JS / reduced-motion: everything visible, footer simply sits at the bottom */
+.no-js .revealfooter,html:not(.js) .revealfooter{position:static}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <a class="wordmark" href="#top"><b>Habitat Design Studio</b><small>Bharatpur · Chitwan · Nepal</small></a>
+  <a class="nav-cta" href="#contact">Start a project</a>
+</header>
+
+<main id="main">
+
+<!-- ============ 1 · HERO (text-free cinematic photograph) ============ -->
+<section class="hero" id="top" aria-label="Kinar Restaurant at dusk">
+  <!-- SWAP: hero photograph — Kinar Restaurant, dusk -->
+  <figure data-swap="project-photo" style="margin:0">
+    <div class="frame" style="position:absolute;inset:0;box-shadow:none">
+      <img src="../assets/img/kinar-01.jpg" alt="Kinar Restaurant at dusk: terraced stone bases stepping down a slope, a curved deck edge and rooftop pavilions glowing with warm light against a deep blue evening sky" width="1600" height="1593" loading="eager" fetchpriority="high" decoding="async">
+    </div>
+  </figure>
+  <div class="hero-foot">
+    <p class="where"><span>Kinar Restaurant</span><span class="b">·</span><span>built</span><span class="b">·</span><span>Chitwan, dusk</span></p>
+    <a class="scroll" href="#manifesto"><span>Scroll</span><span class="line" aria-hidden="true"></span></a>
+  </div>
+</section>
+
+<!-- ============ 2 · MANIFESTO BAND (terracotta) ============ -->
+<section class="band manifesto" id="manifesto" aria-labelledby="manifesto-h">
+  <div class="inner">
+    <p class="eyebrow on-red">Habitat Design Studio</p>
+    <h1 id="manifesto-h">We build from what the land already <em>owns</em> — the river's gravel, the sal timber, the slope it gives us to stand on.</h1>
+    <p>Architecture shaped by climate, connectivity, and the quiet logic of the landscape; built with minimal intervention, so the comfort comes from light, materials, proportion, and airflow — not from fighting the place.</p>
+    <div class="rule" role="presentation"></div>
+  </div>
+</section>
+
+<!-- ============ 3 · SELECTED WORK — alternating editorial modules ============ -->
+<section class="band" id="work" aria-labelledby="work-h">
+  <div class="wrap">
+    <div class="work-head io">
+      <h2 id="work-h">Selected work</h2>
+      <p class="count">Four projects · two built, two on the boards</p>
+    </div>
+
+    <!-- PROJECT 01 — NP Residence -->
+    <article class="project io">
+      <!-- SWAP: NP Residence — courtyard render -->
+      <figure class="proj fig" data-swap="project-photo">
+        <div class="frame r-port">
+          <img src="../assets/img/np-residence-01.jpg" alt="Courtyard of NP Residence: a tall wall of perforated timber jaali blocks above an internal garden, arched plaster niches along the side, lit from a skylight" width="1446" height="1600" loading="lazy" decoding="async" style="object-position:50% 40%">
+        </div>
+        <span class="plate">01 — Render set</span>
+      </figure>
+      <div class="body">
+        <span class="eyebrow">Private residence<span class="sep">·</span>Chitwan<span class="sep">·</span>In design</span>
+        <h3>NP <em>Residence</em></h3>
+        <p>A house turned inward around a courtyard: a perforated timber jaali screen filters the afternoon glare, arched plaster niches hold the shade, and a skylight drops a single column of light onto the internal garden. Master and three bedrooms gather around a common lobby, dining, and veranda.</p>
+        <a class="ghost" href="#contact">View the work</a>
+      </div>
+    </article>
+
+    <!-- PROJECT 02 — Bagar Restaurant -->
+    <article class="project flip io">
+      <!-- SWAP: Bagar Restaurant — riverbank, built -->
+      <figure class="proj fig" data-swap="project-photo">
+        <div class="frame r-sq">
+          <img src="../assets/img/bagar-01.jpg" alt="Bagar Restaurant on the riverbank: an open pavilion carried on raw log columns with hand-sculpted organic capitals, a plinth faced in river stones, a young tree left standing in front" width="1600" height="1586" loading="lazy" decoding="async" style="object-position:50% 42%">
+        </div>
+        <span class="plate">02 — Built</span>
+      </figure>
+      <div class="body">
+        <span class="eyebrow">Restaurant<span class="sep">·</span>Riverside Chitwan<span class="sep">·</span>Built</span>
+        <h3>Bagar <em>Restaurant</em></h3>
+        <p>Built on the gravel bar the river left behind — <em>bagar</em>. The existing topography stays; we set raw log columns with hand-sculpted organic capitals onto a plinth of river stones, and let the site keep looking like itself. Minimal intervention, read literally.</p>
+        <a class="ghost" href="#contact">View the work</a>
+      </div>
+    </article>
+
+    <!-- PROJECT 03 — Himalchuli Nature Farmstay -->
+    <article class="project io">
+      <!-- SWAP: Himalchuli Nature Farmstay — roofs in the forest -->
+      <figure class="proj fig" data-swap="project-photo">
+        <div class="frame r-land">
+          <img src="../assets/img/himalchuli-01.jpg" alt="Tiered clay-tile roofs of Himalchuli Nature Farmstay stepping down among dense sal trees, the timber building almost hidden by the forest" width="1600" height="1593" loading="lazy" decoding="async" style="object-position:50% 46%">
+        </div>
+        <span class="plate">03 — Built</span>
+      </figure>
+      <div class="body">
+        <span class="eyebrow">Farmstay<span class="sep">·</span>Chitwan<span class="sep">·</span>Built</span>
+        <h3>Himalchuli <em>Nature Farmstay</em></h3>
+        <p>Tiered clay-tile roofs step down into the sal canopy until the building all but disappears. From the approach you read the trees first and the architecture second — which is the point. The forest was here before the plan, and stays the larger fact.</p>
+        <a class="ghost" href="#contact">View the work</a>
+      </div>
+    </article>
+
+    <!-- PROJECT 04 — House 02 -->
+    <article class="project flip io">
+      <!-- SWAP: House 02 — courtyard interior render -->
+      <figure class="proj fig" data-swap="project-photo">
+        <div class="frame r-sq">
+          <img src="../assets/img/house02-01.jpg" alt="Interior of House 02: an open living and dining room under a warm timber ceiling, slatted screens beside the stair, a stone feature wall, and the central courtyard lawn beyond" width="1600" height="1598" loading="lazy" decoding="async" style="object-position:50% 50%">
+        </div>
+        <span class="plate">04 — Render set</span>
+      </figure>
+      <div class="body">
+        <span class="eyebrow">Residence<span class="sep">·</span>Chitwan<span class="sep">·</span>In design</span>
+        <h3>House <em>02</em></h3>
+        <p>Bold geometry and layered volumes — a deliberate dialogue between straight and diagonal forms held around a central courtyard. Warm timber ceilings, slat screens, and a stone feature wall keep the heavy massing soft where the hand touches it.</p>
+        <a class="ghost" href="#contact">View the work</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ 4 · ANNOTATED CHITWAN MAP (parchment) ============ -->
+<section class="band mapband" id="where" aria-labelledby="where-h">
+  <div class="wrap map-grid">
+    <div class="lede io">
+      <p class="eyebrow">Where the studio works</p>
+      <h2 id="where-h">The inner Terai, between two rivers</h2>
+      <p>We work the floodplain of Chitwan, where the Narayani and the Rapti set the rules — the floodline first, the sun path second, the budget on page one.</p>
+      <ul class="map-legend" role="list">
+        <li><span class="swatch"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 8 C7 13 11 6 16 11 S22 9 22 14" fill="none" stroke="#4A5A66" stroke-width="1.6" stroke-linecap="round"/></svg></span>Narayani &amp; Rapti rivers</li>
+        <li><span class="swatch"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5" fill="#A34430"/></svg></span>Bharatpur — the studio</li>
+        <li><span class="swatch"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.4" fill="none" stroke="#142131" stroke-width="1.6"/></svg></span>Sauraha</li>
+        <li><span class="swatch"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 16 q3-5 6 0 t6 0 t6 0" fill="none" stroke="#17402E" stroke-width="1.6" stroke-linecap="round"/></svg></span>Chitwan National Park edge</li>
+      </ul>
+    </div>
+
+    <figure class="map-fig io">
+      <!-- Hand-authored flat map sketch of the Chitwan area. Decorative; labels supplied below. -->
+      <svg viewBox="0 0 640 440" role="img" aria-label="Sketch map of the Chitwan area: the Narayani and Rapti rivers crossing the inner Terai, Bharatpur where the studio works, Sauraha to the south-east, and the wooded edge of Chitwan National Park along the bottom">
+        <!-- park edge / sal-forest hatching along the south -->
+        <g stroke="#17402E" stroke-width="1.3" fill="none" stroke-linecap="round" opacity="0.85">
+          <path d="M14 360 q10-16 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0"/>
+          <path d="M40 372 v18 M120 372 v18 M200 372 v18 M280 372 v18 M360 372 v18 M440 372 v18 M520 372 v18 M600 372 v18"/>
+        </g>
+        <text x="330" y="412" fill="#17402E" font-family="'Source Sans 3',sans-serif" font-size="13" font-weight="600" letter-spacing="2.4" text-anchor="middle">CHITWAN NATIONAL PARK</text>
+
+        <!-- Narayani river: comes down from north-west -->
+        <path d="M70 22 C120 90 96 150 150 200 C200 246 176 300 150 360" fill="none" stroke="#4A5A66" stroke-width="2.4" stroke-linecap="round"/>
+        <!-- Rapti river: sweeps in from the east, joins toward the south-west -->
+        <path d="M624 150 C520 178 470 150 380 210 C300 262 240 290 150 360" fill="none" stroke="#4A5A66" stroke-width="2.4" stroke-linecap="round"/>
+        <text x="92" y="120" fill="#4A5A66" font-family="'Source Sans 3',sans-serif" font-size="12" font-weight="600" letter-spacing="1.6" transform="rotate(58 92 120)">NARAYANI</text>
+        <text x="470" y="172" fill="#4A5A66" font-family="'Source Sans 3',sans-serif" font-size="12" font-weight="600" letter-spacing="1.6" transform="rotate(-12 470 172)">RAPTI</text>
+
+        <!-- faint road lines -->
+        <g stroke="#8C7154" stroke-width="1" stroke-dasharray="2 5" fill="none" opacity="0.7">
+          <path d="M300 120 L470 250"/>
+          <path d="M300 120 L150 200"/>
+        </g>
+
+        <!-- Sauraha dot (south-east) -->
+        <circle cx="470" cy="250" r="5" fill="none" stroke="#142131" stroke-width="2"/>
+        <text x="484" y="246" fill="#142131" font-family="'Source Sans 3',sans-serif" font-size="13" font-weight="600" letter-spacing="1">Sauraha</text>
+
+        <!-- Bharatpur — the studio: pulsating marker -->
+        <g>
+          <circle class="mk-pulse" cx="300" cy="120" r="10" fill="#A34430" opacity="0.5"/>
+          <circle cx="300" cy="120" r="6.5" fill="#A34430"/>
+          <circle cx="300" cy="120" r="2.4" fill="#FAF9F1"/>
+        </g>
+        <text x="300" y="98" fill="#142131" font-family="'Source Sans 3',sans-serif" font-size="14" font-weight="600" letter-spacing=".6" text-anchor="middle">Bharatpur</text>
+        <text x="300" y="84" fill="#A34430" font-family="'Source Sans 3',sans-serif" font-size="10.5" font-weight="600" letter-spacing="2" text-anchor="middle">THE STUDIO</text>
+
+        <!-- coordinate note + tiny north arrow -->
+        <text x="20" y="36" fill="#4A5A66" font-family="'Source Sans 3',sans-serif" font-size="11" letter-spacing=".5">27.6788° N · 84.4310° E</text>
+        <g transform="translate(604 44)">
+          <path d="M0 18 V-10 M0 -10 l-4 8 M0 -10 l4 8" stroke="#142131" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+          <text x="0" y="34" fill="#142131" font-family="'Source Sans 3',sans-serif" font-size="11" font-weight="600" text-anchor="middle">N</text>
+        </g>
+      </svg>
+      <figcaption>Sketch map — not to scale</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ 5 · CAST OF CHARACTERS (ivory) ============ -->
+<section class="band cast" id="studio" aria-labelledby="cast-h">
+  <div class="wrap">
+    <h2 id="cast-h" class="io">Four hands on every project</h2>
+    <p class="sub io">No single signature stands above the others. A building gets made when four positions agree — and the first of them is never the architect.</p>
+    <div class="cast-list">
+      <div class="role io">
+        <span class="eyebrow">Principal</span>
+        <h3>One <em>responsible</em> line</h3>
+        <p>From the first site walk to the as-built set — one studio, one drawing set, one signature accountable for the whole.</p>
+      </div>
+      <div class="role io d1">
+        <span class="eyebrow">Site</span>
+        <h3>The river <em>decides</em> first</h3>
+        <p>The floodline, the slope, the trees already standing. We measure what is there before we draw what is not, and we listen.</p>
+      </div>
+      <div class="role io">
+        <span class="eyebrow">Craft</span>
+        <h3>Made within <em>thirty</em> kilometres</h3>
+        <p>Sal timber, river stone, brick fired nearby; log columns carved by hand. The detail is priced in Narayangarh, not a catalogue.</p>
+      </div>
+      <div class="role io d1">
+        <span class="eyebrow">Client</span>
+        <h3>A brief you can <em>hold</em></h3>
+        <p>Every phase closes with a document you can read and question — plans, a costed bill, a site book written in plain language.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6 · CONTACT (parchment) ============ -->
+<section class="band contact" id="contact" aria-labelledby="contact-h">
+  <div class="wrap contact-grid">
+    <div class="io">
+      <p class="eyebrow">Start a project</p>
+      <h2 id="contact-h">Bring a plot, a sketch, or a <em>doubt</em>.</h2>
+      <p class="lede">The quickest reply comes through Instagram — site photographs, work in progress, and an answer within the day. Or write, and we will walk your plot at midday and again at dusk.</p>
+    </div>
+    <div class="inquiry io d1">
+      <span class="eyebrow">The studio</span>
+      <dl class="cdl">
+        <div class="ig">
+          <dt>Instagram</dt>
+          <!-- SWAP: real Instagram handle -->
+          <dd><a href="https://www.instagram.com/habitatdesigns" rel="noopener">@habitatdesigns</a></dd>
+        </div>
+        <div>
+          <dt>Studio</dt>
+          <dd>Bharatpur, Chitwan, Nepal</dd>
+        </div>
+        <div>
+          <dt>Email</dt>
+          <!-- SWAP: real email -->
+          <dd><a href="mailto:studio@habitatdesigns.com.np">studio@habitatdesigns.com.np</a></dd>
+        </div>
+        <div>
+          <dt>Phone</dt>
+          <!-- SWAP: real phone -->
+          <dd><a href="tel:+97756591204">+977 56 591 204</a></dd>
+        </div>
+      </dl>
+      <div class="cta-row">
+        <a class="ghost" href="mailto:studio@habitatdesigns.com.np?subject=A%20project%20in%20Chitwan">Write to the studio</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- the lifting sheet edge sits above the pinned footer -->
+<div class="peel" aria-hidden="true" style="height:0"></div>
+
+<!-- ============ 7 · REVEAL FOOTER (terracotta, pinned behind) ============ -->
+<footer class="revealfooter" aria-label="Site footer">
+  <div class="rf-inner">
+    <div class="rf-top">
+      <div class="rf-mark">
+        <p class="wm">Habitat Design Studio</p>
+        <small>Architecture · Bharatpur · Chitwan</small>
+        <p class="blurb">Buildings shaped by climate, materials, proportion, and airflow — built with minimal intervention on the inner Terai.</p>
+      </div>
+      <nav class="rf-col" aria-label="Sections">
+        <h4>This page</h4>
+        <ul role="list">
+          <li><a href="#work">Selected work</a></li>
+          <li><a href="#where">Where we work</a></li>
+          <li><a href="#studio">The studio</a></li>
+          <li><a href="#contact">Start a project</a></li>
+        </ul>
+      </nav>
+      <div class="rf-col">
+        <h4>Reach us</h4>
+        <ul role="list">
+          <!-- SWAP: real Instagram handle -->
+          <li><a href="https://www.instagram.com/habitatdesigns" rel="noopener">Instagram</a></li>
+          <!-- SWAP: real email -->
+          <li><a href="mailto:studio@habitatdesigns.com.np">Email the studio</a></li>
+          <!-- SWAP: real phone -->
+          <li><a href="tel:+97756591204">+977 56 591 204</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- hand-authored sal-forest treeline with a low Terai sun, ivory line work -->
+  <div class="rf-base" aria-hidden="true">
+    <svg viewBox="0 0 1440 200" preserveAspectRatio="xMidYMax slice" role="presentation">
+      <!-- low Terai sun resting on the treeline -->
+      <circle cx="1120" cy="150" r="46" fill="none" stroke="#FAF9F1" stroke-width="1.4" opacity="0.85"/>
+      <g stroke="#FAF9F1" stroke-width="1.2" stroke-linecap="round" opacity="0.6">
+        <path d="M1120 86 v-16 M1120 230 v16 M1056 150 h-16 M1200 150 h16 M1075 105 l-11-11 M1165 105 l11-11 M1075 195 l-11 11 M1165 195 l11 11"/>
+      </g>
+      <!-- distant treeline, single-weight line work -->
+      <path d="M0 168
+        q40-30 70-8 q26-44 58-18 q24-40 56-12 q30-36 64-10 q26-30 56-16
+        q34-40 70-12 q30-34 64-12 q26-26 54-14 q34-44 72-12 q28-30 58-14
+        q30-38 66-10 q26-30 56-16 q34-36 70-10 q28-24 56-14 q34-40 72-10
+        q30-30 60-12 q28-22 56-12 q30-34 64-8 q28-24 58-14 q30-28 60-10
+        L1440 168 L1440 200 L0 200 Z"
+        fill="none" stroke="#FAF9F1" stroke-width="1.6" stroke-linejoin="round" opacity="0.9"/>
+      <!-- a few taller sal crowns picked out -->
+      <g stroke="#FAF9F1" stroke-width="1.3" fill="none" stroke-linecap="round" opacity="0.85">
+        <path d="M210 150 q-14-22 0-40 q14 18 0 40"/>
+        <path d="M520 142 q-16-26 0-46 q16 20 0 46"/>
+        <path d="M900 150 q-13-22 0-38 q13 16 0 38"/>
+        <path d="M1310 150 q-15-24 0-42 q15 18 0 42"/>
+      </g>
+    </svg>
+  </div>
+
+  <p class="rf-fineprint">
+    <span>&copy; 2026 Habitat Design Studio</span>
+    <span>Set in Playfair Display &amp; Source Sans 3</span>
+    <span>27.6788&deg; N · 84.4310&deg; E</span>
+  </p>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  root.classList.remove('no-js');
+  root.classList.add('js');
+
+  /* IntersectionObserver scroll reveals — enhancement only */
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+      });
+    },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+    document.querySelectorAll('.io').forEach(function(el){io.observe(el);});
+  }else{
+    document.querySelectorAll('.io').forEach(function(el){el.classList.add('in');});
+  }
+})();
+</script>
+</body>
+</html>

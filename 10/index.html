@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Habitat Design Studio — Architecture for Chitwan, Nepal</title>
+<meta name="description" content="Habitat Design Studio is an architecture practice in Bharatpur, Chitwan. We build into the land — riverbank, forest edge and courtyard — shaped by climate, materials and the logic of the site. Houses, restaurants and farmstays across Nepal's Terai.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2312160F'/%3E%3Cpath fill='%23E7C66A' d='M19 14h5v15h16V14h5v36h-5V35H24v15h-5z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F4EE;
+  --bg-2:#EEEBE1;
+  --ink:#14120C;
+  --stone:#6A6356;
+  --line:rgba(20,18,12,.14);
+  --green:#1C4A33;
+  --green-d:#10301F;
+  --cream:#F3F0E7;
+  --gold:#C9A14C;
+  --gut:clamp(20px,5vw,90px);
+  --max:1480px;
+  --disp:"Space Grotesk","Helvetica Neue",Arial,sans-serif;
+  --sans:"Inter","Helvetica Neue",Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:clip;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{overflow-x:clip;background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:clamp(1rem,.97rem + .2vw,1.0625rem);line-height:1.62;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+::selection{background:var(--green);color:var(--cream)}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--green);outline-offset:4px}
+img{display:block;max-width:100%}
+ul,ol{list-style:none}
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--gut)}
+.visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.eyebrow{font-family:var(--disp);font-weight:500;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--green)}
+.num{font-family:var(--disp);font-variant-numeric:tabular-nums}
+.skip{position:fixed;top:12px;left:12px;z-index:120;background:var(--bg);color:var(--ink);border:1px solid var(--ink);padding:.6em 1em;font-family:var(--disp);font-size:.78rem;transform:translateY(-320%)}
+.skip:focus-visible{transform:none}
+
+/* header — transparent over hero, solid on scroll */
+.head{position:fixed;inset:0 0 auto 0;z-index:100;color:#fff}
+.head .wrap{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding-block:clamp(1rem,2vw,1.4rem)}
+.head .brand{font-family:var(--disp);font-weight:500;font-size:1.0625rem;letter-spacing:.01em;white-space:nowrap}
+.head nav{display:flex;gap:clamp(1.1rem,2.6vw,2.2rem)}
+.head nav a{font-family:var(--disp);font-weight:500;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;opacity:.85}
+.head nav a:hover{opacity:1}
+.head .cta{border:1px solid currentColor;padding:.5em 1.1em;border-radius:999px;font-family:var(--disp);font-weight:500;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase}
+.head::before{content:"";position:absolute;inset:0;background:var(--bg);opacity:0;border-bottom:1px solid var(--line);z-index:-1}
+@media (prefers-reduced-motion:no-preference){.head,.head::before{transition:color .4s ease,opacity .4s ease}}
+.head.solid{color:var(--ink)}
+.head.solid::before{opacity:1}
+.head.solid .cta{border-color:var(--line)}
+@media (max-width:760px){.head .nav-mid{display:none}.head .brand{font-size:.95rem}}
+
+/* hero */
+.hero{position:relative;height:100svh;min-height:560px;overflow:hidden;display:flex;align-items:flex-end}
+.hero .bg{position:absolute;inset:0;z-index:0}
+.hero .bg img{width:100%;height:100%;object-fit:cover}
+@media (prefers-reduced-motion:no-preference){.hero .bg img{animation:push 18s ease-out both}}
+@keyframes push{from{transform:scale(1.12)}to{transform:scale(1.02)}}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(10,9,6,.72) 0%,rgba(10,9,6,.18) 42%,rgba(10,9,6,.28) 100%)}
+.hero .wrap{position:relative;z-index:2;width:100%;color:#fff;padding-bottom:clamp(3rem,8vh,6rem)}
+.hero .eyebrow{color:var(--gold)}
+.hero h1{font-family:var(--disp);font-weight:500;font-size:clamp(2.4rem,1rem + 7vw,7rem);line-height:.97;letter-spacing:-.022em;margin-top:1rem;max-width:16ch;text-wrap:balance;text-shadow:0 2px 30px rgba(0,0,0,.25)}
+.hero .lead{margin-top:1.4rem;max-width:42ch;font-size:clamp(1.0625rem,1rem + .5vw,1.3125rem);font-weight:300;line-height:1.5;color:rgba(255,255,255,.92)}
+.hero .scrollcue{margin-top:clamp(2rem,5vh,3.4rem);display:inline-flex;align-items:center;gap:.7em;font-family:var(--disp);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.85)}
+.hero .scrollcue .bar{width:46px;height:1px;background:rgba(255,255,255,.6);overflow:hidden;position:relative}
+@media (prefers-reduced-motion:no-preference){.hero .scrollcue .bar::after{content:"";position:absolute;inset:0;background:#fff;animation:slide 2.4s ease-in-out infinite}@keyframes slide{0%{transform:translateX(-100%)}60%,100%{transform:translateX(100%)}}}
+
+/* shared section */
+.section{padding-block:clamp(4.5rem,12vh,9rem)}
+.s-top{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;border-bottom:1px solid var(--ink);padding-bottom:.9rem;margin-bottom:clamp(2rem,5vh,3.6rem)}
+.s-top h2{font-family:var(--disp);font-weight:500;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase}
+.s-top .meta{font-family:var(--disp);font-size:.78rem;color:var(--stone);letter-spacing:.04em}
+
+/* intro statement */
+.intro .big{font-family:var(--disp);font-weight:400;font-size:clamp(1.7rem,1rem + 3.2vw,3.5rem);line-height:1.08;letter-spacing:-.018em;max-width:20ch}
+.intro .big em{font-style:normal;color:var(--green)}
+.intro .cols{margin-top:clamp(2rem,5vh,3.4rem);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(1.6rem,4vw,3.5rem);max-width:78ch}
+.intro .cols p{color:var(--stone);font-size:1rem;line-height:1.65}
+.intro .cols p strong{color:var(--ink);font-weight:500}
+@media (max-width:680px){.intro .cols{grid-template-columns:minmax(0,1fr);gap:1.2rem}}
+
+/* featured projects — alternating */
+.feature{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(1.6rem,4vw,4.5rem);align-items:center;margin-top:clamp(3rem,8vh,6.5rem)}
+.feature:first-of-type{margin-top:0}
+.feature .f-media{position:relative;overflow:hidden;background:var(--bg-2);aspect-ratio:4/5}
+.feature.land .f-media{aspect-ratio:5/4}
+.feature .f-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.04)}
+@media (prefers-reduced-motion:no-preference){.feature .f-media img{transition:transform 1.4s cubic-bezier(.22,.61,.36,1)}}
+.feature:hover .f-media img{transform:scale(1.08)}
+.feature .f-num{font-family:var(--disp);font-weight:700;font-size:clamp(2.2rem,1rem+4vw,4.5rem);line-height:.8;color:var(--bg-2);-webkit-text-stroke:1px var(--stone);color:transparent}
+.feature h3{font-family:var(--disp);font-weight:500;font-size:clamp(1.6rem,1.1rem+2vw,2.75rem);line-height:1.02;letter-spacing:-.012em;margin:.8rem 0 .9rem}
+.feature .f-meta{font-family:var(--disp);font-size:.76rem;letter-spacing:.04em;color:var(--stone);text-transform:uppercase;margin-bottom:1.1rem}
+.feature p{max-width:46ch;color:var(--stone);line-height:1.65}
+.feature .more{display:inline-flex;align-items:center;gap:.6em;margin-top:1.4rem;font-family:var(--disp);font-weight:500;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green);border-bottom:1px solid transparent;padding-bottom:.15em}
+.feature .more svg{transition:transform .35s ease}
+.feature .more:hover{border-color:var(--green)}.feature .more:hover svg{transform:translate(3px,-3px)}
+@media (min-width:761px){.feature.flip .f-media{order:2}}
+@media (max-width:760px){.feature{grid-template-columns:minmax(0,1fr);gap:1.4rem}.feature .f-media,.feature.land .f-media{aspect-ratio:4/3}}
+
+/* immersive break */
+.break{position:relative;height:clamp(420px,70vh,760px);overflow:hidden;display:flex;align-items:center}
+.break .bg{position:absolute;inset:0;z-index:0}
+.break .bg img{width:100%;height:120%;object-fit:cover;will-change:transform}
+.break::after{content:"";position:absolute;inset:0;z-index:1;background:rgba(12,11,7,.46)}
+.break .wrap{position:relative;z-index:2;color:#fff}
+.break blockquote{font-family:var(--disp);font-weight:400;font-size:clamp(1.6rem,1rem+3vw,3.5rem);line-height:1.12;letter-spacing:-.014em;max-width:24ch;text-shadow:0 2px 24px rgba(0,0,0,.3)}
+.break blockquote span{color:var(--gold)}
+.break cite{display:block;margin-top:1.4rem;font-family:var(--disp);font-style:normal;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.82)}
+
+/* approach */
+.approach{background:var(--bg-2)}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1.6rem,4vw,3.5rem)}
+.grid3 .p .pn{font-family:var(--disp);font-weight:700;font-size:1.05rem;color:var(--green)}
+.grid3 .p h3{font-family:var(--disp);font-weight:500;font-size:clamp(1.25rem,1rem+1vw,1.6rem);margin:.7rem 0 .7rem;line-height:1.1}
+.grid3 .p p{color:var(--stone);font-size:.97rem;line-height:1.65;max-width:36ch}
+@media (max-width:760px){.grid3{grid-template-columns:minmax(0,1fr);gap:2rem}}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(6,1fr);gap:clamp(.7rem,1.5vw,1.1rem)}
+.tile{position:relative;overflow:hidden;background:var(--bg-2);grid-column:span 2;aspect-ratio:1/1}
+.tile.tall{grid-column:span 3;aspect-ratio:3/2}
+.tile.wide{grid-column:span 4;aspect-ratio:16/9}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.03)}
+@media (prefers-reduced-motion:no-preference){.tile img{transition:transform 1.2s cubic-bezier(.22,.61,.36,1)}}
+.tile:hover img{transform:scale(1.09)}
+.tile figcaption{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:1.4rem 1.1rem .9rem;color:#fff;font-family:var(--disp);font-size:.74rem;letter-spacing:.04em;text-transform:uppercase;background:linear-gradient(to top,rgba(8,7,4,.7),rgba(8,7,4,0));opacity:0;transform:translateY(8px)}
+@media (prefers-reduced-motion:no-preference){.tile figcaption{transition:opacity .4s ease,transform .4s ease}}
+.tile:hover figcaption,.tile:focus-within figcaption{opacity:1;transform:none}
+@media (max-width:760px){.gallery{grid-template-columns:repeat(2,1fr)}.tile,.tile.tall,.tile.wide{grid-column:span 1;aspect-ratio:1/1}.tile figcaption{opacity:1;transform:none}}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(1.4rem,3vw,2.5rem);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding-block:clamp(2.4rem,6vh,4rem)}
+.stats .st .v{font-family:var(--disp);font-weight:500;font-size:clamp(2.4rem,1rem+5vw,4.5rem);line-height:.9;letter-spacing:-.02em}
+.stats .st .v small{font-size:.4em;color:var(--green);vertical-align:.7em;margin-left:.1em}
+.stats .st .k{margin-top:.7rem;font-family:var(--disp);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--stone)}
+@media (max-width:680px){.stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem 1.4rem}}
+
+/* contact (dark) */
+.contact{background:var(--green-d);color:var(--cream)}
+.contact .wrap{padding-block:clamp(4.5rem,13vh,9rem)}
+.contact .eyebrow{color:var(--gold)}
+.contact h2{font-family:var(--disp);font-weight:500;font-size:clamp(2rem,1.1rem+4vw,4.5rem);line-height:1.02;letter-spacing:-.018em;margin-top:1rem;max-width:18ch}
+.contact .lines{margin-top:clamp(2.4rem,6vh,4rem);display:flex;flex-wrap:wrap;gap:1.8rem clamp(3rem,8vw,7rem)}
+.contact .lines .k{display:block;font-family:var(--disp);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(243,240,231,.6);margin-bottom:.5rem}
+.contact .lines a,.contact .lines p{font-size:1.0625rem;line-height:1.5;overflow-wrap:anywhere}
+.contact .ig{font-family:var(--disp);font-weight:500;font-size:clamp(1.2rem,1rem+1vw,1.6rem)}
+.contact .lines a{border-bottom:1px solid rgba(243,240,231,.3)}
+.contact .lines a:hover{border-color:var(--gold);color:#fff}
+
+/* footer */
+.foot{background:var(--green-d);color:rgba(243,240,231,.7);border-top:1px solid rgba(243,240,231,.16)}
+.foot .wrap{padding-block:1.8rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-family:var(--disp);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase}
+
+/* motion */
+@media (prefers-reduced-motion:no-preference){
+  html.js .reveal{opacity:0;transform:translateY(26px);transition:opacity 1s cubic-bezier(.22,.61,.36,1),transform 1s cubic-bezier(.22,.61,.36,1)}
+  html.js .reveal.in{opacity:1;transform:none}
+  html.js .stagger>*{opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.22,.61,.36,1),transform .9s cubic-bezier(.22,.61,.36,1)}
+  html.js .stagger.in>*{opacity:1;transform:none}
+  html.js .stagger.in>*:nth-child(2){transition-delay:.08s}
+  html.js .stagger.in>*:nth-child(3){transition-delay:.16s}
+  html.js .stagger.in>*:nth-child(4){transition-delay:.24s}
+  html.js .stagger.in>*:nth-child(5){transition-delay:.32s}
+  html.js .stagger.in>*:nth-child(6){transition-delay:.4s}
+}
+</style>
+</head>
+<body id="top">
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="head" id="head">
+  <div class="wrap">
+    <a class="brand" href="#top">Habitat Design Studio</a>
+    <nav class="nav-mid" aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#approach">Approach</a>
+      <a href="#studio">Studio</a>
+    </nav>
+    <a class="cta" href="#contact">Start a project</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Introduction">
+    <div class="bg">
+      <!-- SWAP: hero photograph — Bagar Restaurant, Rapti riverbank -->
+      <img src="../assets/img/bagar-01.jpg" alt="Bagar Restaurant on the Rapti riverbank at the gravel bar, raw log columns carrying the roof above a river-stone plinth" width="1600" height="1586" loading="eager" fetchpriority="high" decoding="async">
+    </div>
+    <div class="wrap">
+      <span class="eyebrow">Architecture practice · Bharatpur, Chitwan, Nepal</span>
+      <h1>We build into the land, not onto it.</h1>
+      <p class="lead">Raw, minimal buildings for the riverbanks, forest edges and courtyards of the Chitwan Valley — shaped by climate, materials and the logic the site already holds.</p>
+      <span class="scrollcue">Scroll <span class="bar"></span></span>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="section intro">
+    <div class="wrap">
+      <p class="big reveal">A small studio that designs <em>lightly</em> — so each building feels inevitable where it stands.</p>
+      <div class="cols">
+        <p class="reveal"><strong>Habitat Design Studio</strong> works across the Chitwan Valley for private clients, hospitality operators and small institutions. The people who walk a site are the people who draw it, and the brief is kept to what the place can carry.</p>
+        <p class="reveal">Comfort comes from orientation, shade and airflow before any machine — and from materials sourced within reach of the site: river stone, sal timber, brick and lime, left to read as themselves.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED WORK -->
+  <section class="section" id="work" aria-labelledby="work-h">
+    <div class="wrap">
+      <div class="s-top reveal"><h2 id="work-h">Selected work</h2><span class="meta">Built &amp; in design · 2021–2026</span></div>
+
+      <article class="feature">
+        <figure class="f-media reveal" data-swap="project-photo">
+          <!-- SWAP: project photo — NP Residence -->
+          <img src="../assets/img/np-residence-01.jpg" alt="NP Residence courtyard: a perforated timber jaali screen wall, arched plaster niches and an internal garden" width="1446" height="1600" loading="lazy" decoding="async">
+        </figure>
+        <div class="f-body reveal">
+          <p class="f-num">01</p>
+          <h3>NP Residence</h3>
+          <p class="f-meta">Private residence · Chitwan · In design</p>
+          <p>Rooms wrap an internal garden behind a perforated timber jaali, so the house breathes and cools itself. Arched plaster niches and a skylit courtyard carry light deep into the plan.</p>
+          <a class="more" href="#contact">Enquire about this project
+            <svg width="13" height="13" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 11 11 3M5 3h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </article>
+
+      <article class="feature flip land">
+        <figure class="f-media reveal" data-swap="project-photo">
+          <!-- SWAP: project photo — Himalchuli Nature Farmstay -->
+          <img src="../assets/img/himalchuli-01.jpg" alt="Himalchuli Nature Farmstay: tiered clay-tile roofs almost disappearing into dense sal forest" width="1600" height="1593" loading="lazy" decoding="async">
+        </figure>
+        <div class="f-body reveal">
+          <p class="f-num">02</p>
+          <h3>Himalchuli Nature Farmstay</h3>
+          <p class="f-meta">Hospitality · Sal forest, Chitwan · Built</p>
+          <p>Tiered clay-tile roofs step down below the canopy until the building all but vanishes into the forest. Guests arrive into shade and birdsong before they ever see a wall.</p>
+          <a class="more" href="#contact">Enquire about this project
+            <svg width="13" height="13" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 11 11 3M5 3h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </article>
+
+      <article class="feature">
+        <figure class="f-media reveal" data-swap="project-photo">
+          <!-- SWAP: project photo — Kinar Restaurant -->
+          <img src="../assets/img/kinar-01.jpg" alt="Kinar Restaurant at dusk: a terraced stone base hugging the slope, warm light along a curved deck edge, rooftop pavilions above" width="1600" height="1593" loading="lazy" decoding="async">
+        </figure>
+        <div class="f-body reveal">
+          <p class="f-num">03</p>
+          <h3>Kinar Restaurant</h3>
+          <p class="f-meta">Restaurant · Terraced hillside · Built</p>
+          <p>A stone base steps down with the slope to a curved deck edge, warm light tracing the terraces at dusk. The hill was read, not cut.</p>
+          <a class="more" href="#contact">Enquire about this project
+            <svg width="13" height="13" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 11 11 3M5 3h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- IMMERSIVE BREAK -->
+  <section class="break" aria-label="Studio ethos">
+    <div class="bg" data-par>
+      <!-- SWAP: full-bleed photograph — Wilderness pavilion concept -->
+      <img src="../assets/img/wilderness-01.jpg" alt="Wilderness pavilion concept: an organic thatch roof lowered into open grassland scattered with rocks" width="1600" height="921" loading="lazy" decoding="async">
+    </div>
+    <div class="wrap">
+      <blockquote>We add the least the site will <span>allow</span> — and let the land keep the last word.</blockquote>
+      <cite>The studio's working principle</cite>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section class="section approach" id="approach" aria-labelledby="approach-h">
+    <div class="wrap">
+      <div class="s-top reveal"><h2 id="approach-h">How we work</h2><span class="meta">Three principles</span></div>
+      <div class="grid3 stagger">
+        <div class="p"><p class="pn">01</p><h3>Climate first</h3><p>Orientation, shade, mass and airflow do the work before any machine. Comfort is designed into the section, not installed later.</p></div>
+        <div class="p"><p class="pn">02</p><h3>Local material</h3><p>River stone, sal timber, brick and lime, sourced within reach of the site and left honest — texture instead of finish.</p></div>
+        <div class="p"><p class="pn">03</p><h3>The site stays</h3><p>Grade, water and trees are kept in the drawing. We build around what is already there, never over it.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section" aria-labelledby="gallery-h">
+    <div class="wrap">
+      <div class="s-top reveal"><h2 id="gallery-h">From the studio</h2><span class="meta">Renders &amp; built work</span></div>
+      <div class="gallery stagger">
+        <figure class="tile tall" data-swap="project-photo">
+          <!-- SWAP: gallery — Residence Design night render -->
+          <img src="../assets/img/residence-design-01.jpg" alt="Residence Design at night: layered dark and light volumes with cantilevered slabs under a starred sky" width="1417" height="1600" loading="lazy" decoding="async">
+          <figcaption>Residence Design · Chitwan</figcaption>
+        </figure>
+        <figure class="tile tall" data-swap="project-photo">
+          <!-- SWAP: gallery — House 02 courtyard -->
+          <img src="../assets/img/house02-01.jpg" alt="House 02 courtyard interior: a warm timber ceiling, slatted screens and a stone feature wall" width="1600" height="1598" loading="lazy" decoding="async">
+          <figcaption>House 02 · Central courtyard</figcaption>
+        </figure>
+        <figure class="tile" data-swap="project-photo">
+          <!-- SWAP: gallery — Madi concept -->
+          <img src="../assets/img/madi-01.jpg" alt="Madi concept: a tiered red-roofed building set into a terraced slope among large trees" width="1600" height="1598" loading="lazy" decoding="async">
+          <figcaption>Madi · Concept</figcaption>
+        </figure>
+        <figure class="tile" data-swap="project-photo">
+          <!-- SWAP: gallery — NP Residence interior -->
+          <img src="../assets/img/np-residence-02.jpg" alt="NP Residence interior detail with timber and plaster" width="1442" height="1600" loading="lazy" decoding="async">
+          <figcaption>NP Residence · Interior</figcaption>
+        </figure>
+        <figure class="tile" data-swap="project-photo">
+          <!-- SWAP: gallery — ST House render -->
+          <img src="../assets/img/st-house-01.jpg" alt="ST House: a contemporary residence render set in its landscape" width="1600" height="1230" loading="lazy" decoding="async">
+          <figcaption>ST House · Residence</figcaption>
+        </figure>
+        <figure class="tile" data-swap="project-photo">
+          <!-- SWAP: gallery — Himalchuli through foliage -->
+          <img src="../assets/img/himalchuli-02.jpg" alt="Himalchuli Nature Farmstay seen through forest foliage, its tiered roofs layered among trunks" width="1206" height="1600" loading="lazy" decoding="async">
+          <figcaption>Himalchuli · Through the canopy</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS / STUDIO -->
+  <section class="section" id="studio" aria-labelledby="studio-h">
+    <div class="wrap">
+      <div class="s-top reveal"><h2 id="studio-h">The studio</h2><span class="meta">Bharatpur, Chitwan</span></div>
+      <ol class="stats stagger" aria-label="The practice at a glance">
+        <li class="st"><p class="v"><span class="num">03</span></p><p class="k">Projects built</p></li>
+        <li class="st"><p class="v"><span class="num">04</span></p><p class="k">In design</p></li>
+        <li class="st"><p class="v"><span class="num">02</span></p><p class="k">Concept studies</p></li>
+        <li class="st"><p class="v"><span class="num">1</span><small>valley</small></p><p class="k">Chitwan, Nepal</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact" aria-labelledby="contact-h">
+    <div class="wrap">
+      <span class="eyebrow">Start a project</span>
+      <h2 id="contact-h">Bring us a plot, a sketch, or a doubt.</h2>
+      <div class="lines">
+        <div>
+          <span class="k">Instagram</span>
+          <!-- SWAP: replace with the studio's real Instagram handle and URL -->
+          <a class="ig" href="https://www.instagram.com/habitatdesigns" rel="noopener">@habitatdesigns</a>
+        </div>
+        <div><span class="k">Studio</span><p>Bharatpur, Chitwan, Nepal</p></div>
+        <div>
+          <span class="k">Email</span>
+          <!-- SWAP: confirm studio email address -->
+          <a href="mailto:studio@habitatdesigns.com.np">studio@habitatdesigns.com.np</a>
+        </div>
+        <div>
+          <span class="k">Phone</span>
+          <!-- SWAP: confirm studio phone number -->
+          <a href="tel:+97756591204">+977 56 591 204</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>© 2026 Habitat Design Studio</span>
+    <span>Bharatpur, Chitwan — <span class="num">27.6788° N, 84.4310° E</span></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;root.classList.add('js');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* header solidifies past the hero */
+  var head=document.getElementById('head');
+  var hero=document.querySelector('.hero');
+  function onScroll(){var t=(hero?hero.offsetHeight:600)*0.62;head.classList.toggle('solid',window.scrollY>t);}
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+
+  /* reveals */
+  var rev=[].slice.call(document.querySelectorAll('.reveal, .stagger'));
+  if(!reduce && 'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px',threshold:.12});
+    rev.forEach(function(el){io.observe(el);});
+  }else{rev.forEach(function(el){el.classList.add('in');});}
+
+  /* light parallax on the break image */
+  if(!reduce){
+    var par=document.querySelector('[data-par] img');
+    var brk=document.querySelector('.break');
+    if(par&&brk){
+      var ticking=false;
+      function move(){
+        var r=brk.getBoundingClientRect();
+        if(r.bottom>0&&r.top<window.innerHeight){
+          var p=(r.top+r.height/2-window.innerHeight/2)/window.innerHeight; /* -~.5..~.5 */
+          par.style.transform='translate3d(0,'+(p*-9)+'%,0)';
+        }
+        ticking=false;
+      }
+      window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(move);}},{passive:true});
+      move();
+    }
+  }
+})();
+</script>
+
+</body>
+</html>
